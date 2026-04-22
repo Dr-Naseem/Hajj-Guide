@@ -1,0 +1,4955 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F766E" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1116" media="(prefers-color-scheme: dark)">
+<title>دليل عيادات الحج — المرجع السريري السريع</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="application-name" content="دليل الحج">
+<meta name="description" content="المرجع السريري السريع للحالات الشائعة في عيادات الحج ومراكز الحرم">
+
+<!-- iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="دليل الحج">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #F5F2EB;
+  --bg-alt: #EBE6DC;
+  --card: #FFFFFF;
+  --card-alt: #FDFBF6;
+  --ink: #1A1F2E;
+  --ink-soft: #4A5264;
+  --ink-faint: #8B93A3;
+  --line: #E3DDD0;
+  --line-strong: #C9C1B0;
+
+  --critical: #B91C1C;
+  --critical-bg: #FEF2F2;
+  --critical-soft: #FCA5A5;
+  --warning: #B45309;
+  --warning-bg: #FEF6E7;
+  --warning-soft: #FBD38D;
+  --stable: #047857;
+  --stable-bg: #ECFDF5;
+  --stable-soft: #6EE7B7;
+
+  --primary: #0F766E;
+  --primary-dark: #134E4A;
+  --primary-soft: #CCF7EF;
+
+  --shadow-sm: 0 1px 2px rgba(20,25,40,0.04), 0 1px 1px rgba(20,25,40,0.02);
+  --shadow-md: 0 4px 12px rgba(20,25,40,0.06), 0 2px 4px rgba(20,25,40,0.04);
+  --shadow-lg: 0 20px 40px rgba(20,25,40,0.10), 0 8px 16px rgba(20,25,40,0.06);
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+[data-theme="dark"] {
+  --bg: #0E1116;
+  --bg-alt: #161B22;
+  --card: #1A1F28;
+  --card-alt: #21262F;
+  --ink: #E6E4DF;
+  --ink-soft: #A9AEBA;
+  --ink-faint: #6B7280;
+  --line: #2A313C;
+  --line-strong: #3A4250;
+
+  --critical: #F87171;
+  --critical-bg: #2A1515;
+  --critical-soft: #7F1D1D;
+  --warning: #FBBF24;
+  --warning-bg: #2A1E0A;
+  --warning-soft: #713F12;
+  --stable: #34D399;
+  --stable-bg: #0C1F17;
+  --stable-soft: #065F46;
+
+  --primary: #2DD4BF;
+  --primary-dark: #0D9488;
+  --primary-soft: #134E4A;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+  padding-bottom: max(100px, calc(100px + env(safe-area-inset-bottom)));
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-left: env(safe-area-inset-left);
+}
+
+/* ===== INSTALL BANNER ===== */
+.install-banner {
+  position: fixed;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(200%);
+  z-index: 60;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: calc(100% - 32px);
+  max-width: 420px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.install-banner.show { transform: translateX(-50%) translateY(0); }
+
+.install-banner-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-family: 'Reem Kufi', serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.install-banner-text {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.install-banner-text b { display: block; font-size: 14px; margin-bottom: 2px; }
+.install-banner-text span { opacity: 0.7; font-size: 12px; }
+
+.install-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.install-btn:hover { filter: brightness(1.1); }
+
+.install-dismiss {
+  background: transparent;
+  border: none;
+  color: inherit;
+  opacity: 0.5;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.install-dismiss:hover { opacity: 1; }
+
+/* ===== UPDATE TOAST ===== */
+.toast {
+  position: fixed;
+  top: max(16px, calc(env(safe-area-inset-top) + 16px));
+  left: 50%;
+  transform: translateX(-50%) translateY(-200%);
+  z-index: 70;
+  background: var(--primary);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-md);
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 0.35s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast button {
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+::selection { background: var(--primary-soft); color: var(--primary-dark); }
+
+/* ===== HEADER ===== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Reem Kufi', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-family: 'Reem Kufi', serif;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-text { display: none; }
+@media (min-width: 520px) { .brand-text { display: inline; } }
+
+.search-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.search {
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+
+.search:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+}
+
+.search::placeholder { color: var(--ink-faint); }
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.theme-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-btn:hover { background: var(--bg-alt); transform: translateY(-1px); }
+
+.lang-btn {
+  height: 38px;
+  min-width: 48px;
+  padding: 0 12px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+.lang-btn:hover { background: var(--bg-alt); transform: translateY(-1px); }
+.lang-btn-active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.lang-btn-active:hover { background: var(--primary-dark); }
+
+/* ===== LTR / English mode overrides ===== */
+html[lang="en"] body,
+html[lang="en"] .search,
+html[lang="en"] .modal,
+html[lang="en"] .cases,
+html[lang="en"] .hero,
+html[lang="en"] .quick-btn,
+html[lang="en"] .footer {
+  font-family: 'Inter', 'Segoe UI', -apple-system, sans-serif;
+}
+html[lang="en"] .brand-text,
+html[lang="en"] h1, html[lang="en"] h2, html[lang="en"] h3,
+html[lang="en"] .quick-label,
+html[lang="en"] .modal-title {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-weight: 600;
+}
+html[lang="en"] .med-table th { text-align: left; }
+html[lang="en"] .alert { border-right: none; border-left: 4px solid; }
+html[lang="en"] .install-banner { border-right: none; border-left: 4px solid var(--primary); }
+html[lang="en"] .hero-alert { border-right: none; border-left: 4px solid var(--critical); }
+html[lang="en"] [dir="ltr"] { direction: ltr; text-align: left; }
+html[lang="en"] .med-table td:nth-child(2) { text-align: left; }
+html[lang="en"] [data-ar-only] { opacity: 0.6; }
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 18px 8px;
+}
+
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.hero h1 {
+  font-family: 'Reem Kufi', serif;
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.hero p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  max-width: 640px;
+  line-height: 1.65;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.hero-meta span { display: flex; align-items: center; gap: 6px; }
+.hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+
+.hero-alert {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-soft);
+  border-right: 4px solid var(--warning);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hero-alert-icon {
+  font-size: 20px;
+  color: var(--warning);
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.hero-alert-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.hero-alert-text b {
+  display: block;
+  color: var(--warning);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.hero-alert-text b:not(:first-child) {
+  display: inline;
+  margin-bottom: 0;
+  color: var(--ink);
+}
+
+/* ===== QUICK ACTIONS ===== */
+.quick {
+  max-width: 1100px;
+  margin: 24px auto 0;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.quick-btn {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  cursor: pointer;
+  text-align: right;
+  transition: all 0.15s;
+  font-family: inherit;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 3px; height: 100%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.quick-btn:hover::before { opacity: 1; }
+.quick-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.quick-btn.critical { border-color: var(--critical-soft); background: var(--critical-bg); }
+.quick-btn.critical::before { background: var(--critical); opacity: 1; }
+.quick-btn.critical .quick-label { color: var(--critical); }
+
+.quick-icon { font-size: 22px; }
+.quick-label { font-weight: 600; font-size: 14px; }
+.quick-sub { font-size: 11px; color: var(--ink-faint); font-family: 'JetBrains Mono', monospace; }
+
+/* ===== CATEGORIES ===== */
+.cats {
+  max-width: 1100px;
+  margin: 32px auto 12px;
+  padding: 0 18px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.cats::-webkit-scrollbar { display: none; }
+
+.cat {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.cat:hover { color: var(--ink); border-color: var(--line-strong); }
+.cat.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* ===== CASES GRID ===== */
+.cases {
+  max-width: 1100px;
+  margin: 18px auto 0;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+
+.case-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 4px; height: 100%;
+  background: var(--ink-faint);
+}
+
+.case-card[data-severity="critical"]::after { background: var(--critical); }
+.case-card[data-severity="warning"]::after { background: var(--warning); }
+.case-card[data-severity="stable"]::after { background: var(--stable); }
+
+.case-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.case-title {
+  font-family: 'Reem Kufi', serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.case-title-en {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+  direction: ltr;
+  text-align: left;
+}
+
+.sev-badge {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.sev-badge.critical { background: var(--critical-bg); color: var(--critical); }
+.sev-badge.warning { background: var(--warning-bg); color: var(--warning); }
+.sev-badge.stable { background: var(--stable-bg); color: var(--stable); }
+
+.case-preview {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.case-foot {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.case-foot .read-more { color: var(--primary); }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,25,40,0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--bg);
+  width: 100%;
+  max-width: 760px;
+  max-height: 94vh;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(30px);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .modal-overlay { align-items: center; }
+  .modal { border-radius: 20px; max-height: 88vh; }
+}
+
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-head {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+}
+
+.modal-head::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+
+@media (min-width: 768px) {
+  .modal-head::before { display: none; }
+  .modal-head { padding-top: 24px; }
+}
+
+.modal-title-wrap { flex: 1; padding-top: 4px; }
+
+.modal-title {
+  font-family: 'Reem Kufi', serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.modal-title-en {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 4px;
+  direction: ltr;
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.modal-close:hover { background: var(--critical-bg); color: var(--critical); border-color: var(--critical-soft); }
+
+.modal-body {
+  overflow-y: auto;
+  padding: 4px 22px 28px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section {
+  margin-top: 22px;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.section-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.section h3 {
+  font-family: 'Reem Kufi', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.section p { color: var(--ink-soft); line-height: 1.7; }
+
+.bullet-list { list-style: none; }
+.bullet-list li {
+  padding: 8px 18px 8px 0;
+  position: relative;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  border-bottom: 1px dashed var(--line);
+}
+
+.bullet-list li:last-child { border-bottom: none; }
+
+.bullet-list li::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.step-list {
+  list-style: none;
+  counter-reset: step;
+}
+
+.step-list li {
+  counter-increment: step;
+  padding: 10px 38px 10px 0;
+  position: relative;
+  color: var(--ink);
+  line-height: 1.65;
+  border-bottom: 1px solid var(--line);
+}
+
+.step-list li:last-child { border-bottom: none; }
+
+.step-list li::before {
+  content: counter(step);
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary-dark);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+}
+
+.alert {
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin: 8px 0;
+  border-right: 4px solid;
+  display: flex;
+  gap: 10px;
+}
+
+.alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-text { font-size: 14px; line-height: 1.55; }
+
+.alert.critical { background: var(--critical-bg); border-color: var(--critical); color: var(--critical); }
+.alert.warning { background: var(--warning-bg); border-color: var(--warning); color: var(--warning); }
+.alert.info { background: var(--primary-soft); border-color: var(--primary); color: var(--primary-dark); }
+
+[data-theme="dark"] .alert.info { color: var(--primary); }
+
+.med-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 6px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.med-table th {
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px;
+  text-align: right;
+}
+
+.med-table td {
+  padding: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: top;
+}
+
+.med-table td:first-child { font-weight: 600; }
+.med-table td:nth-child(2) { font-family: 'JetBrains Mono', monospace; font-size: 13px; direction: ltr; text-align: left; color: var(--primary-dark); }
+[data-theme="dark"] .med-table td:nth-child(2) { color: var(--primary); }
+
+/* ===== FAB ===== */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.fab-main {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--critical);
+  color: white;
+  border: none;
+  box-shadow: 0 8px 24px rgba(185,28,28,0.4);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-family: inherit;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+
+.fab-main:hover { transform: scale(1.05); }
+.fab-main:active { transform: scale(0.95); }
+
+/* ===== EMPTY ===== */
+.empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--ink-faint);
+}
+
+.empty-icon { font-size: 40px; margin-bottom: 10px; opacity: 0.5; }
+
+/* ===== FOOTER ===== */
+.footer {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  padding: 24px 18px 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 13px;
+}
+
+.footer .authors {
+  font-family: 'Reem Kufi', serif;
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.footer .version {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.case-card { animation: fadeUp 0.4s both; }
+
+/* stagger */
+.case-card:nth-child(1) { animation-delay: 0.02s; }
+.case-card:nth-child(2) { animation-delay: 0.04s; }
+.case-card:nth-child(3) { animation-delay: 0.06s; }
+.case-card:nth-child(4) { animation-delay: 0.08s; }
+.case-card:nth-child(5) { animation-delay: 0.10s; }
+.case-card:nth-child(6) { animation-delay: 0.12s; }
+.case-card:nth-child(7) { animation-delay: 0.14s; }
+.case-card:nth-child(8) { animation-delay: 0.16s; }
+
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">ح</div>
+      <span class="brand-text" data-i18n="brandText">دليل الحج</span>
+    </div>
+    <div class="search-wrap">
+      <input type="search" class="search" id="search" data-i18n-attr="placeholder:searchPlaceholder" placeholder="ابحث عن حالة، دواء، علامة خطر..." autocomplete="off">
+      <span class="search-icon">⌕</span>
+    </div>
+    <button class="lang-btn" id="langBtn" data-i18n-attr="aria-label:switchLang" aria-label="تبديل اللغة">
+      <span id="langLabel">EN</span>
+    </button>
+    <button class="theme-btn" id="themeBtn" data-i18n-attr="aria-label:toggleTheme" aria-label="تبديل الوضع">
+      <span id="themeIcon">☾</span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-kicker" data-i18n="heroKicker">HAJJ · CLINICAL REFERENCE · v1.2</div>
+  <h1 data-i18n="heroTitle">المرجع السريري السريع لعيادات الحج</h1>
+  <p data-i18n="heroSubtitle">دليل عملي مختصر للحالات الشائعة في عيادات الحج ومراكز الحرم — تقييم، تدبير أولي، أدوية، ومعايير التحويل. مصمم للاستخدام السريع وقت الحاجة.</p>
+  <div class="hero-meta">
+    <span><span class="dot"></span><span data-i18n="heroMeta1">26 حالة سريرية</span></span>
+    <span><span class="dot"></span><span data-i18n="heroMeta2">بروتوكولات الطوارئ</span></span>
+    <span><span class="dot"></span><span data-i18n="heroMeta3">جدول الأدوية والجرعات</span></span>
+  </div>
+  <div class="hero-alert">
+    <div class="hero-alert-icon">⚠</div>
+    <div class="hero-alert-text">
+      <b data-i18n="disclaimerTitle">مسودة سريرية للمراجعة</b>
+      <span data-i18n-html="disclaimerBody">المحتوى مبني على مصادر علمية محدثة (2023-2026) لكنه <b>يتطلب اعتماد استشاري طب طوارئ ومطابقة بروتوكولات تجمع مكة الصحي</b> قبل التطبيق الميداني. للمراجعة العلمية والتدريب فقط.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUICK ACTIONS ===== -->
+<div class="quick">
+  <button class="quick-btn critical" data-action="cpr">
+    <div class="quick-icon">♥</div>
+    <div class="quick-label" data-i18n="qaCPR">الإنعاش القلبي</div>
+    <div class="quick-sub">BLS · ACLS</div>
+  </button>
+  <button class="quick-btn critical" data-action="anaphylaxis">
+    <div class="quick-icon">⚡</div>
+    <div class="quick-label" data-i18n="qaAnaphylaxis">الصدمة التحسسية</div>
+    <div class="quick-sub">ANAPHYLAXIS</div>
+  </button>
+  <button class="quick-btn critical" data-action="heatstroke">
+    <div class="quick-icon">🌡</div>
+    <div class="quick-label" data-i18n="qaHeatStroke">ضربة الشمس</div>
+    <div class="quick-sub">CRITICAL</div>
+  </button>
+  <button class="quick-btn" data-action="drugs">
+    <div class="quick-icon">⚕</div>
+    <div class="quick-label" data-i18n="qaDrugs">جدول الأدوية</div>
+    <div class="quick-sub">DOSES</div>
+  </button>
+  <button class="quick-btn" data-action="emergency">
+    <div class="quick-icon">☎</div>
+    <div class="quick-label" data-i18n="qaEmergency">أرقام الطوارئ</div>
+    <div class="quick-sub">HOTLINES</div>
+  </button>
+</div>
+
+<!-- ===== CATEGORIES ===== -->
+<nav class="cats" id="cats"></nav>
+
+<!-- ===== CASES ===== -->
+<main class="cases" id="cases"></main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="authors" data-i18n="authors">د. نسيم و الزميل</div>
+  <div data-i18n="footerTagline">دليل عيادات الحج — مرجع سريري مختصر</div>
+  <div style="margin-top:12px;font-size:12px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7">
+    <span data-i18n-html="footerDisclaimer">تمت مراجعة الحالات الحرجة (المستوى الأول) وفق الإرشادات العلمية الحديثة (2023-2026).
+    المستوى الثاني والثالث قيد المراجعة. 
+    <br>هذا الدليل <b>مسودة سريرية</b> ولا يحل محل الاستشارة الطبية أو البروتوكولات المحلية المعتمدة.</span>
+  </div>
+  <div class="version">v1.2.0 · BILINGUAL EDITION · 1447 هـ · REVIEWED 2026</div>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title-wrap">
+        <div class="modal-title" id="modalTitle">—</div>
+        <div class="modal-title-en" id="modalTitleEn">—</div>
+      </div>
+      <button class="modal-close" id="modalClose" data-i18n-attr="aria-label:close" aria-label="إغلاق">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ===== INSTALL BANNER ===== -->
+<div class="install-banner" id="installBanner">
+  <div class="install-banner-icon">ح</div>
+  <div class="install-banner-text">
+    <b data-i18n="installTitle">ثبّت التطبيق على جهازك</b>
+    <span data-i18n="installSubtitle">للوصول السريع والعمل بدون إنترنت</span>
+  </div>
+  <button class="install-btn" id="installBtn" data-i18n="installBtn">تثبيت</button>
+  <button class="install-dismiss" id="installDismiss" data-i18n-attr="aria-label:close" aria-label="إغلاق">✕</button>
+</div>
+
+<!-- ===== iOS INSTRUCTIONS ===== -->
+<div class="install-banner" id="iosBanner">
+  <div class="install-banner-icon">ح</div>
+  <div class="install-banner-text">
+    <b data-i18n="iosTitle">ثبّت على الشاشة الرئيسية</b>
+    <span data-i18n-html="iosSubtitle">اضغط ⎙ ثم «إضافة إلى الشاشة الرئيسية»</span>
+  </div>
+  <button class="install-dismiss" id="iosDismiss" data-i18n-attr="aria-label:close" aria-label="إغلاق">✕</button>
+</div>
+
+<!-- ===== UPDATE TOAST ===== -->
+<div class="toast" id="updateToast">
+  <span data-i18n="newVersion">يوجد إصدار جديد</span>
+  <button id="updateBtn" data-i18n="updateBtn">تحديث</button>
+</div>
+
+<!-- ===== FAB ===== -->
+<div class="fab">
+  <button class="fab-main" id="fabEmergency" data-i18n-attr="title:emergency;aria-label:emergencyCPR" title="طوارئ" aria-label="إنعاش قلبي طارئ">♥</button>
+</div>
+
+<script>
+// =================================================================
+// DATA — الحالات السريرية
+// =================================================================
+
+const CATEGORIES = [
+  {
+    id: 'all',
+    label_ar: 'الكل',
+    label_en: 'All'
+  },
+  {
+    id: 'heat',
+    label_ar: 'الحرارة',
+    label_en: 'Heat'
+  },
+  {
+    id: 'cardiac',
+    label_ar: 'قلبية',
+    label_en: 'Cardiac'
+  },
+  {
+    id: 'respiratory',
+    label_ar: 'تنفسية',
+    label_en: 'Respiratory'
+  },
+  {
+    id: 'neuro',
+    label_ar: 'عصبية',
+    label_en: 'Neurological'
+  },
+  {
+    id: 'gi',
+    label_ar: 'هضمية واستقلابية',
+    label_en: 'GI & Metabolic'
+  },
+  {
+    id: 'trauma',
+    label_ar: 'رضوض وإصابات',
+    label_en: 'Trauma'
+  },
+  {
+    id: 'infectious',
+    label_ar: 'معدية',
+    label_en: 'Infectious'
+  },
+  {
+    id: 'other',
+    label_ar: 'أخرى',
+    label_en: 'Other'
+  }
+];
+
+const CASES = [
+  {
+    id: 'heat-stroke',
+    category: 'heat',
+    severity: 'critical',
+    title_ar: 'ضربة الشمس',
+    title_en: 'Heat Stroke',
+    preview_ar: 'ارتفاع حرارة الجسم >40°م مع اضطراب عصبي (تشوش، تشنج، غيبوبة). من أخطر حالات الحج.',
+    preview_en: 'Core body temperature >40°C with neurological dysfunction (confusion, seizure, coma). One of the most dangerous conditions in Hajj.',
+    definition_ar: 'ارتفاع درجة حرارة الجسم الأساسية فوق 40°م مع خلل في الجهاز العصبي المركزي (تشوش، هذيان، تشنج، غيبوبة). التعرق قد يكون موجوداً أو غائباً. تُعتبر من أعلى أسباب الوفاة في موسم الحج — نسبة الوفيات التاريخية تصل إلى 5-50% حسب سرعة التبريد.',
+    definition_en: 'Elevation of core body temperature above 40°C with central nervous system dysfunction (confusion, delirium, seizure, coma). Sweating may be present or absent. One of the leading causes of death during Hajj — historical mortality ranges from 5-50% depending on cooling speed.',
+    redFlags_ar: [
+      'غياب التعرق مع جلد حار وجاف',
+      'درجة حرارة الجسم ≥ 40°م (رقمياً، مستقيم)',
+      'اضطراب الوعي أو التشنج أو هذيان',
+      'انخفاض ضغط الدم أو تسارع النبض الشديد',
+      'ضيق تنفس أو ألم في الصدر',
+      'قلة البول أو تغير لونه'
+    ],
+    redFlags_en: [
+      'Absence of sweating with hot dry skin',
+      'Body temperature ≥ 40°C (digital, rectal)',
+      'Altered consciousness, seizure, or delirium',
+      'Hypotension or severe tachycardia',
+      'Shortness of breath or chest pain',
+      'Decreased urine output or color change'
+    ],
+    assessment_ar: [
+      'ABC — تأمين المجرى التنفسي والتنفس والدورة',
+      'قياس الحرارة المستقيمية (Rectal) — هو المعيار الذهبي. قياسات الفم/الإبط/الأذن/الجبهة غير موثوقة',
+      'تقييم مستوى الوعي (GCS) والفحص العصبي',
+      'قياس ضغط الدم، النبض، التنفس، السكر',
+      'البحث عن أسباب أخرى لتغير الوعي (نقص سكر، سكتة، عدوى، أدوية)'
+    ],
+    assessment_en: [
+      'ABC — secure airway, breathing, circulation',
+      'Rectal temperature — gold standard. Oral/axillary/tympanic/forehead readings are unreliable',
+      'Assess level of consciousness (GCS) and neurological exam',
+      'Measure BP, pulse, respiratory rate, glucose',
+      'Rule out other causes of altered mental status (hypoglycemia, stroke, infection, drugs)'
+    ],
+    management_ar: [
+      'ابدأ التبريد فوراً عند الاشتباه — لا تؤخّر لقياس الحرارة (مبدأ "Cool first, transport second")',
+      'نقل الحاج فوراً إلى مكان بارد ومظلل وخلع كل الملابس',
+      'الخيار الأمثل: الغمر في ماء بارد (Cold Water Immersion) 1-5°م إن توفر — أسرع معدل تبريد (0.2-0.36°م/دقيقة)',
+      'البديل إن لم يتوفر غمر: رش ماء بارد + مراوح قوية + أكياس ثلج على الإبطين والفخذين والرقبة والأجناب',
+      'فتح وريد وإعطاء Ringer Lactate أو محلول ملحي 0.9% — 500 مل كبلعة ثم حسب الحالة',
+      'أكسجين إن كان التشبع < 94%',
+      'مراقبة الحرارة مستمرة وإيقاف التبريد عند 38.9°م لتجنب الإفراط في التبريد والارتجاف',
+      'Midazolam 5-10 مغ IV لشدة الارتجاف أو التشنج',
+      'لا تستخدم خافضات الحرارة (Paracetamol/NSAIDs) — غير فعّالة وتضر الكبد',
+      'لا تستخدم Dantrolene — ليس له دور في ضربة الشمس',
+      'واصل التبريد أثناء النقل إن لم تصل للهدف'
+    ],
+    management_en: [
+      'Begin cooling immediately upon suspicion — do not delay for temperature measurement ("Cool first, transport second")',
+      'Move patient to cool shaded area and remove all clothing',
+      'Optimal: Cold Water Immersion (1-5°C) if available — fastest cooling rate (0.2-0.36°C/min)',
+      'Alternative if immersion unavailable: cold water spray + strong fans + ice packs to axillae, groin, neck, and flanks',
+      'IV access and give Ringer Lactate or 0.9% saline — 500 mL bolus then based on clinical response',
+      'Oxygen if SpO2 < 94%',
+      'Continuous temperature monitoring; stop cooling at 38.9°C to avoid overshoot and shivering',
+      'Midazolam 5-10 mg IV for severe shivering or seizure',
+      'Do not use antipyretics (Paracetamol/NSAIDs) — ineffective and hepatotoxic in this context',
+      'Do not use Dantrolene — no role in heat stroke',
+      'Continue cooling during transport if target not yet reached'
+    ],
+    medications_ar: [
+      {
+        name: 'Ringer Lactate (مفضّل) أو NS',
+        dose: '500 ml IV bolus, then 1–2 L/h'
+      },
+      {
+        name: 'Midazolam (للتشنج/الارتجاف)',
+        dose: '5-10 mg IV slow'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Titrate to SpO2 > 94%'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Ringer Lactate (preferred) or NS',
+        dose: '500 ml IV bolus, then 1–2 L/h'
+      },
+      {
+        name: 'Midazolam (for seizure/shivering)',
+        dose: '5-10 mg IV slow'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Titrate to SpO2 > 94%'
+      }
+    ],
+    referral_ar: 'كل حالة ضربة شمس مؤكدة تُحوَّل عاجلاً إلى مستشفى مرجعي — حتى بعد استقرار الحرارة. المضاعفات المتأخرة خطيرة (فشل الكبد، الكلى، DIC، rhabdomyolysis). أبلغ بالحالة قبل التحويل وأرسل مع مرافق طبي. استمر في التبريد أثناء النقل إن لم يصل للهدف.',
+    referral_en: 'All confirmed heat stroke cases are urgently referred to a tertiary center — even after temperature stabilization. Late complications are serious (hepatic failure, renal failure, DIC, rhabdomyolysis). Notify receiving facility before transfer and send with medical escort. Continue cooling en route if target not achieved.',
+    documentation_ar: 'وقت البداية، الحرارة الابتدائية والمسار (Rectal)، GCS، الضغط والنبض، السوائل المُعطاة، الأدوية، وقت بدء التبريد، طريقة التبريد، الحرارة عند التحويل.',
+    documentation_en: 'Time of onset, initial rectal temperature and trend, GCS, BP and pulse, fluids given, medications, time cooling started, cooling method, temperature at transfer.',
+    sources: 'SCCM 2025 Heat Stroke Guidelines · WMS 2024 Heat Illness Update · Saudi MoH Hajj HRI Guidelines'
+  },
+  {
+    id: 'heat-exhaustion',
+    category: 'heat',
+    severity: 'warning',
+    title_ar: 'الإجهاد الحراري',
+    title_en: 'Heat Exhaustion',
+    preview_ar: 'أعراض عامة (صداع، غثيان، ضعف، تعرق غزير) بدون اضطراب عصبي. الحرارة <40°م.',
+    preview_en: 'Milder than heat stroke — heavy sweating, headache, nausea, weakness, muscle cramps, with temperature below 40°C and preserved consciousness.',
+    definition_ar: 'حالة أخف من ضربة الشمس — أعراض عامة من تعرق غزير، صداع، غثيان، ضعف، وتقلصات عضلية، مع حرارة أقل من 40°م ووعي سليم. قد تتطور إلى ضربة شمس إن لم تُعالج.',
+    definition_en: 'A milder form than heat stroke — general symptoms of heavy sweating, headache, nausea, weakness, and muscle cramps, with temperature below 40°C and intact mental status. Can progress to heat stroke if untreated.',
+    redFlags_ar: [
+      'ارتفاع الحرارة > 39.5°م',
+      'تشوش خفيف أو دوخة شديدة',
+      'عدم التحسن خلال ساعة',
+      'تقلصات عضلية شديدة'
+    ],
+    redFlags_en: [
+      'Temperature > 39.5°C',
+      'Mild confusion or severe dizziness',
+      'No improvement within 1 hour',
+      'Severe muscle cramps'
+    ],
+    assessment_ar: [
+      'قياس الحرارة، الضغط، النبض',
+      'تقييم الوعي والتوجه',
+      'فحص علامات الجفاف',
+      'قياس السكر'
+    ],
+    assessment_en: [
+      'Measure temperature, BP, pulse',
+      'Assess consciousness and orientation',
+      'Check for signs of dehydration',
+      'Measure glucose'
+    ],
+    management_ar: [
+      'نقل إلى مكان بارد والاستلقاء مع رفع الساقين',
+      'خلع الملابس الزائدة',
+      'محلول ORS فموي إن كان واعياً ولا يتقيأ',
+      'محلول ملحي IV 500–1000 مل إذا كان الجفاف واضحاً أو عدم تحمل الفم',
+      'تبريد سطحي (مناديل مبللة، مراوح)',
+      'مراقبة 30–60 دقيقة قبل تصنيف الحالة'
+    ],
+    management_en: [
+      'Move to cool place and rest with leg elevation',
+      'Remove excess clothing',
+      'Oral ORS if conscious and not vomiting',
+      'IV saline 500-1000 mL if dehydration is clear or oral intake not tolerated',
+      'Surface cooling (damp cloths, fans)',
+      'Observe 30-60 minutes before case disposition'
+    ],
+    medications_ar: [
+      {
+        name: 'ORS',
+        dose: '1 L over 1–2 hours PO'
+      },
+      {
+        name: 'محلول ملحي 0.9%',
+        dose: '500–1000 ml IV'
+      },
+      {
+        name: 'Paracetamol',
+        dose: 'Not effective — avoid'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Oral Rehydration Solution',
+        dose: '200-400 mL as tolerated'
+      },
+      {
+        name: 'NS / Ringer Lactate IV',
+        dose: '500-1000 mL if needed'
+      },
+      {
+        name: 'Paracetamol',
+        dose: 'Not recommended (ineffective for HRI)'
+      }
+    ],
+    referral_ar: 'تحويل عند: عدم التحسن خلال ساعة، ارتفاع الحرارة لـ ≥39.5°م، أي تغير في الوعي، أو المرضى المسنون وذوو الأمراض المزمنة.',
+    referral_en: 'Refer if: no response to initial treatment, rising temperature toward stroke threshold, altered mental status, chronic comorbidities, or elderly. Otherwise may discharge home with clear hydration and rest instructions.',
+    documentation_ar: 'العلامات الحيوية الابتدائية والنهائية، السوائل، استجابة الحاج، الحالة عند الخروج أو التحويل.',
+    documentation_en: 'Duration of heat exposure, initial and post-treatment temperature, fluids given, response, disposition.',
+    sources: 'WMS 2024 Heat Illness Update · Saudi MoH Hajj HRI Guidelines'
+  },
+  {
+    id: 'dehydration',
+    category: 'heat',
+    severity: 'warning',
+    title_ar: 'الجفاف واضطراب الأملاح',
+    title_en: 'Dehydration & Electrolyte Disturbance',
+    preview_ar: 'فقدان سوائل وأملاح من التعرق الشديد أو القيء والإسهال. يشمل نقص وارتفاع الصوديوم.',
+    preview_en: 'Very common during Hajj due to long walking and heat. Watch for hyponatremia from overhydration with water alone.',
+    definition_ar: 'فقدان سوائل زائد عن التعويض — شائع جداً في الحج بسبب التعرق الشديد والحرارة. قد يصاحبه نقص أو ارتفاع الصوديوم. الإفراط في شرب الماء بلا أملاح قد يسبب هيبوناتريميا خطيرة.',
+    definition_en: 'Loss of body water and salts, or imbalance between them. Very common during Hajj due to prolonged walking, high temperatures, and inadequate intake. Warning: excessive water intake without salts can cause hyponatremia (low sodium), which mimics heat stroke but requires opposite management.',
+    redFlags_ar: [
+      'انخفاض الضغط (<90 انقباضي) أو تسارع النبض',
+      'انخفاض الوعي أو التشنج (قد يشير لهيبوناتريميا)',
+      'قلة البول أو انعدامه',
+      'جفاف شديد في الأغشية المخاطية'
+    ],
+    redFlags_en: [
+      'Severe hypotension or altered consciousness',
+      'Anuria or very dark urine',
+      'Severe mental changes (rule out hyponatremia — serum Na < 130)',
+      'Intractable vomiting preventing oral intake'
+    ],
+    assessment_ar: [
+      'تقدير درجة الجفاف (خفيف 3-5%، متوسط 6-9%، شديد ≥10%)',
+      'العلامات الحيوية بما فيها الضغط في الوقوف والاستلقاء',
+      'فحص الأغشية المخاطية والجلد (turgor)',
+      'قياس السكر والأملاح إن أمكن'
+    ],
+    assessment_en: [
+      'Assess dehydration severity (mild/moderate/severe)',
+      'BP standing and sitting (postural drop)',
+      'Check urine output and color',
+      'Measure glucose and electrolytes if available',
+      'History of water vs. salt intake'
+    ],
+    management_ar: [
+      'الخفيف: ORS فموي 50 مل/كغ خلال 4 ساعات',
+      'المتوسط: محلول ملحي 0.9% IV 1–2 لتر في أول ساعتين',
+      'الشديد: بلعة 500–1000 مل IV سريعة، كرر حسب الاستجابة',
+      'إذا اشتبهت بهيبوناتريميا (تشنج، تشوش، شرب ماء كثير): محلول ملحي 0.9% فقط — لا ماء سادة',
+      'تجنب الإعطاء السريع للسوائل في كبار السن وذوي قصور القلب'
+    ],
+    management_en: [
+      'Mild: oral ORS 500-1000 mL over 2-4 hours',
+      'Moderate: IV NS or Ringer Lactate 1-2 L over 2-4 hours',
+      'Severe: rapid IV bolus 500 mL NS over 15 min, repeat as needed',
+      'If hyponatremia suspected (confusion with history of large water intake, no salt): avoid rapid water — give isotonic saline and refer for sodium monitoring',
+      'Monitor urine output (target > 0.5 mL/kg/h)',
+      'Reassess every 30 minutes'
+    ],
+    medications_ar: [
+      {
+        name: 'ORS',
+        dose: '50 ml/kg over 4 hours'
+      },
+      {
+        name: 'Normal saline 0.9%',
+        dose: '1–2 L IV over 2 hours'
+      },
+      {
+        name: 'Ondansetron (للقيء)',
+        dose: '4–8 mg IV/IM'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'ORS (WHO formula)',
+        dose: '500-1000 mL PO'
+      },
+      {
+        name: 'NS 0.9% or Ringer Lactate',
+        dose: '1-2 L IV over 2-4h'
+      },
+      {
+        name: 'Hypertonic saline (3%)',
+        dose: 'Only at referral center if symptomatic hyponatremia'
+      }
+    ],
+    referral_ar: 'تحويل عند: الجفاف الشديد، نقص الصوديوم المصحوب بأعراض عصبية، عدم تحمل الفم بعد العلاج، قصور كلوي، أو كبار السن بأمراض مزمنة.',
+    referral_en: 'Refer: severe dehydration not responding to IV fluids, suspected hyponatremia, persistent vomiting, chronic heart/kidney comorbidities, elderly with persistent postural drop.',
+    documentation_ar: 'الأعراض، درجة الجفاف، السوائل المُعطاة (نوع وكمية وسرعة)، العلامات الحيوية، إخراج البول.',
+    documentation_en: 'Duration of symptoms, oral intake type and amount, urine output, BP serial, fluids given, response.',
+    sources: 'WHO ORS Guidelines · WMS 2024 Heat Illness · Saudi MoH Hajj Hydration Protocols'
+  },
+  {
+    id: 'acs',
+    category: 'cardiac',
+    severity: 'critical',
+    title_ar: 'احتشاء عضلة القلب',
+    title_en: 'Acute Coronary Syndrome / MI',
+    preview_ar: 'ألم صدري ضاغط لأكثر من 20 دقيقة مع أعراض مصاحبة. يشمل STEMI و NSTEMI.',
+    preview_en: 'Crushing chest pain lasting more than 20 minutes with associated symptoms. Includes STEMI and NSTEMI.',
+    definition_ar: 'متلازمة الشريان التاجي الحادة — ألم صدري ضاغط خلف القص قد ينتشر للذراع الأيسر أو الفك أو الظهر، مع تعرق وغثيان وضيق تنفس. قد يكون STEMI (يحتاج تدخل فوري) أو NSTEMI. قد يكون العرض غير نمطي عند كبار السن والنساء والسكريين (ضيق تنفس، إعياء، ألم بطن علوي).',
+    definition_en: 'Acute coronary artery syndrome — crushing retrosternal chest pain that may radiate to the left arm, jaw, or back, with sweating, nausea, and shortness of breath. May be STEMI (requires immediate intervention) or NSTEMI. Presentation may be atypical in the elderly, women, and diabetics (dyspnea, fatigue, epigastric pain).',
+    redFlags_ar: [
+      'ألم > 20 دقيقة لا يستجيب للنترات',
+      'ضغط منخفض، تعرق بارد، شحوب',
+      'ارتفاع ST في ECG أو LBBB جديد',
+      'اضطراب نظم قلبي أو توقف قلبي',
+      'وذمة رئوية (قصور قلب حاد)'
+    ],
+    redFlags_en: [
+      'Pain > 20 minutes unresponsive to nitrates',
+      'Hypotension, cold sweating, pallor',
+      'ST elevation on ECG or new LBBB',
+      'Cardiac arrhythmia or cardiac arrest',
+      'Pulmonary edema (acute heart failure)'
+    ],
+    assessment_ar: [
+      'ABC + جهاز ECG فوري خلال 10 دقائق من الوصول',
+      'تاريخ ألم الصدر (بداية، مدة، طبيعة، انتشار)',
+      'فحص القلب والرئتين',
+      'ضغط الدم في الذراعين',
+      'عوامل الخطر (عمر، سكر، ضغط، تدخين، سابقة قلبية)',
+      'في STEMI السفلي: أضف V3R, V4R لاستبعاد إصابة البطين الأيمن'
+    ],
+    assessment_en: [
+      'ABC + ECG within 10 minutes of arrival',
+      'Chest pain history (onset, duration, character, radiation)',
+      'Cardiac and pulmonary exam',
+      'BP in both arms',
+      'Risk factors (age, diabetes, hypertension, smoking, cardiac history)',
+      'In inferior STEMI: add V3R, V4R to rule out right ventricular involvement'
+    ],
+    management_ar: [
+      'استلقاء مع رفع الرأس 30–45°، راحة تامة',
+      'أكسجين فقط إذا SpO2 < 90% (ليس روتينياً — إعطاء O2 لمن لا يحتاجه قد يضر)',
+      'Aspirin 150-300 مغ PO للمضغ فوراً',
+      'Nitroglycerin تحت اللسان 0.4 مغ — تجنّب إذا: ضغط انقباضي < 90، أو استخدام Sildenafil/Tadalafil خلال 24-48 ساعة، أو اشتباه احتشاء البطين الأيمن',
+      'P2Y12 Inhibitor — لا يُعطى روتينياً قبل PCI إلا في STEMI الذاهب لـ PCI خلال 120 دقيقة، وحسب بروتوكول المركز:',
+      '  • Prasugrel 60 مغ PO (مفضّل للـ STEMI المتجه لـ PCI، تجنب إن سابقة سكتة)',
+      '  • أو Ticagrelor 180 مغ PO (مفضّل للـ NSTEMI)',
+      '  • أو Clopidogrel 300-600 مغ PO إذا غير متوفر ما سبق، أو كبار السن ≥ 75 سنة مع Fibrinolysis',
+      'Morphine 2-4 مغ IV فقط للألم الشديد غير المستجيب — استخدام محدود لأنه يؤخّر امتصاص P2Y12',
+      'تثبيت وريد، مراقبة ECG مستمرة، توفير دفيبرليتر',
+      'تحويل فوري لمركز قسطرة قلبية — وقت الوصول لـ PCI هو المفتاح (هدف < 120 دقيقة من التشخيص)',
+      'إذا PCI غير ممكن خلال 120 دقيقة: فكّر في Fibrinolysis (حسب بروتوكول المركز)'
+    ],
+    management_en: [
+      'Semi-recumbent with head elevated 30–45°, strict rest',
+      'Oxygen only if SpO2 < 90% (not routine — O2 in non-hypoxic patients may be harmful)',
+      'Aspirin 150-300 mg PO chewed immediately',
+      'Nitroglycerin 0.4 mg SL — avoid if: SBP < 90, PDE5 inhibitor (Sildenafil/Tadalafil) use within 24-48h, or suspected RV infarction',
+      'P2Y12 Inhibitor — not routine pre-PCI except in STEMI heading to PCI within 120 min, per center protocol:',
+      '  • Prasugrel 60 mg PO (preferred for STEMI→PCI, avoid if prior stroke)',
+      '  • Or Ticagrelor 180 mg PO (preferred for NSTEMI)',
+      '  • Or Clopidogrel 300-600 mg PO if above unavailable, or age ≥ 75 with Fibrinolysis',
+      'Morphine 2-4 mg IV only for severe unresponsive pain — limited use (delays P2Y12 absorption)',
+      'IV access, continuous ECG monitoring, defibrillator available',
+      'Immediate transfer to cath-capable center — time to PCI is key (target < 120 min from diagnosis)',
+      'If PCI not possible within 120 min: consider Fibrinolysis (per center protocol)'
+    ],
+    medications_ar: [
+      {
+        name: 'Aspirin',
+        dose: '150-300 mg PO chewed (or 75-250 mg IV)'
+      },
+      {
+        name: 'Prasugrel (STEMI→PCI)',
+        dose: '60 mg PO loading'
+      },
+      {
+        name: 'Ticagrelor (NSTEMI)',
+        dose: '180 mg PO loading'
+      },
+      {
+        name: 'Clopidogrel (بديل)',
+        dose: '300-600 mg PO loading'
+      },
+      {
+        name: 'Nitroglycerin',
+        dose: '0.4 mg SL, repeat q5min x3 (if BP OK)'
+      },
+      {
+        name: 'Morphine',
+        dose: '2–4 mg IV (only if severe pain)'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Only if SpO2 < 90%'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Aspirin',
+        dose: '150-300 mg PO chewed (or 75-250 mg IV)'
+      },
+      {
+        name: 'Prasugrel (STEMI→PCI)',
+        dose: '60 mg PO loading'
+      },
+      {
+        name: 'Ticagrelor (NSTEMI)',
+        dose: '180 mg PO loading'
+      },
+      {
+        name: 'Clopidogrel (alternative)',
+        dose: '300-600 mg PO loading'
+      },
+      {
+        name: 'Nitroglycerin',
+        dose: '0.4 mg SL, repeat q5min x3 (if BP OK)'
+      },
+      {
+        name: 'Morphine',
+        dose: '2–4 mg IV (only if severe pain)'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Only if SpO2 < 90%'
+      }
+    ],
+    referral_ar: 'تحويل فوري لأقرب مركز قسطرة قلبية. الوقت عضلة (Time is muscle). أبلغ المركز قبل التحويل وأرسل نسخة من ECG. المرافق الطبي مع دفيبرليتر ضروري. في حال الاستقرار غير ممكن: فكّر في Fibrinolysis إذا PCI > 120 دقيقة.',
+    referral_en: 'Immediate transfer to nearest cath-capable center. Time is muscle. Notify center before transfer and send ECG copy. Medical escort with defibrillator essential. If stabilization not possible: consider Fibrinolysis when PCI > 120 min.',
+    documentation_ar: 'وقت بداية الألم، ECG (احتفظ بالنسخ، كرر q15 min)، العلامات الحيوية المتسلسلة، الأدوية المُعطاة وأوقاتها، استجابة الحاج، وقت التحويل.',
+    documentation_en: 'Pain onset time, ECG (keep copies, repeat q15 min), serial vital signs, medications given with times, patient response, time of transfer.',
+    sources: 'ESC 2023 ACS Guidelines · 2025 ACC/AHA/ACEP/NAEMSP/SCAI ACS Guideline'
+  },
+  {
+    id: 'angina',
+    category: 'cardiac',
+    severity: 'warning',
+    title_ar: 'الذبحة الصدرية',
+    title_en: 'Stable / Unstable Angina',
+    preview_ar: 'ألم صدري عابر مرتبط بالمجهود، يزول بالراحة أو النترات خلال 5-15 دقيقة.',
+    preview_en: 'Chest pain relieved by rest or nitrates — may be exertional (stable) or new/worsening (unstable).',
+    definition_ar: 'ألم صدري ناتج عن نقص تروية عابر، عادة مرتبط بالمجهود أو الحرارة، يستجيب للراحة أو النترات. التمييز عن MI مهم — أي ألم يستمر >20 دقيقة أو لا يستجيب يعامل كـ ACS.',
+    definition_en: 'Chest pain due to myocardial ischemia without necrosis. Stable angina is exertional, relieved by rest/nitrates, with predictable pattern. Unstable angina is new-onset, increasing in frequency or severity, or occurring at rest — this represents a form of ACS and is managed similarly.',
+    redFlags_ar: [
+      'زيادة تكرار أو شدة النوبات (unstable angina)',
+      'ألم بالراحة',
+      'عدم استجابة للنترات',
+      'مدة > 20 دقيقة'
+    ],
+    redFlags_en: [
+      'New-onset angina or progressive pain',
+      'Angina at rest',
+      'Prolonged pain (> 20 min) or unresponsive to nitrates',
+      'Associated shortness of breath, sweating, hypotension'
+    ],
+    assessment_ar: [
+      'ECG 12 lead',
+      'تاريخ العلاقة بالمجهود والاستجابة للراحة/النترات',
+      'العلامات الحيوية',
+      'فحص قلبي ورئوي'
+    ],
+    assessment_en: [
+      'ECG',
+      'Pain history and pattern',
+      'Vital signs',
+      'Risk factors and cardiac history',
+      'Assess severity and change from baseline'
+    ],
+    management_ar: [
+      'الراحة التامة',
+      'Aspirin 300 مغ مضغ',
+      'Nitroglycerin 0.4 مغ SL — يُكرر كل 5 دقائق (بحد أقصى 3 مرات)',
+      'أكسجين إذا SpO2 < 94%',
+      'مراقبة ECG',
+      'إذا زال الألم وECG طبيعي — تحويل للتقييم غير العاجل',
+      'إذا استمر الألم أو تغير ECG — عامل كـ MI'
+    ],
+    management_en: [
+      'Rest and reassurance',
+      'Nitroglycerin 0.4 mg SL, may repeat q5min x3',
+      'Aspirin 75-300 mg PO if not contraindicated',
+      'If unstable features: treat as ACS and transfer urgently',
+      'If stable and responds to nitrates: observe 30-60 min, refer for outpatient cardiology'
+    ],
+    medications_ar: [
+      {
+        name: 'Aspirin',
+        dose: '300 mg PO chewed'
+      },
+      {
+        name: 'Nitroglycerin',
+        dose: '0.4 mg SL q5min x3'
+      },
+      {
+        name: 'Beta-blocker (if known)',
+        dose: 'Continue home dose'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Nitroglycerin',
+        dose: '0.4 mg SL, repeat q5min x3'
+      },
+      {
+        name: 'Aspirin',
+        dose: '75-300 mg PO'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Only if SpO2 < 90%'
+      }
+    ],
+    referral_ar: 'تحويل كل نوبة ذبحة أولى أو غير مستقرة. النوبات المعروفة المستقرة التي تستجيب يمكن متابعتها مع نصائح واضحة وعودة عند التدهور.',
+    referral_en: 'Refer: unstable angina (treat as ACS), new-onset pain, or significant change from baseline. Stable angina responding to treatment may follow up with outpatient cardiology.',
+    documentation_ar: 'وصف الألم، العوامل المحفزة، الاستجابة للعلاج، ECG، العلامات الحيوية.',
+    documentation_en: 'Pain description, triggers, response to treatment, ECG, vital signs.',
+    sources: 'AHA/ACC 2023 Chronic Coronary Disease Guidelines · ESC 2023 ACS Guidelines'
+  },
+  {
+    id: 'htn-crisis',
+    category: 'cardiac',
+    severity: 'warning',
+    title_ar: 'ارتفاع الضغط الحاد',
+    title_en: 'Acute Hypertensive Emergency',
+    preview_ar: 'ضغط ≥180/110-120. التمييز الحرج: مع ضرر عضوي (Emergency → IV) أو بدون ضرر (لا IV).',
+    preview_en: 'Severely elevated BP (SBP > 180 or DBP > 120). Distinguish between true emergency (with target-organ damage) and asymptomatic elevation.',
+    definition_ar: 'المصطلحات المحدّثة (AHA 2024) أُلغيت كلمات "crisis" و "urgency". الآن: Hypertensive Emergency = ضغط ≥180/110-120 مع ضرر عضوي جديد أو متفاقم (قلب، دماغ، كلى، شبكية) — يحتاج علاج IV فوري في ICU. Asymptomatic Markedly Elevated BP = نفس الأرقام بدون ضرر عضوي — لا يُعالج بـ IV في العيادة/الطوارئ. التمييز حرج لأن خفض الضغط بسرعة عند غير العرضي قد يضر (سكتة، احتشاء).',
+    definition_en: 'Severely elevated blood pressure (SBP > 180 or DBP > 120 mmHg). Per AHA 2024: "Hypertensive Emergency" — elevated BP with acute target-organ damage (heart, brain, kidney, retina) requires rapid IV treatment. "Asymptomatic Markedly Elevated BP" — high BP without organ damage does not require rapid lowering; oral agents and outpatient follow-up are appropriate.',
+    redFlags_ar: [
+      'أعراض عصبية: صداع شديد، تشوش، ضعف بؤري → encephalopathy / stroke',
+      'ألم صدر أو ضيق تنفس → ACS / وذمة رئوية',
+      'ألم ظهر منتشر أو فرق ضغط بين الذراعين >20 → aortic dissection',
+      'اضطراب بصري، papilledema',
+      'بيلة دموية أو بروتين بالبول → AKI',
+      'حمل > 20 أسبوع → preeclampsia / eclampsia'
+    ],
+    redFlags_en: [
+      'Severe headache with vomiting or visual changes',
+      'Chest pain or shortness of breath',
+      'Focal neurological deficit or altered consciousness',
+      'Hematuria or decreased urine output',
+      'BP > 220/140 even without symptoms',
+      'Pregnancy (eclampsia/preeclampsia)'
+    ],
+    assessment_ar: [
+      'قياس الضغط بعد راحة 5 دقائق في كلا الذراعين',
+      'تقييم ضرر الأعضاء: فحص عصبي كامل، فحص القلب والرئتين، قاع العين إن أمكن',
+      'ECG، SpO2، سكر',
+      'البحث عن أسباب محفّزة: ألم، قلق، احتباس بول، عدم تناول الأدوية',
+      'تاريخ الأدوية (خاصة توقف مفاجئ، منشطات، NSAIDs، حبوب منع)'
+    ],
+    assessment_en: [
+      'BP in both arms, repeated after 5-10 minutes of rest',
+      'Full neurological exam',
+      'Cardiac and pulmonary exam, fundoscopy if available',
+      'ECG',
+      'Urine dipstick (protein, blood)',
+      'History of antihypertensives and adherence'
+    ],
+    management_ar: [
+      'الخطوة 1: هل يوجد ضرر عضوي؟ هذا يحدد المسار',
+      '',
+      '📍 Asymptomatic Markedly Elevated BP (لا ضرر عضوي):',
+      '  • لا تستخدم IV antihypertensives في العيادة — قد تضر أكثر مما تنفع',
+      '  • عالج المحفّزات: مسكن للألم، Lorazepam للقلق، تفريغ المثانة',
+      '  • أعد القياس بعد 15-30 دقيقة راحة — كثيراً ما ينخفض تلقائياً',
+      '  • استأنف/ابدأ دواء فموي مزمن (Amlodipine 5-10 مغ، Captopril 25 مغ)',
+      '  • خفض تدريجي على أيام، ليس ساعات',
+      '  • تحويل للعيادة المزمنة للمتابعة',
+      '',
+      '🚨 Hypertensive Emergency (مع ضرر عضوي):',
+      '  • تحويل فوري — يحتاج ICU و IV titratable medications',
+      '  • الهدف: خفض MAP 20-25% في الساعة الأولى (ليس للطبيعي مرة واحدة)',
+      '  • الأدوية الفضلى في المستشفى:',
+      '    - Nicardipine 5-15 مغ/ساعة IV drip (الخيار الأول)',
+      '    - Labetalol 20 مغ IV bolus كل 10 دقائق (max 300 مغ)',
+      '    - Clevidipine، Esmolol (لتسلخ الأبهر)',
+      '    - Nitroglycerin للـ ACS ووذمة رئوية',
+      '  • تجنّب: SL Nifedipine (خطر)، Hydralazine IV (غير متوقع)، Nitroprusside (خيار أخير)',
+      '',
+      'حالات خاصة:',
+      '  • Aortic dissection: SBP < 120، HR < 60 → Esmolol + Nicardipine',
+      '  • Ischemic stroke: لا تخفض إلا > 220/120 (راجع قسم السكتة)',
+      '  • Preeclampsia/Eclampsia: SBP < 140، Labetalol أو Hydralazine + MgSO4'
+    ],
+    management_en: [
+      'If Emergency (with organ damage): IV treatment, target gradual BP reduction (MAP drop 20-25% in first hour, not more)',
+      'If Asymptomatic Markedly Elevated BP: rest, reassure, oral agents, do NOT force rapid lowering (rapid drop can harm)',
+      'IV options (per local protocol):',
+      '  • Labetalol 10-20 mg IV over 2 min, may repeat q10min (max 300 mg)',
+      '  • Nicardipine 5 mg/h IV infusion, titrate up',
+      '  • Hydralazine 5-10 mg IV (preferred in pregnancy)',
+      'Oral options for non-emergency: Amlodipine 5-10 mg PO, or Captopril 25 mg PO (avoid in pregnancy)',
+      'Avoid sublingual Nifedipine — causes unpredictable drops',
+      'Continuous BP monitoring'
+    ],
+    medications_ar: [
+      {
+        name: 'Amlodipine (asymptomatic)',
+        dose: '5-10 mg PO'
+      },
+      {
+        name: 'Captopril (asymptomatic)',
+        dose: '25 mg PO'
+      },
+      {
+        name: 'Lorazepam (قلق)',
+        dose: '1-2 mg PO/IM'
+      },
+      {
+        name: 'Nicardipine IV (emergency)',
+        dose: '5-15 mg/h IV drip (في المستشفى)'
+      },
+      {
+        name: 'Labetalol IV (emergency)',
+        dose: '20 mg bolus q10min (max 300 mg)'
+      },
+      {
+        name: 'Nitroglycerin (ACS/CHF)',
+        dose: '5-200 mcg/min IV'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Labetalol',
+        dose: '10-20 mg IV over 2 min, may repeat (max 300 mg)'
+      },
+      {
+        name: 'Nicardipine',
+        dose: '5 mg/h IV infusion, titrate'
+      },
+      {
+        name: 'Hydralazine (preg.)',
+        dose: '5-10 mg IV'
+      },
+      {
+        name: 'Amlodipine (oral)',
+        dose: '5-10 mg PO'
+      },
+      {
+        name: 'Captopril (oral)',
+        dose: '25 mg PO'
+      },
+      {
+        name: 'Avoid SL Nifedipine',
+        dose: '— unpredictable drops'
+      }
+    ],
+    referral_ar: 'كل Hypertensive Emergency يُحوَّل فوراً لـ ICU. Asymptomatic بدون أعراض: تحويل للعيادة المزمنة (ليس طارئ). احذر من المبالغة في العلاج — خفض الضغط السريع المفرط يسبب سكتات واحتشاءات.',
+    referral_en: 'Refer all true Hypertensive Emergencies urgently. Asymptomatic Markedly Elevated BP: oral treatment and referral for outpatient follow-up. In pregnancy: urgent transfer to OB.',
+    documentation_ar: 'قراءات الضغط المتسلسلة، وجود/غياب ضرر عضوي، ECG، الأعراض، الأسباب المحفّزة، الأدوية المُعطاة وأوقاتها.',
+    documentation_en: 'Initial BP, time of medications and doses, serial BP, symptoms, organ damage evidence, response to treatment.',
+    sources: 'AHA 2024 Scientific Statement on Management of Elevated BP in Acute Care · Hypertension Journal 2024'
+  },
+  {
+    id: 'asthma',
+    category: 'respiratory',
+    severity: 'warning',
+    title_ar: 'الربو الشعبي',
+    title_en: 'Acute Asthma Exacerbation',
+    preview_ar: 'ضيق تنفس مع صفير، سعال، وضيق صدر. قد يتفاقم بالغبار والمجهود في الحج.',
+    preview_en: 'Acute bronchospasm with wheezing, cough, chest tightness, and difficulty speaking. Classified by severity.',
+    definition_ar: 'نوبة ربو حاد — تضيق القصبات مع صفير، سعال، ضيق صدر، وصعوبة كلام. تصنف خفيفة / متوسطة / شديدة / مهددة للحياة حسب الأعراض والتشبع. ملاحظة حرجة: الصفير قد يشابه anaphylaxis — إذا شك وجود طفح أو وذمة، اعط Adrenaline IM.',
+    definition_en: 'Acute asthma attack — bronchoconstriction with wheezing, cough, chest tightness, and difficulty speaking. Classified as mild / moderate / severe / life-threatening based on symptoms and signs. Critical note: wheezing may mimic anaphylaxis — if there is rash or edema, give Adrenaline IM.',
+    redFlags_ar: [
+      'صدر صامت (غياب الصفير) — علامة خطر كبيرة جداً',
+      'تعب شديد أو نعاس',
+      'SpO2 < 92%',
+      'عدم القدرة على الكلام بجملة كاملة',
+      'تسارع نبض > 120، تنفس > 30',
+      'Peak flow < 33% من المتوقع',
+      'زرقة، تعرق، استخدام عضلات مساعدة'
+    ],
+    redFlags_en: [
+      'Silent chest (absence of wheeze) — very serious sign',
+      'Severe fatigue or drowsiness',
+      'SpO2 < 92%',
+      'Unable to speak in full sentences',
+      'Pulse > 120, RR > 30',
+      'Peak flow < 33% predicted',
+      'Cyanosis, sweating, use of accessory muscles'
+    ],
+    assessment_ar: [
+      'SpO2، معدل التنفس، النبض',
+      'القدرة على الكلام (جمل، عبارات، كلمات، غير قادر)',
+      'فحص الصدر (صفير، صدر صامت، دخول هواء)',
+      'Peak flow إن أمكن',
+      'تاريخ الأدوية واستخدام البخاخ قبل العيادة',
+      'استبعاد anaphylaxis (طفح، وذمة)'
+    ],
+    assessment_en: [
+      'SpO2, respiratory rate, pulse',
+      'Ability to speak (sentences, phrases, words, unable)',
+      'Chest exam (wheeze, silent chest, air entry)',
+      'Peak flow if possible',
+      'Medication history and recent inhaler use',
+      'Rule out anaphylaxis (rash, edema)'
+    ],
+    management_ar: [
+      'الجلوس منتصباً مريحاً',
+      'أكسجين لرفع SpO2 إلى 93-95% (BALANCED — لا تفرط في O2)',
+      'الخفيف-المتوسط: Salbutamol 4-10 نفخات MDI مع spacer كل 20 دقيقة',
+      'الشديد: Salbutamol 5 مغ nebulizer كل 20 دقيقة × 3 جرعات',
+      'الشديد: أضف Ipratropium 500 ميكروغ neb كل 20 دقيقة × 3 (يحسّن النتائج)',
+      'Systemic Steroids خلال أول ساعة (كلاهما مقبول):',
+      '  • Prednisolone 40-50 مغ PO (البديل الأول)',
+      '  • أو Dexamethasone 12-16 مغ PO جرعة واحدة (فعّال بالمثل، أسهل)',
+      '  • Hydrocortisone 100 مغ IV إن لم يتحمل الفم',
+      'للشديد غير المستجيب: Magnesium sulfate 2 غ IV على 20 دقيقة',
+      'للفشل التنفسي الوشيك أو اشتباه anaphylaxis: Adrenaline IM 0.3-0.5 مغ فوراً',
+      'Continuous Salbutamol neb 10-20 مغ/ساعة للشديد جداً',
+      'مراقبة مستمرة — الاستجابة تقاس بالتحسن السريري وSpO2',
+      'إذا صدر صامت أو تدهور: تحويل فوري مع دعم تنفسي ± تنبيب'
+    ],
+    management_en: [
+      'Sitting position, reassure',
+      'Oxygen to maintain SpO2 93-95% (not > 96%)',
+      'Salbutamol nebulizer 2.5-5 mg with oxygen, repeat q15-20 min x3',
+      'Add Ipratropium 0.5 mg to nebulizer in moderate-severe cases',
+      'Systemic steroid early: Hydrocortisone 100 mg IV or Dexamethasone 12-16 mg PO/IV (one dose sufficient)',
+      'Or Prednisolone 40-50 mg PO if tolerated',
+      'If life-threatening (silent chest, drowsy, SpO2 < 90%): Adrenaline 0.5 mg IM (1:1000) + urgent transfer',
+      'Magnesium sulfate 2 g IV over 20 min if no improvement after first hour',
+      'Monitor response — improvement in RR, SpO2, ability to speak',
+      'Continuous monitoring; do not discharge until sustained improvement'
+    ],
+    medications_ar: [
+      {
+        name: 'Salbutamol neb',
+        dose: '5 mg q20min x3 (or continuous 10-20 mg/h)'
+      },
+      {
+        name: 'Ipratropium neb',
+        dose: '500 mcg q20min x3 (severe)'
+      },
+      {
+        name: 'Prednisolone',
+        dose: '40-50 mg PO'
+      },
+      {
+        name: 'Dexamethasone (بديل)',
+        dose: '12-16 mg PO single dose'
+      },
+      {
+        name: 'Hydrocortisone',
+        dose: '100 mg IV'
+      },
+      {
+        name: 'Magnesium sulfate',
+        dose: '2 g IV over 20 min (severe refractory)'
+      },
+      {
+        name: 'Adrenaline IM (life-threat)',
+        dose: '0.3-0.5 mg IM'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Titrate to SpO2 93-95%'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Salbutamol nebulizer',
+        dose: '2.5-5 mg in O2, repeat q15-20 min'
+      },
+      {
+        name: 'Ipratropium nebulizer',
+        dose: '0.5 mg added to Salbutamol'
+      },
+      {
+        name: 'Hydrocortisone',
+        dose: '100 mg IV'
+      },
+      {
+        name: 'Dexamethasone',
+        dose: '12-16 mg PO/IV single dose'
+      },
+      {
+        name: 'Prednisolone',
+        dose: '40-50 mg PO'
+      },
+      {
+        name: 'Adrenaline (life-threatening)',
+        dose: '0.5 mg IM (0.5 mL of 1:1000)'
+      },
+      {
+        name: 'Magnesium sulfate',
+        dose: '2 g IV over 20 min'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Titrate to SpO2 93-95%'
+      }
+    ],
+    referral_ar: 'تحويل عند: عدم الاستجابة لـ 3 جلسات nebulizer، SpO2 < 92%، صدر صامت، نعاس، أو حاجة لدعم تنفسي. حتى المستجيبين من نوبة شديدة يحتاجون ملاحظة لعدة ساعات.',
+    referral_en: 'Refer: severe or life-threatening exacerbation, no response to treatment, SpO2 < 92% despite oxygen, altered consciousness, inability to maintain hydration. Mild exacerbation responding completely: may discharge with clear instructions and oral steroids.',
+    documentation_ar: 'Peak flow قبل وبعد، SpO2 المتسلسل، الأدوية (وقت وجرعة)، الاستجابة السريرية، استبعاد anaphylaxis.',
+    documentation_en: 'Time of onset, severity on arrival, SpO2 serial, treatments given with times, peak flow before and after, response, disposition.',
+    sources: 'GINA 2024 Strategy Report · ACEP 2024 Acute Asthma Practice Advance'
+  },
+  {
+    id: 'anaphylaxis',
+    category: 'other',
+    severity: 'critical',
+    title_ar: 'الصدمة التحسسية',
+    title_en: 'Anaphylaxis',
+    preview_ar: 'تفاعل فرط حساسية شديد ومفاجئ. Adrenaline IM فوراً هو العلاج المنقذ — لا تؤخّره.',
+    preview_en: 'Severe life-threatening allergic reaction. Adrenaline IM is the treatment of choice — without delay.',
+    definition_ar: 'تفاعل فرط حساسية خطير سريع البداية قد يسبب الوفاة. يصيب ≥2 من الأجهزة: الجلد (urticaria، وذمة)، التنفس (ضيق، صفير، stridor)، الدورة (انخفاض ضغط، فقدان وعي)، الهضم (قيء، إسهال، ألم بطن). في الحج: لدغات حشرات، أطعمة جديدة، أدوية جديدة، مواد تلامس. Adrenaline IM فوراً = المنقذ الوحيد. التأخر = وفاة.',
+    definition_en: 'Severe systemic allergic reaction involving two or more body systems (skin, respiratory, cardiovascular, GI) after exposure to an allergen (food, drug, sting, contrast). Can cause death within minutes from airway obstruction or cardiovascular collapse. Adrenaline IM is the treatment of choice — without delay.',
+    redFlags_ar: [
+      'ضيق تنفس، stridor، صوت أجش، وذمة حنجرية — انسداد مجرى الهواء الوشيك',
+      'انخفاض ضغط الدم، تسارع نبض، دوخة، فقدان وعي',
+      'طفح جلدي منتشر مع أي من السابق',
+      'تقيؤ مع أعراض تنفسية أو دورانية',
+      'تعرّض حديث لمسبب محتمل (دواء، طعام، لدغة، مادة تلامس)'
+    ],
+    redFlags_en: [
+      'Angioedema of lips, tongue, or throat',
+      'Stridor or severe wheezing',
+      'Hypotension or shock',
+      'Loss of consciousness',
+      'Widespread rash + breathing or GI symptoms'
+    ],
+    assessment_ar: [
+      'ABC — أولوية للمجرى التنفسي',
+      'تقييم الانتشار (كم جهاز مصاب)',
+      'البحث عن العامل المحفّز (أسأل: آخر دواء/طعام/لدغة)',
+      'علامات حيوية كاملة + SpO2',
+      'فحص الجلد والفم والحنجرة',
+      'فحص الصدر (صفير، stridor)'
+    ],
+    assessment_en: [
+      'ABC — airway is the first priority',
+      'Identify the allergen (food, drug, sting)',
+      'Exam: rash, edema, wheeze, BP, consciousness',
+      'SpO2 and pulse',
+      'Do not delay treatment for investigations'
+    ],
+    management_ar: [
+      '⚠️ Adrenaline IM 0.5 مغ (0.01 مغ/كغ، max 0.5 مغ) في الفخذ الجانبي الخارجي — فوراً، لا تؤخّر',
+      'وضعية: مستلقٍ مع رفع الساقين (ممتاز للدورة). إذا ضيق تنفس شديد: جلوس. إذا قيء: وضع جانبي',
+      'أوقف المسبب (دواء، IV، لدغة — أزل الإبرة)',
+      'أكسجين عالي التدفق (10-15 L/min mask)',
+      'IV access كبير',
+      'بلعة IV fluids: NS 0.9% 1-2 L سريع إذا صدمة (20 مل/كغ للبالغ، كرر إن لزم)',
+      'أعد Adrenaline IM كل 5 دقائق إن لم يتحسن (راقب الاستجابة)',
+      'إذا لم يستجب بعد 2-3 جرعات IM + سوائل: Adrenaline IV infusion (في ICU، 1 مغ في 1000 مل بمعدل 0.1-1 mcg/kg/min، تحت مراقبة)',
+      'Salbutamol neb 5 مغ للصفير المستمر',
+      'Glucagon 1-2 مغ IV للمرضى على Beta-blockers لا يستجيبون للـ Adrenaline',
+      'H1 Antihistamine (Chlorpheniramine 10 مغ IV/IM) — ليس علاجاً أولياً، فقط للأعراض الجلدية بعد Adrenaline',
+      'Corticosteroids (Hydrocortisone 200 مغ IV) — ليست روتينية، قد تعطى إن ربو مصاحب',
+      'استمر في المراقبة 4-6 ساعات على الأقل — biphasic anaphylaxis في 1-20%'
+    ],
+    management_en: [
+      'Adrenaline 0.3-0.5 mg IM in mid-outer thigh (1:1000) — immediately, do not wait',
+      'Repeat every 5-15 minutes as needed',
+      'Lay patient flat with legs elevated (unless breathing compromised)',
+      'Oxygen high-flow',
+      'IV access and aggressive NS 1-2 L bolus if hypotension',
+      'Salbutamol nebulizer if bronchospasm',
+      'Hydrocortisone 200 mg IV or Methylprednisolone 125 mg IV (late effect, not substitute for Adrenaline)',
+      'Antihistamine: Diphenhydramine 25-50 mg IV (for skin only, does not treat shock)',
+      'In refractory shock: Adrenaline IV infusion 1 mcg/min (per protocol)',
+      'Glucagon 1-5 mg IV if on beta-blocker and not responding',
+      'Observe minimum 6-8 hours after resolution (risk of biphasic reaction)'
+    ],
+    medications_ar: [
+      {
+        name: '⚠️ Adrenaline 1:1000 IM',
+        dose: '0.5 mg IM mid-thigh (repeat q5min)'
+      },
+      {
+        name: 'Adrenaline IV (refractory)',
+        dose: '0.1-1 mcg/kg/min infusion'
+      },
+      {
+        name: 'NS 0.9%',
+        dose: '1-2 L IV rapid if shock'
+      },
+      {
+        name: 'Oxygen',
+        dose: '10-15 L/min mask'
+      },
+      {
+        name: 'Salbutamol neb',
+        dose: '5 mg (for wheezing)'
+      },
+      {
+        name: 'Glucagon',
+        dose: '1-2 mg IV (beta-blocker patients)'
+      },
+      {
+        name: 'Chlorpheniramine',
+        dose: '10 mg IV/IM (skin symptoms only)'
+      },
+      {
+        name: 'Hydrocortisone',
+        dose: '200 mg IV (not routine)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Adrenaline (Epinephrine)',
+        dose: '0.3-0.5 mg IM (1:1000) mid-outer thigh, repeat q5-15min'
+      },
+      {
+        name: 'NS 0.9%',
+        dose: '1-2 L IV bolus if hypotension'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'High-flow'
+      },
+      {
+        name: 'Salbutamol nebulizer',
+        dose: '5 mg if bronchospasm'
+      },
+      {
+        name: 'Hydrocortisone',
+        dose: '200 mg IV'
+      },
+      {
+        name: 'Methylprednisolone',
+        dose: '125 mg IV'
+      },
+      {
+        name: 'Diphenhydramine',
+        dose: '25-50 mg IV (skin only)'
+      },
+      {
+        name: 'Glucagon',
+        dose: '1-5 mg IV (if on beta-blocker)'
+      }
+    ],
+    referral_ar: 'كل حالة Anaphylaxis تُحوَّل للمستشفى بعد Adrenaline والاستقرار الأولي — حتى لو تحسّنت. المراقبة 4-6 ساعات لرصد biphasic reaction. وصف EpiPen عند الخروج وتحويل لـ Allergist لتحديد المسبب.',
+    referral_en: 'All anaphylaxis cases are referred urgently to hospital, even after improvement. Biphasic reactions occur in 5-20% of cases within 1-72 hours. Document allergen clearly and advise patient to carry an EpiPen.',
+    documentation_ar: 'وقت البداية، العامل المحفّز المحتمل، الأعراض والأجهزة المصابة، عدد جرعات Adrenaline والأوقات، السوائل، الاستجابة، مدة المراقبة.',
+    documentation_en: 'Allergen and time of exposure, symptom onset, time of first Adrenaline dose and subsequent doses, response, vital signs, medications, duration of observation.',
+    sources: 'WAO 2020 Anaphylaxis Guidance · JTFPP 2023 Update · GA2LEN 2024 Consensus · ASCIA 2024 Acute Management Guidelines'
+  },
+  {
+    id: 'pneumonia',
+    category: 'respiratory',
+    severity: 'warning',
+    title_ar: 'التهاب الرئة',
+    title_en: 'Pneumonia',
+    preview_ar: 'حمى، سعال منتج، ضيق تنفس، وألم صدري جنبي. استخدم CURB-65 + استبعد MERS/COVID في الحج.',
+    preview_en: 'Fever, productive cough, shortness of breath, and abnormal lung findings. Use CURB-65 to guide severity and disposition.',
+    definition_ar: 'التهاب رئوي مكتسب من المجتمع (CAP) — عدوى حادة لنسيج الرئة. في الحج قد يكون بكتيري (Strep. pneumoniae، Legionella، Mycoplasma)، فيروسي (Influenza، COVID-19)، أو MERS-CoV. ATS/IDSA 2019 (محدّث 2025): ألغت تصنيف HCAP، تؤكّد أن Macrolide Monotherapy لم يعد موصى به (مقاومة >25%). مدة العلاج الحد الأدنى 5 أيام.',
+    definition_en: 'Acute lung parenchymal infection — fever, productive cough, shortness of breath, and focal lung findings on exam. Common during Hajj due to crowding. CURB-65 scoring determines severity and need for referral.',
+    redFlags_ar: [
+      'تسارع تنفس > 30',
+      'ضغط انقباضي < 90',
+      'تشوش أو اضطراب وعي',
+      'SpO2 < 92% على الهواء الغرفي',
+      'العمر > 65 مع أمراض مزمنة',
+      'اشتباه MERS: حمى + سعال + ضيق تنفس + احتكاك بإبل أو سفر لمنطقة موبوءة خلال 14 يوم',
+      'اشتباه COVID/Influenza: فحص سريع واستبعد قبل إعطاء المضاد'
+    ],
+    redFlags_en: [
+      'Confusion (C)',
+      'Urea > 7 mmol/L (U)',
+      'Respiratory rate ≥ 30 (R)',
+      'BP systolic < 90 or diastolic ≤ 60 (B)',
+      'Age ≥ 65 (65)',
+      'SpO2 < 92%',
+      'Tachycardia > 125 or sepsis'
+    ],
+    assessment_ar: [
+      'CURB-65: Confusion (تشوش)، Urea>7، RR≥30، BP<90/60، Age≥65. كل نقطة = نقطة. المجموع ≥2 يعني التحويل للمستشفى، ≥3 يعني تفكير ICU',
+      'العلامات الحيوية كاملة + SpO2',
+      'فحص الصدر (crackles، bronchial breathing، decreased breath sounds)',
+      'تاريخ الاحتكاك بالإبل (MERS)، السفر، مخالطة مصابين، تطعيم الإنفلونزا والـ Pneumococcal',
+      'تقييم مصادر العدوى الأخرى (UTI، meningitis)'
+    ],
+    assessment_en: [
+      'Full vital signs including SpO2',
+      'Chest exam (crackles, decreased breath sounds, dullness)',
+      'Calculate CURB-65 score',
+      'Rule out COVID-19 / MERS-CoV / Influenza during Hajj',
+      'Chest X-ray if available',
+      'Fluid and hydration status assessment'
+    ],
+    management_ar: [
+      'ABC + SpO2 + أكسجين لهدف SpO2 > 94% (أو >88% في COPD)',
+      'IV access + سوائل للجفاف (Ringer Lactate أو NS)',
+      'Paracetamol للحمى (تجنّب NSAIDs إن قصور كلوي أو قرحة)',
+      'عزل تنفسي فوري + قناع N95 للطبيب عند اشتباه MERS/COVID/Influenza',
+      'بلاغ وبائي فوري لصحة الحج إن اشتباه MERS/COVID',
+      '',
+      'العلاج الخارجي (CAP خفيف، مرضى أصحاء، CURB-65 = 0-1):',
+      '  • Amoxicillin 1 غ PO كل 8 ساعات × 5 أيام (الخيار الأول)',
+      '  • أو Doxycycline 100 مغ PO كل 12 ساعة × 5 أيام',
+      '  • Azithromycin وحيد: فقط إن مقاومة البكتيريا المحلية < 25%',
+      '',
+      'مرضى لديهم أمراض مزمنة أو CURB-65 = 1-2 (علاج خارجي حذر):',
+      '  • Amoxicillin/Clavulanate 625 مغ PO كل 8 ساعات + Azithromycin 500 مغ × 5 أيام',
+      '  • أو Fluoroquinolone (Levofloxacin 750 مغ PO) وحيد',
+      '',
+      'دخول المستشفى (CAP متوسط-شديد، CURB-65 ≥2):',
+      '  • Ceftriaxone 1-2 غ IV يومياً + Azithromycin 500 مغ IV/PO',
+      '  • أو Levofloxacin 750 مغ IV',
+      '',
+      'مدة العلاج: 5 أيام كحد أدنى، مع استقرار سريري (حرارة طبيعية، علامات حيوية، قدرة على الأكل)',
+      'متابعة في 48-72 ساعة — فشل الاستجابة → تحويل',
+      'اعط Oseltamivir 75 مغ BID × 5 أيام إن اشتبه الإنفلونزا (خلال 48 ساعة من الأعراض)'
+    ],
+    management_en: [
+      'CURB-65 = 0-1: outpatient treatment possible with clear follow-up',
+      'CURB-65 ≥ 2: refer to hospital',
+      'CURB-65 ≥ 3: urgent referral, consider ICU',
+      'Oxygen to maintain SpO2 > 92%',
+      'IV fluids if dehydration or sepsis',
+      'Empiric antibiotic based on severity:',
+      '  • Outpatient: Amoxicillin 1 g TDS PO or Doxycycline 100 mg BID',
+      '  • Inpatient: Ceftriaxone 1-2 g IV + Azithromycin 500 mg IV/PO',
+      '  • Warning: Macrolide monotherapy not recommended per ATS/IDSA due to resistance',
+      'Paracetamol for fever (avoid NSAIDs in sepsis)',
+      'Early sepsis treatment if shock signs'
+    ],
+    medications_ar: [
+      {
+        name: 'Amoxicillin',
+        dose: '1 g PO TID x 5d (CAP خفيف)'
+      },
+      {
+        name: 'Doxycycline',
+        dose: '100 mg PO BID x 5d (بديل)'
+      },
+      {
+        name: 'Amoxicillin/Clavulanate',
+        dose: '625 mg PO TID + Azithromycin'
+      },
+      {
+        name: 'Azithromycin',
+        dose: '500 mg day 1 → 250 mg/day x 4d (combination only)'
+      },
+      {
+        name: 'Ceftriaxone',
+        dose: '1-2 g IV/IM daily (inpatient)'
+      },
+      {
+        name: 'Levofloxacin',
+        dose: '750 mg PO/IV daily'
+      },
+      {
+        name: 'Oseltamivir (influenza)',
+        dose: '75 mg PO BID x 5d'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO/IV q6h'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Amoxicillin (outpatient)',
+        dose: '1 g TDS PO x 5-7d'
+      },
+      {
+        name: 'Doxycycline (outpatient alt.)',
+        dose: '100 mg BID PO x 5-7d'
+      },
+      {
+        name: 'Ceftriaxone (inpatient)',
+        dose: '1-2 g IV OD'
+      },
+      {
+        name: 'Azithromycin',
+        dose: '500 mg IV/PO OD x 3-5d'
+      },
+      {
+        name: 'Levofloxacin (alternative)',
+        dose: '750 mg IV/PO OD'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '500-1000 mg PO/IV q6h'
+      },
+      {
+        name: 'IV Fluids',
+        dose: 'NS 1-2 L if dehydrated/septic'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'Titrate to SpO2 > 92%'
+      }
+    ],
+    referral_ar: 'تحويل عند: CURB-65 ≥ 2، SpO2 < 92%، اشتباه MERS/COVID، قصور قلبي/كلوي مصاحب، فشل العلاج في 48-72 ساعة. اشتباه MERS: عزل فوري + بلاغ فوري لصحة الحج + نقل مع احتياطات تنفسية.',
+    referral_en: 'Refer if CURB-65 ≥ 2, SpO2 < 92%, sepsis signs, chronic comorbidities, failed outpatient treatment, or MERS-CoV suspicion. Isolation if suspected viral/atypical infection.',
+    documentation_ar: 'الأعراض وبدايتها، نتيجة CURB-65 مفصّلة، SpO2 على الهواء الغرفي، تاريخ احتكاك الإبل/السفر، الأدوية، حالة التطعيمات (Pneumococcal, Influenza).',
+    documentation_en: 'Symptom onset, CURB-65 score, SpO2, chest exam, antibiotic started with first dose time, disposition, MERS-CoV criteria if relevant.',
+    sources: 'ATS/IDSA 2019 CAP Guidelines (updated 2025) · Saudi MoH Hajj Respiratory Surveillance'
+  },
+  {
+    id: 'uri',
+    category: 'respiratory',
+    severity: 'stable',
+    title_ar: 'عدوى الجهاز التنفسي العلوي',
+    title_en: 'Upper Respiratory Infection / Flu / COVID / MERS screening',
+    preview_ar: 'أعراض شائعة: احتقان، سعال، حمى. تحتاج فرز دقيق لاستبعاد MERS وCOVID.',
+    preview_en: 'Common presentation during Hajj. Differentiate bacterial vs. viral and screen for MERS-CoV with camel contact.',
+    definition_ar: 'معظم حالات URI في الحج فيروسية (Rhinovirus، Influenza، COVID-19). القلق الأكبر هو MERS-CoV — خاصة بعد تفشي 2024 في الرياض (عدوى مستشفى مع حالات بدون احتكاك مباشر بإبل). معايير الفرز والعزل حرجة. تنبيه: Saudi MoH ضمّنت MERS-CoV في خوارزمية المراقبة الوطنية (sentinel surveillance) منذ 2023.',
+    definition_en: 'Upper respiratory symptoms — rhinorrhea, sore throat, cough, mild fever. Mostly viral and self-limiting. Critical during Hajj: screening for MERS-CoV (camel contact), Influenza, and COVID-19. CDC 2024 has updated MERS-CoV case definition.',
+    redFlags_ar: [
+      'حمى ≥ 38°م + سعال + ضيق تنفس → فحص MERS/COVID/Influenza',
+      'احتكاك بإبل خلال 14 يوم (حليب، لحم، زيارة مزارع) → اشتباه MERS',
+      'مخالطة مصاب مؤكد أو متوفى بالتهاب رئوي → عدوى مستشفى محتملة',
+      'تدهور تنفسي سريع، SpO2 < 92%',
+      'قصور كلوي حاد مع أعراض تنفسية',
+      'أعراض جهازية: قيء، إسهال، صداع شديد (MERS يسبب هذا)'
+    ],
+    redFlags_en: [
+      'Fever + cough + shortness of breath + camel contact = MERS suspect',
+      'SpO2 < 94% (uncommon in simple URI)',
+      'Severe chest pain or pleuritic pain',
+      'Confusion or altered consciousness',
+      'Persistent high fever > 39°C for more than 3 days',
+      'Signs of sepsis or dehydration'
+    ],
+    assessment_ar: [
+      'فرز في منطقة مخصصة (triage)',
+      'قياس حرارة، SpO2، معدل تنفس، ضغط، نبض',
+      'سؤال عن: احتكاك إبل، سفر، مخالطة مرضى، حمى المسجد، تطعيمات',
+      'فحص الصدر، الحنجرة، الغدد الليمفاوية',
+      'فحص سريع للإنفلونزا/كوفيد إن متوفر',
+      'صورة صدر إن أعراض تنفسية سفلى'
+    ],
+    assessment_en: [
+      'Full vital signs including SpO2 (essential)',
+      'Pulmonary exam',
+      'Camel or healthcare facility contact history (MERS screening)',
+      'Travel history and recent vaccinations',
+      'Assess severity — upper vs. lower airway',
+      'MERS-CoV test if suspected'
+    ],
+    management_ar: [
+      'إجراءات العزل الفورية إن اشتباه MERS/COVID:',
+      '  • قناع جراحي للمريض، قناع N95 + واقي عين + عباءة + قفازات للطبيب',
+      '  • غرفة عزل ذات ضغط سلبي إن متوفرة، وإلا غرفة مغلقة بتهوية جيدة',
+      '  • بلاغ فوري لصحة الحج وقسم مكافحة العدوى',
+      '  • نقل للمستشفى المرجعي بعد تنسيق',
+      '',
+      'URI فيروسي بسيط (لا حمى عالية، لا علامات خطر):',
+      '  • راحة، سوائل فموية',
+      '  • Paracetamol للحمى والألم',
+      '  • مضادات احتقان وقطرات أنف ملحية',
+      '  • تعليم نظافة اليدين والكمامة',
+      '  • لا مضاد حيوي روتينياً',
+      '',
+      'Influenza مؤكد أو مشتبه (خلال 48 ساعة):',
+      '  • Oseltamivir 75 مغ BID × 5 أيام — يقلل المدة ومخاطر المضاعفات',
+      '  • خاصة: كبار السن، حامل، أمراض مزمنة',
+      '',
+      'MERS-CoV مشتبه: لا علاج محدد متوفر — رعاية داعمة ونقل لمستشفى مرجعي',
+      'COVID-19 مؤكد: حسب بروتوكول المركز (Paxlovid للعرضة للمضاعفات إن متوفر)'
+    ],
+    management_en: [
+      'If simple URI: symptomatic treatment (fluids, rest, Paracetamol, saline nasal rinse)',
+      'Not all need antibiotics — most URIs are viral',
+      'If Streptococcal pharyngitis suspected (CENTOR/McIsaac): Penicillin or Amoxicillin',
+      'If Influenza confirmed within 48h of onset: Oseltamivir 75 mg BID x 5d (especially high-risk)',
+      'If MERS suspected: isolate immediately, notify infection control, test, refer',
+      'If COVID suspected: isolate, test, refer for treatment if high-risk',
+      'Mask for patient and staff during exam'
+    ],
+    medications_ar: [
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO q6h (max 4 g/day)'
+      },
+      {
+        name: 'Oseltamivir (flu)',
+        dose: '75 mg PO BID x 5d'
+      },
+      {
+        name: 'Chlorpheniramine',
+        dose: '4 mg PO q6h (allergy-like symptoms)'
+      },
+      {
+        name: 'Saline nasal drops',
+        dose: 'PRN for congestion'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Paracetamol',
+        dose: '500-1000 mg PO q6h'
+      },
+      {
+        name: 'Oseltamivir (influenza)',
+        dose: '75 mg BID PO x 5d'
+      },
+      {
+        name: 'Amoxicillin (Strep.)',
+        dose: '500 mg TDS PO x 10d'
+      },
+      {
+        name: 'Nasal saline',
+        dose: 'PRN'
+      }
+    ],
+    referral_ar: 'تحويل: اشتباه MERS/COVID، SpO2 < 92%، حالة عامة متدهورة، أمراض مزمنة شديدة، حمل، تشوش. بلاغ وبائي إلزامي عند اشتباه MERS (خلال 24 ساعة).',
+    referral_en: 'Refer: MERS suspected (isolate and notify), COVID high-risk requiring treatment, signs of pneumonia, sepsis, SpO2 < 94%, or elderly/chronic disease with severe illness.',
+    documentation_ar: 'الأعراض وبدايتها، احتكاك إبل/سفر/مخالطة، العلامات الحيوية، نتائج الفحوصات السريعة، الأدوية، إجراءات العزل، البلاغ الوبائي.',
+    documentation_en: 'Symptoms and duration, camel or travel contact, vaccination history, temperature, SpO2, isolation measures, MERS criteria.',
+    sources: 'Saudi MoH Sentinel Surveillance Algorithm · CDC 2024 Updated MERS PUI Criteria · WHO MERS-CoV Guidance'
+  },
+  {
+    id: 'stroke',
+    category: 'neuro',
+    severity: 'critical',
+    title_ar: 'السكتة الدماغية',
+    title_en: 'Acute Stroke / TIA',
+    preview_ar: 'خلل عصبي مفاجئ — استخدم FAST. الوقت دماغ. نوافذ العلاج ممتدة الآن حتى 24 ساعة في حالات مختارة.',
+    preview_en: 'Time is brain. Sudden focal neurological deficit. FAST screening and immediate transfer to stroke center.',
+    definition_ar: 'اضطراب مفاجئ في الوظيفة العصبية نتيجة نقص التروية (80%) أو نزف (20%). التعرف السريع وتحويل عاجل قد ينقذ نسيج الدماغ. الإرشادات الحديثة (2026) وسّعت نوافذ العلاج بشكل كبير بالتصوير المتقدم.',
+    definition_en: 'Sudden occurrence of focal neurological deficit due to vascular cause — ischemic (85%) or hemorrhagic (15%). Use FAST (Face, Arm, Speech, Time) or BE-FAST (+ Balance, Eyes) for early screening. Time is brain — every minute counts.',
+    redFlags_ar: [
+      'FAST: Face (انحراف وجه)، Arm (ضعف ذراع)، Speech (اضطراب كلام)، Time (اتصل بالطوارئ)',
+      'تدهور الوعي المفاجئ',
+      'صداع شديد مفاجئ (نزفي؟)',
+      'تشنج مصاحب',
+      'ضعف نصفي أو اضطراب كلام',
+      'اضطراب بصري أو دوار مع ترنح (فقاري قاعدي)'
+    ],
+    redFlags_en: [
+      'Facial droop (F)',
+      'Arm weakness (A)',
+      'Speech difficulty (S)',
+      'Any focal neurological deficit',
+      'Severe headache + vomiting (consider hemorrhage)',
+      'Altered consciousness or seizure'
+    ],
+    assessment_ar: [
+      'FAST سريع + RACE إن متوفر لاكتشاف LVO',
+      'وقت آخر مرة شوهد فيه طبيعياً (Last Known Well) — حرج لنوافذ العلاج',
+      'فحص عصبي كامل (GCS، أعصاب قحفية، قوة، إحساس، ترنح)',
+      'ضغط الدم، السكر، ECG',
+      'استبعاد نقص السكر — يقلد السكتة ويُصحّح فوراً'
+    ],
+    assessment_en: [
+      'ABC + glucose (rule out hypoglycemia)',
+      'NIHSS if trained (or simplified FAST)',
+      'BP in both arms',
+      'Exact time of symptom onset (or "last known well")',
+      'Check for atrial fibrillation on exam/ECG',
+      'Relevant medications (anticoagulants, antiplatelets)'
+    ],
+    management_ar: [
+      'ABC + استلقاء مع رفع الرأس 30°',
+      'أكسجين فقط إذا SpO2 < 94% (ليس روتينياً)',
+      'فتح وريد (تجنب ذراع الضعف)',
+      'فحص سكر فوراً — صحح النقص (< 70) بـ Dextrose',
+      '⚠️ لا تخفض الضغط قبل الوصول للمستشفى (INTERACT4 2024) — إلا إذا ضرر أعضاء واضح',
+      'في المستشفى (بعد CT): إذا ضغط > 220/120 بلا علاج سكتة، خفض تدريجي 15% فقط',
+      'قبل الـ Thrombolysis: هدف BP < 185/110',
+      'بعد الـ Thrombolysis/EVT: هدف BP < 180/105 لمدة 24 ساعة',
+      'لا تعطِ Aspirin قبل صورة CT (لاستبعاد النزف)',
+      'لا تعطِ GTN قبل المستشفى — قد يضر في النزف',
+      'لا تخفض السكر بشكل مكثّف (80-130 مغ/دل غير موصى به)',
+      'تحويل فوري لمركز سكتة — أبلغ المركز قبل الوصول بالحالة و Last Known Well',
+      'الوقت دماغ — كل دقيقة = 2 مليون عصبون'
+    ],
+    management_en: [
+      'Keep head elevated 30°, NPO until swallowing assessed',
+      'Do NOT lower BP aggressively (BP supports cerebral perfusion) unless > 220/120 or going for thrombolysis',
+      'Oxygen only if SpO2 < 94%',
+      'IV access, NS (avoid dextrose unless hypoglycemic)',
+      'Treat hypoglycemia immediately (D50 25-50 mL IV) and fever (Paracetamol)',
+      'AHA/ASA 2026 guideline: thrombolysis window extended in select cases',
+      'Tenecteplase preferred over Alteplase in recent guidelines (if available)',
+      'Large Vessel Occlusion (LVO): thrombectomy possible up to 24h from onset in select cases',
+      'Wake-up stroke: thrombolysis possible per MRI criteria',
+      'Immediate transfer to nearest stroke-capable center'
+    ],
+    medications_ar: [
+      {
+        name: 'Oxygen',
+        dose: 'Only if SpO2 < 94%'
+      },
+      {
+        name: 'Dextrose 50%',
+        dose: '20-50 ml IV if glucose < 70'
+      },
+      {
+        name: 'Aspirin',
+        dose: 'NOT before CT'
+      },
+      {
+        name: 'Alteplase or Tenecteplase',
+        dose: 'In-hospital only — both now acceptable'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Oxygen',
+        dose: 'Only if SpO2 < 94%'
+      },
+      {
+        name: 'NS 0.9%',
+        dose: 'Maintenance — avoid dextrose unless hypoglycemic'
+      },
+      {
+        name: 'D50 (if glucose < 60)',
+        dose: '25-50 mL IV'
+      },
+      {
+        name: 'Paracetamol (for fever)',
+        dose: '1 g IV/PO'
+      }
+    ],
+    referral_ar: 'تحويل فوري عاجل جداً لمركز سكتة. نوافذ العلاج الحديثة (2026): Alteplase أو Tenecteplase خلال 4.5 ساعة؛ نافذة ممتدة 4.5-9 ساعات مع تصوير متقدم؛ Wake-up stroke مُرشّح؛ LVO قد يُعالج حتى 24 ساعة. أبلغ المركز قبل الوصول. المرافقة الطبية ضرورية.',
+    referral_en: 'Immediate transfer to stroke center. Notify before transfer with onset time and NIHSS score. Do not delay for imaging in the clinic — "Time is brain." Every minute lost = 1.9 million neurons lost.',
+    documentation_ar: 'Last Known Well (حرج)، وقت بداية الأعراض، FAST+RACE، GCS، العلامات الحيوية، السكر، الأدوية المنزلية (خاصة مميعات الدم مثل Warfarin/NOACs).',
+    documentation_en: 'Exact symptom onset time (or last known well), NIHSS or FAST, vital signs, glucose, anticoagulants, time of transfer, receiving facility.',
+    sources: '2026 AHA/ASA Guideline for Early Management of Acute Ischemic Stroke · INTERACT4 2024'
+  },
+  {
+    id: 'syncope',
+    category: 'neuro',
+    severity: 'warning',
+    title_ar: 'الإغماء',
+    title_en: 'Syncope',
+    preview_ar: 'فقدان وعي مؤقت مع استعادة تلقائية. أسباب قلبية أم لاقلبية تحدد الخطر.',
+    preview_en: 'Sudden brief loss of consciousness with spontaneous recovery. Most vasovagal, but rule out cardiac cause.',
+    definition_ar: 'فقدان مؤقت للوعي مع استعادة تلقائية كاملة. الأسباب: vasovagal (الأشيع)، اضطراب نظم قلبي، انخفاض ضغط وضعي، نقص سكر، أو مرتبط بالحرارة.',
+    definition_en: 'Sudden transient loss of consciousness due to reduced cerebral perfusion, with spontaneous recovery. Most cases are vasovagal (benign), but some are cardiac (dangerous). Use San Francisco Syncope Rule (CHESS) for risk stratification.',
+    redFlags_ar: [
+      'إغماء أثناء المجهود أو في وضع الاستلقاء',
+      'ألم صدري أو خفقان مصاحب',
+      'تاريخ عائلي لموت فجائي',
+      'تغيرات ECG',
+      'إصابة شديدة من السقوط'
+    ],
+    redFlags_en: [
+      'C: Congestive heart failure history',
+      'H: Hematocrit < 30%',
+      'E: Abnormal ECG',
+      'S: Shortness of breath',
+      'S: Systolic BP < 90 at any point',
+      '(Any one of these = high risk, refer)'
+    ],
+    assessment_ar: [
+      'ABC وعلامات حيوية',
+      'ECG 12 lead لكل حالة إغماء',
+      'ضغط الدم في الاستلقاء والوقوف',
+      'فحص عصبي وقلبي',
+      'قياس سكر',
+      'تاريخ الأحداث قبل وأثناء وبعد'
+    ],
+    assessment_en: [
+      'ABC',
+      'Full history (before, during, after event)',
+      'ECG for all adult syncope cases',
+      'BP and postural drop',
+      'Cardiac and neurological exam',
+      'Apply San Francisco Rule (CHESS)'
+    ],
+    management_ar: [
+      'استلقاء ورفع الساقين 30-45°',
+      'سوائل IV (Ringer Lactate أو NS 500 مل) للجفاف أو الانخفاض الوضعي',
+      'فحص السكر وتصحيح النقص',
+      'علاج السبب الكامن (قيء، ألم، قلق)',
+      'إذا سبب قلبي محتمل — مراقبة ECG مستمرة وتحويل عاجل',
+      'تحذير المريض من القيادة والأماكن الخطرة حتى التقييم',
+      '',
+      'استخدم San Francisco Syncope Rule (CHESS) لتحديد الخطر — أي منها يعني تحويل:',
+      '  • C: CHF history (قصور قلب)',
+      '  • H: Hematocrit < 30%',
+      '  • E: ECG abnormal',
+      '  • S: Shortness of breath',
+      '  • S: Systolic BP < 90 في أي وقت'
+    ],
+    management_en: [
+      'Supine position with leg elevation',
+      'Assess glucose, exclude hypoglycemia',
+      'IV fluids if dehydration or postural drop',
+      'Monitor until full recovery',
+      'If CHESS negative and clear vasovagal cause: reassure and discharge with instructions',
+      'If any red flag: refer'
+    ],
+    medications_ar: [
+      {
+        name: 'Ringer Lactate أو NS',
+        dose: '500 ml IV if dehydrated'
+      },
+      {
+        name: 'Dextrose 50%',
+        dose: '25-50 ml IV if hypoglycemia'
+      },
+      {
+        name: 'Ondansetron',
+        dose: '4 mg IV if nausea'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'NS 0.9%',
+        dose: '500-1000 mL IV if volume depletion'
+      },
+      {
+        name: 'Glucose',
+        dose: 'If hypoglycemia'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'If needed'
+      }
+    ],
+    referral_ar: 'تحويل: إغماء أثناء المجهود، مصحوب بألم صدري أو خفقان، ECG غير طبيعي، تاريخ قلبي، CHF، أي معيار CHESS، إصابة شديدة، أو كبار السن > 65. Vasovagal بسيط واضح (قبل المجهود، حرارة، صوم) مع ECG طبيعي وفحص عادي يمكن تسريحه مع نصائح.',
+    referral_en: 'Refer: any CHESS criterion, recurrent syncope, syncope on exertion, positive cardiac/family history, abnormal ECG, suspected cardiac cause, fall with injury.',
+    documentation_ar: 'الأحداث قبل الإغماء (ظروف، أعراض تحذيرية)، مدة فقدان الوعي، علامات تشنج، ECG، العلامات الحيوية orthostatic، نتيجة CHESS، الأدوية.',
+    documentation_en: 'Setting of event, duration of loss of consciousness, preceding symptoms, post-event recovery, ECG, vital signs, CHESS assessment.',
+    sources: 'ACEP 2019 Clinical Policy on Syncope · San Francisco Syncope Rule'
+  },
+  {
+    id: 'seizure',
+    category: 'neuro',
+    severity: 'critical',
+    title_ar: 'التشنجات',
+    title_en: 'Seizure / Status Epilepticus',
+    preview_ar: 'نوبة تشنجية — حماية المريض وإعطاء بنزوديازيبين إذا تجاوزت 5 دقائق. الجرعة الكاملة > جرعات صغيرة.',
+    preview_en: 'Continuous seizure > 5 min or recurrent seizures without recovery between = Status Epilepticus. Medical emergency.',
+    definition_ar: 'نوبة عصبية نتيجة نشاط كهربائي غير طبيعي في الدماغ. قد تكون متكررة (صرع معروف) أو أولى (تستدعي بحث السبب). Status epilepticus = نوبة > 5 دقائق أو نوبات متتالية بدون استعادة وعي بينها — طارئ عصبي.',
+    definition_en: 'Abnormal cortical electrical activity causing motor, sensory, or cognitive manifestations. Status Epilepticus is defined as: continuous seizure > 5 min, or two or more seizures without recovery of consciousness between. This is a medical emergency — cellular injury begins after 30 min.',
+    redFlags_ar: [
+      'النوبة الأولى في العمر',
+      'Status epilepticus (> 5 دقائق)',
+      'إصابة رأس حديثة',
+      'حمى مع تشنج (التهاب سحايا؟ ضربة شمس؟)',
+      'أعراض عصبية بؤرية بعد النوبة',
+      'نوبة بعد سكتة دماغية أو نزف'
+    ],
+    redFlags_en: [
+      'Seizure > 5 minutes (Status Epilepticus)',
+      'First seizure in an adult',
+      'Seizure with fever or altered consciousness',
+      'Head trauma',
+      'Pregnancy (consider eclampsia)',
+      'Post-seizure with confusion > 30 min'
+    ],
+    assessment_ar: [
+      'ABC أثناء وبعد النوبة',
+      'توقيت بداية ومدة النوبة',
+      'فحص عصبي بعد النوبة',
+      'سكر، حرارة، علامات حيوية',
+      'تاريخ صرع والأدوية والالتزام',
+      'بحث سبب (صدمة، حمى، سكر، سحايا، تسمم)'
+    ],
+    assessment_en: [
+      'ABC — airway is the first priority',
+      'Protect from injury (do not restrain, do not put anything in mouth)',
+      'Glucose — rule out hypoglycemia',
+      'Duration of seizure (start time)',
+      'History (epilepsy, medications, trauma, fever, pregnancy)',
+      'Neurological exam and vital signs after the event'
+    ],
+    management_ar: [
+      'حماية الرأس وإبعاد الأشياء الخطرة',
+      'وضع جانبي بعد توقف التشنج',
+      'لا تضع شيء في الفم',
+      'فتح المجرى التنفسي وأكسجين',
+      'قياس سكر فوري — صحح النقص (< 70) بـ Dextrose 50% 25-50 مل IV',
+      'إذا النوبة > 5 دقائق (First-line Benzodiazepines — الجرعة الكاملة في دفعة واحدة):',
+      '  • مع وريد: Lorazepam 0.1 مغ/كغ IV (4 مغ) — الأفضل',
+      '  • أو Diazepam 0.15 مغ/كغ IV (10 مغ)',
+      '  • بدون وريد: Midazolam 10 مغ IM أو buccal أو intranasal',
+      'إن استمرت النوبة بعد جرعتين من البنزوديازيبين — Status Epilepticus (Second-line، متكافئة حسب ESETT Trial):',
+      '  • Levetiracetam 60 مغ/كغ IV (max 4,500 مغ) — مفضّل حديثاً',
+      '  • أو Fosphenytoin/Phenytoin 20 مغ/كغ IV',
+      '  • أو Valproate 40 مغ/كغ IV (max 3,000 مغ)',
+      'إذا استمرت: Refractory SE — تحويل ICU للتنبيب والمخدر (Midazolam/Propofol infusion)'
+    ],
+    management_en: [
+      'Protect airway, lateral position',
+      'Oxygen high-flow, suction if needed',
+      'Glucose if low or unable to measure: D50 25-50 mL IV',
+      'Benzodiazepine at 5 min (per AES 2016):',
+      '  • Lorazepam 4 mg IV (preferred if available)',
+      '  • Or Midazolam 10 mg IM (if no IV)',
+      '  • Or Diazepam 10 mg IV or PR',
+      'If not responding at 10 min: repeat benzodiazepine dose',
+      'Second-line at 20 min (one of):',
+      '  • Levetiracetam 60 mg/kg IV (max 4500 mg) over 10 min — preferred (ESETT trial)',
+      '  • Or Phenytoin/Fosphenytoin 20 mg/kg IV',
+      '  • Or Valproate 40 mg/kg IV',
+      'If not controlled: prepare for intubation and general anesthesia',
+      'In pregnancy with seizure: Magnesium sulfate 4-6 g IV + emergency OB transfer',
+      'Immediate transfer to tertiary center'
+    ],
+    medications_ar: [
+      {
+        name: 'Lorazepam',
+        dose: '0.1 mg/kg IV (typical 4 mg)'
+      },
+      {
+        name: 'Midazolam',
+        dose: '10 mg IM/buccal/intranasal'
+      },
+      {
+        name: 'Diazepam',
+        dose: '0.15 mg/kg IV (10 mg)'
+      },
+      {
+        name: 'Dextrose 50%',
+        dose: '25-50 ml IV if hypoglycemia'
+      },
+      {
+        name: 'Levetiracetam (2nd line)',
+        dose: '60 mg/kg IV (max 4500 mg)'
+      },
+      {
+        name: 'Phenytoin/Fosphenytoin',
+        dose: '20 mg/kg IV'
+      },
+      {
+        name: 'Valproate (2nd line)',
+        dose: '40 mg/kg IV (max 3000 mg)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Lorazepam',
+        dose: '4 mg IV (preferred)'
+      },
+      {
+        name: 'Midazolam',
+        dose: '10 mg IM (if no IV)'
+      },
+      {
+        name: 'Diazepam',
+        dose: '10 mg IV or PR'
+      },
+      {
+        name: 'Levetiracetam (second-line)',
+        dose: '60 mg/kg IV, max 4500 mg'
+      },
+      {
+        name: 'Phenytoin (alternative)',
+        dose: '20 mg/kg IV slowly'
+      },
+      {
+        name: 'Magnesium (eclampsia)',
+        dose: '4-6 g IV over 15 min'
+      },
+      {
+        name: 'D50 (if hypoglycemic)',
+        dose: '25-50 mL IV'
+      }
+    ],
+    referral_ar: 'تحويل: النوبة الأولى، Status Epilepticus، إصابة شديدة، حمى، نوبات متكررة رغم العلاج، أو إذا لم يستعد الوعي الكامل خلال 30 دقيقة. تأكيد: الجرعة الكاملة من البنزوديازيبين > جرعات صغيرة متعددة (السبب الأشيع لفشل العلاج).',
+    referral_en: 'Refer: Status Epilepticus, first seizure, seizure with fever/trauma/pregnancy, persistent altered consciousness after event. Brief single seizure in known epileptic returning to baseline: evaluate for home discharge based on clinical judgment.',
+    documentation_ar: 'بداية ومدة النوبة، نوعها (منتشرة/بؤرية)، أدوية الصرع المعتادة، الأدوية المُعطاة (كل جرعة بوقتها)، حالة المريض بعد النوبة، GCS.',
+    documentation_en: 'Exact seizure onset time, type (generalized/focal), duration, medications given with times, response, baseline neurological exam post-event, glucose, antiepileptic medications and adherence.',
+    sources: 'American Epilepsy Society 2016 Guideline · ACEP 2024 Clinical Policy on Seizures · ESETT Trial 2020'
+  },
+  {
+    id: 'gastro',
+    category: 'gi',
+    severity: 'stable',
+    title_ar: 'النزلات المعوية',
+    title_en: 'Acute Gastroenteritis',
+    preview_ar: 'إسهال وقيء — معظمها فيروسي. التركيز على الإماهة وعزل الحالات الجماعية.',
+    preview_en: 'Acute diarrhea (≥3 stools/day) with or without vomiting, nausea, abdominal pain. Mostly viral and self-limiting.',
+    definition_ar: 'التهاب الجهاز الهضمي — إسهال (≥3 مرات/يوم) مع أو بدون قيء، غثيان، ألم بطن. معظمها فيروسي ذاتي الشفاء (Norovirus، Rotavirus). البكتيري أشد وأطول (Shigella، Salmonella، Campylobacter، E.coli). في الحج، التجمعات ترفع خطر الانتشار بشكل كبير.',
+    definition_en: 'Inflammation of the GI tract causing acute diarrhea (≥3 stools/day) with or without vomiting, nausea, and abdominal pain. Most cases are viral and self-limiting. During Hajj: watch for food- or water-borne outbreaks — a cluster may indicate cholera or shigellosis.',
+    redFlags_ar: [
+      'جفاف شديد أو صدمة',
+      'دم في البراز (dysentery) → مضاد حيوي',
+      'حمى عالية > 39°م',
+      'ألم بطن شديد مستمر أو موضعي (استبعد appendicitis، cholecystitis)',
+      'قيء دموي أو صفراوي',
+      'حالات جماعية من مخيم واحد → إبلاغ فوري (احتمال تفشي، كوليرا، تسمم غذائي)',
+      'مريض كبير السن أو مزمن أو حامل'
+    ],
+    redFlags_en: [
+      'Severe bloody diarrhea',
+      'Severe dehydration (hypotension, anuria)',
+      'High fever > 39°C with severe abdominal pain',
+      'Altered consciousness',
+      'Vomiting preventing oral intake',
+      'Similar cases in the same camp (outbreak)',
+      'Elderly or chronically ill with rapid deterioration'
+    ],
+    assessment_ar: [
+      'تقييم الجفاف (علامات جلدية، غشاء مخاطي، ضغط انتصابي)',
+      'العلامات الحيوية كاملة',
+      'فحص بطن (حنان، دفاع، bowel sounds، علامات peritonitis)',
+      'فحص البراز (دم، مخاط، لون، رائحة)',
+      'سؤال عن: حالات مشابهة في المخيم، آخر وجبة، سفر، ماء غير آمن',
+      'تقييم قدرة الحاج على الشرب (لو يتقيأ، يحتاج IV)'
+    ],
+    assessment_en: [
+      'Assess dehydration severity',
+      'BP, pulse, urine output',
+      'Abdominal exam (tenderness, guarding, peristalsis)',
+      'Vomiting and diarrhea frequency and duration',
+      'Fever and blood in stool',
+      'Food or water contact history',
+      'Similar cases nearby (epidemiological)'
+    ],
+    management_ar: [
+      'إعادة الإماهة الفموية (ORS) هي الأساس: 50 مل/كغ خلال 4 ساعات، ثم 100-200 مل بعد كل إخراج',
+      'ORS أفضل من السوائل السكرية (عصائر، مشروبات رياضية)',
+      'IV fluids (NS أو Ringer Lactate) إذا قيء مستمر، لا يستطيع شرب، أو جفاف شديد',
+      'Ondansetron 4-8 مغ PO/IV للقيء الشديد — يحسّن تحمّل ORS',
+      'استمرار الأكل الخفيف بمجرد تحمّله (bananas, rice, applesauce, toast - BRAT)',
+      'لا مضادات حيوية روتينياً — الأشيع فيروسي',
+      'Loperamide 4 مغ ثم 2 مغ بعد كل إخراج (⚠️ ممنوع مع حمى أو دم أو اشتباه C. difficile أو قولون تقرحي)',
+      '',
+      'المضاد الحيوي فقط في:',
+      '  • إسهال دموي مع حمى شديدة',
+      '  • سفر حديث لمناطق موبوءة',
+      '  • جفاف شديد',
+      '  • كبير السن أو مزمن',
+      '  • Azithromycin 500 مغ × 3 أيام (مفضّل حالياً بسبب مقاومة Fluoroquinolones)',
+      '  • أو Ciprofloxacin 500 مغ × 3 أيام (إذا Azithromycin غير متاح، ومقاومة المنطقة منخفضة)',
+      '',
+      'التجمعات الوبائية: إبلاغ فوري لصحة الحج + عزل + كلور للماء',
+      'اشتباه كوليرا (إسهال مائي غزير كحليب الأرز + جفاف سريع): مضاد حيوي + سوائل مكثفة + عزل + بلاغ فوري'
+    ],
+    management_en: [
+      'Rehydration is the cornerstone — Oral Rehydration Solution (ORS) for mild/moderate cases',
+      'IV fluids (NS or Ringer Lactate) for severe or unable to tolerate oral',
+      'Ondansetron 4-8 mg IV/IM for vomiting (improves oral tolerance)',
+      'Do not use antidiarrheals (Loperamide) if: blood in stool, high fever, or severe illness',
+      'Most cases do not need antibiotics',
+      'Antibiotics if: severe bloody diarrhea, high fever, immunocompromised — Azithromycin 500 mg OD x 3d (first choice) or Ciprofloxacin 500 mg BID',
+      'Isolation and reporting if epidemic suspected',
+      'Diet: continue normal feeding after rehydration (BRAT diet not necessary)'
+    ],
+    medications_ar: [
+      {
+        name: 'ORS',
+        dose: '50 ml/kg over 4h then 100-200 ml after each stool'
+      },
+      {
+        name: 'Ondansetron',
+        dose: '4-8 mg IV/IM/PO'
+      },
+      {
+        name: 'Loperamide',
+        dose: '4 mg then 2 mg PRN (avoid if blood/fever)'
+      },
+      {
+        name: 'Azithromycin (bloody/severe)',
+        dose: '500 mg PO daily x 3d'
+      },
+      {
+        name: 'Ciprofloxacin (alt)',
+        dose: '500 mg PO BID x 3d'
+      },
+      {
+        name: 'NS / Ringer Lactate',
+        dose: '1-2 L IV if severe dehydration'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'ORS',
+        dose: '50 ml/kg over 4h then 100-200 ml after each stool'
+      },
+      {
+        name: 'Ondansetron',
+        dose: '4-8 mg IV/IM/PO'
+      },
+      {
+        name: 'Loperamide',
+        dose: '4 mg then 2 mg PRN (avoid if blood/fever)'
+      },
+      {
+        name: 'Azithromycin (bloody/severe)',
+        dose: '500 mg PO daily x 3d'
+      },
+      {
+        name: 'Ciprofloxacin (alt)',
+        dose: '500 mg PO BID x 3d'
+      },
+      {
+        name: 'NS / Ringer Lactate',
+        dose: '1-2 L IV if severe dehydration'
+      }
+    ],
+    referral_ar: 'تحويل عند: جفاف شديد غير مستجيب، إسهال دموي مع حمى شديدة، بطن حاد، كبار السن بأمراض مزمنة، اشتباه كوليرا، أو تفشي جماعي. إبلاغ وبائي لصحة الحج في الحالات الجماعية.',
+    referral_en: 'Refer: severe unresponsive dehydration, bloody diarrhea with high fever, severe abdominal pain, elderly with chronic disease, cholera suspicion, epidemiological reporting in group outbreaks.',
+    documentation_ar: 'عدد مرات الإسهال/القيء، وجود دم، العلامات الحيوية، درجة الجفاف، السوائل المُعطاة، وجود حالات مشابهة في المخيم.',
+    documentation_en: 'Number of diarrhea/vomiting episodes, presence of blood, vital signs, degree of dehydration, fluids given, similar cases in camp.',
+    sources: 'IDSA 2017 Practice Guidelines for Acute Diarrhea · CDC 2024 Travelers Diarrhea Guidance · WHO ORS Protocol'
+  },
+  {
+    id: 'glucose',
+    category: 'gi',
+    severity: 'critical',
+    title_ar: 'اضطرابات السكر',
+    title_en: 'Hypo/Hyperglycemia & DKA',
+    preview_ar: 'نقص السكر يُعالج فوراً. DKA و HHS حالات خطرة عند مرضى السكري في الحج.',
+    preview_en: 'Common in elderly pilgrims on chronic medications. Early recognition essential to prevent complications.',
+    definition_ar: 'نقص السكر (<70 مغ/دل) قد يسبب وعي متغير وتشنج وموت سريع. ارتفاع السكر الحاد قد يكون DKA (نوع 1 غالباً) أو HHS (نوع 2 مع جفاف شديد). ظروف الحج (صيام، جهد، حرارة) ترفع الخطر. الإرشادات المحدّثة (ADA/EASD 2024) تُفضّل Ringer Lactate على NS.',
+    definition_en: 'Glucose < 70 mg/dL (hypoglycemia) = brain emergency. Glucose > 250 mg/dL with ketones = possible DKA. Glucose > 600 mg/dL with altered consciousness = possible HHS. Common during Hajj due to irregular meals, dehydration, and heat — especially in elderly diabetics.',
+    redFlags_ar: [
+      'نقص السكر مع فقدان وعي',
+      'DKA: تنفس عميق (Kussmaul)، رائحة أسيتون، قيء، جفاف، آلام بطنية',
+      'HHS: جفاف شديد مع سكر > 600 بدون ketones',
+      'سكر > 250 مع ketones + أعراض',
+      'تغير وعي مع سكر غير طبيعي'
+    ],
+    redFlags_en: [
+      'Altered consciousness with known diabetes',
+      'Tachypnea (Kussmaul breathing in DKA)',
+      'Fruity/acetone breath',
+      'Severe dehydration or shock',
+      'Fever or vomiting in diabetic patient'
+    ],
+    assessment_ar: [
+      'قياس سكر فوري في كل حالة تغير وعي أو ضعف',
+      'فحص ketones في البول إن متوفر (أو β-hydroxybutyrate إن متاح)',
+      'العلامات الحيوية',
+      'تقييم درجة الجفاف',
+      'تاريخ الأدوية والوجبات والعدوى المحفّزة',
+      'pH الدم وgap anion إن متاح'
+    ],
+    assessment_en: [
+      'ABC + immediate glucose measurement',
+      'Consciousness level, hydration, vital signs',
+      'Urine ketones and acidosis if available',
+      'Electrolytes if possible (potassium crucial)',
+      'Medication and meal history',
+      'Precipitating cause (infection, missed dose)'
+    ],
+    management_ar: [
+      'نقص السكر + واعي: 15 غ سكر فموي (عصير أو أقراص)، أعد الفحص بعد 15 دقيقة — كرر إن لزم',
+      'نقص السكر + غير واعي: Dextrose 50% 25-50 مل IV، أو Glucagon 1 مغ IM/SC',
+      'DKA/HHS - السوائل (محدّث 2024):',
+      '  • المفضّل: Ringer Lactate أو Plasmalyte (أسرع تعافي وأقل hyperchloremic acidosis)',
+      '  • البديل: NS 0.9% إذا LR غير متوفر',
+      '  • السرعة: 500-1000 مل/ساعة خلال أول 2-4 ساعات (أكثر تحفظاً في كبار السن، القلب، الكلى)',
+      'DKA - الإنسولين (لا بلعة روتينياً الآن):',
+      '  • ابدأ Regular Insulin 0.1 وحدة/كغ/ساعة IV infusion بعد بدء السوائل',
+      '  • الهدف: هبوط السكر 50-75 مغ/دل/ساعة (ليس أسرع)',
+      '  • عند السكر < 250 مغ/دل: بدّل السوائل إلى D5-½NS أو أضف Dextrose',
+      '  • راقب البوتاسيوم — إن < 3.3 أوقف الإنسولين وأعطِ K أولاً؛ إن 3.3-5.3 أضف K للسوائل',
+      'DKA خفيف وغير معقّد: يمكن إدارته بـ Subcutaneous Insulin (تجنب ICU)',
+      'HHS: سرعة سوائل أبطأ، تصحيح تدريجي لتجنب وذمة دماغية',
+      'علاج السبب المحفّز (عدوى، نسيان الدواء، احتشاء)',
+      'بعد استقرار نقص السكر: وجبة أو كربوهيدرات معقدة لمنع التكرار'
+    ],
+    management_en: [
+      'If HYPOGLYCEMIA (glucose < 70):',
+      '  • Conscious: 15-20 g fast carbs orally (juice, glucose tabs), recheck in 15 min',
+      '  • Unconscious: D50 25-50 mL IV, or D10 100-250 mL',
+      '  • If no IV: Glucagon 1 mg IM',
+      '  • Repeat as needed and give complex meal after recovery',
+      'If DKA (Glucose > 250 + ketones + acidosis):',
+      '  • Fluids first: NS 1 L over the first hour (Ringer Lactate preferred per ADA/EASD 2024)',
+      '  • Check potassium before insulin — if K < 3.3, do not start insulin',
+      '  • Insulin infusion 0.1 units/kg/h (no routine bolus per ADA/EASD 2024)',
+      '  • Replace potassium per protocol',
+      '  • Search for and treat precipitating cause',
+      'Urgent transfer to monitoring facility'
+    ],
+    medications_ar: [
+      {
+        name: 'Dextrose 50%',
+        dose: '25-50 ml IV (1 amp)'
+      },
+      {
+        name: 'Glucagon',
+        dose: '1 mg IM/SC'
+      },
+      {
+        name: 'Ringer Lactate (مفضّل)',
+        dose: '500-1000 ml/h x 2-4h'
+      },
+      {
+        name: 'Regular Insulin IV infusion',
+        dose: '0.1 U/kg/h (no bolus routinely)'
+      },
+      {
+        name: 'Potassium',
+        dose: 'Add to fluids if K 3.3-5.3'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'D50 (Hypoglycemia, IV)',
+        dose: '25-50 mL IV bolus'
+      },
+      {
+        name: 'Glucagon (if no IV)',
+        dose: '1 mg IM/SC'
+      },
+      {
+        name: 'Oral glucose',
+        dose: '15-20 g fast sugar'
+      },
+      {
+        name: 'Insulin (DKA)',
+        dose: '0.1 units/kg/h IV infusion (no routine bolus)'
+      },
+      {
+        name: 'NS / Ringer Lactate (DKA)',
+        dose: '1 L over 1st hour then per protocol'
+      }
+    ],
+    referral_ar: 'تحويل: كل DKA وHHS، نقص سكر متكرر أو من أدوية طويلة المفعول (مثل Sulfonylureas)، أي ضعف وعي لم يستعد بالكامل. مراقبة جميع حالات نقص السكر من Sulfonylureas أو Insulin طويل المفعول لـ 24 ساعة.',
+    referral_en: 'Refer: any DKA or HHS, recurrent unresponsive hypoglycemia, hypoglycemia on sulfonylureas (long duration, high risk of relapse), insulin shock, diabetic with fever or severe infection. Simple hypoglycemia with full response and clear cause: observe and discharge with advice.',
+    documentation_ar: 'قراءات السكر المتسلسلة، أدوية السكري، آخر وجبة، ketones، السوائل والإنسولين المُعطاة، البوتاسيوم، استجابة الحاج.',
+    documentation_en: 'Initial glucose and glucose trend, medications given and times, response, precipitating cause, antidiabetic medications and last dose, urine ketones.',
+    sources: 'ADA/EASD 2024 Consensus on Hyperglycemic Crises in Adults · Cleveland Clinic 2024 Review'
+  },
+  {
+    id: 'wounds',
+    category: 'trauma',
+    severity: 'stable',
+    title_ar: 'الجروح',
+    title_en: 'Wounds & Lacerations',
+    preview_ar: 'تنظيف، تقييم العمق والتلوث، إغلاق مناسب، تطعيم الكزاز.',
+    preview_en: 'Assess for foreign body, depth, and potential contamination. Update tetanus and decide on primary closure.',
+    definition_ar: 'الجروح شائعة في الحج — من السقوط أو الازدحام. تقييم العمق، التلوث، إصابة الأعصاب/الأوعية/الأوتار، وحالة التطعيم.',
+    definition_en: 'Skin and soft tissue injuries of various causes. Common during Hajj due to crowding and long walking. Main goals: bleeding control, contamination assessment, appropriate closure, and tetanus prevention.',
+    redFlags_ar: [
+      'جرح عميق يصل إلى العضلة أو العظم',
+      'إصابة عصب أو وعاء أو وتر',
+      'جروح الوجه واليد والمفاصل',
+      'تلوث شديد (تراب، براز، حيواني)',
+      'ثقوب عميقة أو عضات'
+    ],
+    redFlags_en: [
+      'Arterial bleeding (pulsatile)',
+      'Deep wound with muscle or bone involvement',
+      'Deep hand or face wound',
+      'Animal or human bite',
+      'Wound with foreign body',
+      'Signs of infection (redness, swelling, discharge)'
+    ],
+    assessment_ar: [
+      'الفحص الوظيفي (حركة، إحساس، نبض)',
+      'عمق وطول الجرح',
+      'تلوث أو أجسام غريبة',
+      'علامات عدوى إن كان قديم',
+      'تاريخ التطعيم الكزازي'
+    ],
+    assessment_en: [
+      'Bleeding control first',
+      'Assess location, size, depth, contamination',
+      'Distal neurovascular and tendon function',
+      'Foreign body search',
+      'Tetanus status and previous vaccinations',
+      'Mechanism of injury (clean cut vs. crush vs. bite)'
+    ],
+    management_ar: [
+      'ضغط مباشر لإيقاف النزيف أولاً',
+      'تخدير موضعي (Lidocaine 1% ± Epinephrine)',
+      'تنظيف بمحلول ملحي 0.9% بكمية كبيرة (irrigation)',
+      'إزالة الأنسجة الميتة والأجسام الغريبة',
+      'إغلاق أولي (Primary) إذا نظيف و< 6 ساعات',
+      'تأجيل الإغلاق (Delayed primary) إذا ملوث أو قديم',
+      'ضماد نظيف',
+      'تطعيم كزاز إذا لم يُجدد خلال 5 سنوات أو جرح ملوث',
+      'مضاد حيوي للعضات والجروح الملوثة (Augmentin 625 مغ × 3 يوم لـ 5 أيام)'
+    ],
+    management_en: [
+      'Direct pressure for bleeding control',
+      'Irrigate with copious saline (30 mL/cm of wound minimum)',
+      'Local anesthesia (Lidocaine 1-2%, max 4.5 mg/kg without adrenaline)',
+      'Careful debridement of contaminated or necrotic tissue',
+      'Primary closure if: clean wound, less than 6-12 hours, good blood supply, not a bite',
+      'Suturing by layers (absorbable for deep, non-absorbable for skin)',
+      'Bite or severely contaminated wounds: do not primary close — leave open or delayed closure',
+      'Tetanus per CDC protocol: Td if last dose > 5 years, TIG if high-risk',
+      'Prophylactic antibiotics for: bites, severe contamination, diabetic/immunocompromised',
+      'Clean bandage and follow-up instructions'
+    ],
+    medications_ar: [
+      {
+        name: 'Lidocaine 1%',
+        dose: 'Local infiltration'
+      },
+      {
+        name: 'Tetanus toxoid',
+        dose: '0.5 ml IM if due'
+      },
+      {
+        name: 'Amoxicillin-clav',
+        dose: '625 mg PO TID x5d'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Lidocaine 1-2%',
+        dose: 'Max 4.5 mg/kg (without adrenaline)'
+      },
+      {
+        name: 'Tetanus vaccine (Td/Tdap)',
+        dose: '0.5 mL IM'
+      },
+      {
+        name: 'Tetanus Immunoglobulin (TIG)',
+        dose: '250 units IM (high-risk)'
+      },
+      {
+        name: 'Amoxicillin/Clavulanate (bites)',
+        dose: '875/125 mg BID PO x 5-7d'
+      }
+    ],
+    referral_ar: 'تحويل: جروح اليد والوجه والمفاصل الحساسة، إصابة عصب/وعاء/وتر، تلوث شديد، عدم القدرة على التنظيف الكافي، جروح معقدة أو كبيرة.',
+    referral_en: 'Refer: arterial bleeding, deep face/hand wounds requiring specialist, tendon/nerve injury, severe crush wounds, animal bites, foreign bodies difficult to remove, significant infection.',
+    documentation_ar: 'آلية الإصابة، وصف الجرح (موقع، عمق، طول)، فحص وظيفي، تنظيف وإغلاق، تطعيم كزاز، نصائح العناية.',
+    documentation_en: 'Mechanism, wound site and dimensions, neurovascular exam, contamination, treatment steps, tetanus status, antibiotics.',
+    sources: 'CDC Tetanus Prophylaxis Guidelines 2020 · ACEP Wound Management'
+  },
+  {
+    id: 'burns',
+    category: 'trauma',
+    severity: 'warning',
+    title_ar: 'الحروق',
+    title_en: 'Burns',
+    preview_ar: 'تبريد بماء جاري 20 دقيقة، تقييم المساحة والعمق، سوائل بمعادلة Parkland.',
+    preview_en: 'Sun, hot surfaces, chemical or electrical burns. Calculate surface area (Rule of Nines) and adjust fluid per Parkland.',
+    definition_ar: 'إصابة جلدية من الحرارة، كيمياء، أو كهرباء. تُصنف بالعمق (سطحي، جزئي سطحي، جزئي عميق، كامل) والمساحة (% TBSA) باستخدام قاعدة التسعات.',
+    definition_en: 'Skin injury from heat, sun, chemicals, or electricity. Common during Hajj — sunburns, hot surface burns (asphalt, metal). Assessed by depth (1°, 2°, 3°) and total body surface area (TBSA) using Rule of Nines.',
+    redFlags_ar: [
+      'حروق الوجه، اليدين، الرجلين، المفاصل، الأعضاء التناسلية (مواقع حرجة)',
+      'حروق الاستنشاق: سخام حول الأنف، صوت أجش، سعال، شعر أنف محروق، علامات خطر وشيك',
+      'حروق كهربائية أو كيماوية',
+      '>20% TBSA في البالغين (>10% في الأطفال وكبار السن) — يحتاج Parkland',
+      'حروق درجة ثالثة (full thickness)',
+      'حرق دائري بالأطراف → خطر compartment syndrome'
+    ],
+    redFlags_en: [
+      'TBSA > 20% in adult',
+      'Face, hand, perineum, or major joint burns',
+      'Circumferential burns (limb or chest)',
+      'Signs of airway burn (soot in mouth, hoarse voice, facial burns)',
+      'Electrical burn or crush associated with burn',
+      'Very deep 3rd-degree burn'
+    ],
+    assessment_ar: [
+      'ABC — أولوية للمجرى التنفسي في حروق الاستنشاق (تنبيب مبكر قبل الوذمة)',
+      'تقدير المساحة بقاعدة التسعات (راحة اليد مع الأصابع = 1%) — احسب فقط الدرجة الثانية والثالثة',
+      'تقدير العمق',
+      'ابحث عن إصابات مصاحبة (سقوط، انفجار)',
+      'علامات حيوية وإنتاج البول'
+    ],
+    assessment_en: [
+      'ABC — airway is the first priority (if burn around face)',
+      'Calculate TBSA by Rule of Nines (do not count 1st degree)',
+      'Determine burn depth',
+      'Vital signs and hydration',
+      'Search for other injuries',
+      'Mechanism (heat, chemical, electrical)'
+    ],
+    management_ar: [
+      'إبعاد مصدر الحرق واحترم سلامتك أولاً',
+      'تبريد بماء جاري (ليس مثلجاً، 15-25°م) لمدة 20 دقيقة — فعّال حتى 3 ساعات بعد الحرق',
+      'خلع الملابس والحلي غير الملتصقة (لا تنزع ملتصق)',
+      'تغطية بضماد نظيف (شاش معقم أو قطعة نظيفة)، أو cling film',
+      'معادلة Parkland: 4 مل × الوزن(كغ) × %TBSA = كمية 24 ساعة، نصفها في أول 8 ساعات',
+      'Ringer Lactate (مفضّل) — NS يسبب hyperchloremic acidosis عند الحروق الكبيرة',
+      'هدف urine output: 0.5-1 مل/كغ/ساعة في البالغين (1-1.5 في الأطفال <30 كغ)',
+      'تسكين قوي: Morphine 2-5 مغ IV كل 5-10 دقائق حسب الاستجابة',
+      'تطعيم كزاز (Tetanus toxoid 0.5 مل IM) إن مضى > 5 سنوات أو غير معروف',
+      'لا تفقأ الفقاعات الكبيرة — غطِّها؛ الصغيرة تتركها',
+      'لا تضع معجون أسنان أو زيت أو أي مواد منزلية',
+      'Silver sulfadiazine للحروق الجزئية (ليس للوجه، لا في الحوامل أو قصور G6PD)',
+      'حروق الاستنشاق: أكسجين 100%، تنبيب مبكر قبل تفاقم الوذمة، اعتبر carbon monoxide poisoning'
+    ],
+    management_en: [
+      'Remove clothing and jewelry from burn area',
+      'Cool running water (or cool saline) for 10-20 min (not ice — risk of hypothermia)',
+      'Cover with clean non-adherent dressing',
+      'Analgesia: Morphine 2-4 mg IV or Fentanyl',
+      'IV access + aggressive fluids per Parkland:',
+      '  • Ringer Lactate (preferred) 4 mL × kg × TBSA%, half in first 8 hours from time of burn',
+      '  • Target urine output 0.5 mL/kg/h',
+      'Tetanus per protocol',
+      'Topical antibiotics (Silver sulfadiazine) for open burns',
+      'No empiric systemic antibiotics unless established infection',
+      'Ophthalmology assessment if eye involved'
+    ],
+    medications_ar: [
+      {
+        name: 'Ringer Lactate',
+        dose: 'Parkland: 4 ml × kg × %TBSA / 24h (half in first 8h)'
+      },
+      {
+        name: 'Morphine',
+        dose: '2–5 mg IV q5-10min PRN'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO/IV q6h'
+      },
+      {
+        name: 'Tetanus toxoid',
+        dose: '0.5 ml IM (if >5 years or unknown)'
+      },
+      {
+        name: 'Silver sulfadiazine',
+        dose: 'Topical BID (avoid face, pregnancy, G6PD)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Ringer Lactate (Parkland)',
+        dose: '4 ml × kg × TBSA%, 50% in first 8h'
+      },
+      {
+        name: 'Morphine',
+        dose: '2-4 mg IV'
+      },
+      {
+        name: 'Silver sulfadiazine cream',
+        dose: 'Topical after cleaning'
+      },
+      {
+        name: 'Tetanus vaccine',
+        dose: '0.5 mL IM if due'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO/IV'
+      }
+    ],
+    referral_ar: 'تحويل لمركز حروق: >20% TBSA بالغ (>10% طفل/مسن)، درجة ثالثة، حروق المواقع الحرجة (وجه/يد/مفصل/عجان)، استنشاق، كهربائي/كيماوي، مريض مزمن، حرق دائري بأطراف، اشتباه compartment syndrome.',
+    referral_en: 'Refer: TBSA > 10-20%, 3rd-degree burns, face/hand/perineum/joint burns, electrical/chemical burns, suspected airway burn, circumferential burns, pediatric/elderly/comorbid patients.',
+    documentation_ar: 'آلية (نار/ماء/كهرباء/كيماوي)، وقت الإصابة، مساحة ونسبة (التسعات)، عمق، السوائل المُعطاة (كم ومتى)، إنتاج البول، التسكين، التطعيم.',
+    documentation_en: 'Cause and exact time of burn, TBSA, depth, location, fluids given, time of first dose, urine output, other injuries.',
+    sources: 'ABA 2023 Burn Resuscitation Guidelines · ISBI Practice Guidelines for Burn Care'
+  },
+  {
+    id: 'bleeding',
+    category: 'trauma',
+    severity: 'critical',
+    title_ar: 'النزيف',
+    title_en: 'Hemorrhage / Bleeding',
+    preview_ar: 'ضغط مباشر، tourniquet للطرف، سوائل ودم حسب الشدة. الصدمة تحتاج تحويل فوري.',
+    preview_en: 'Initial control with direct pressure. TXA within 3 hours in major trauma. Permissive hypotension until reaching definitive care.',
+    definition_ar: 'فقدان دم كبير خارجي أو داخلي. أسباب خارجية: جروح، عمليات. داخلية: بطن، صدر، كسور. صدمة نزفية = فقدان كبير مع علامات انخفاض تروية.',
+    definition_en: 'Acute blood loss from any cause. May be external (visible) or internal (hidden — abdomen, chest, pelvis, thigh). The priority: stop bleeding and maintain perfusion. CRASH-2 showed TXA within 3 hours reduces mortality in major trauma.',
+    redFlags_ar: [
+      'ضغط < 90 انقباضي، نبض > 120',
+      'شحوب، برودة الأطراف، تعرق بارد',
+      'تشوش أو اضطراب وعي',
+      'نزيف فواني رغم الضغط',
+      'نزيف داخلي مشتبه (توتر بطن، ألم صدر)'
+    ],
+    redFlags_en: [
+      'Massive visible bleeding',
+      'Shock (HR > 120, SBP < 90, pallor, diaphoresis)',
+      'Altered consciousness',
+      'Distended abdomen (internal bleeding)',
+      'Deformed pelvis (pelvic bleeding)'
+    ],
+    assessment_ar: [
+      'ABC مع التركيز على الدورة',
+      'موقع ومصدر النزيف',
+      'تقدير كمية الدم المفقود',
+      'علامات حيوية + علامات الصدمة',
+      'ابحث عن نزيف داخلي (FAST إن متوفر)'
+    ],
+    assessment_en: [
+      'ABC',
+      'Identify bleeding source',
+      'BP, pulse, capillary refill',
+      'Shock signs (cold skin, tachycardia, anxiety)',
+      'Abdomen, pelvis, thigh exam (hidden sources)',
+      'Medications (anticoagulants)'
+    ],
+    management_ar: [
+      'ضغط مباشر على النزف — 10–15 دقيقة متواصلة بلا رفع للفحص',
+      'رفع الطرف إن أمكن (لا يكفي وحده)',
+      'Tourniquet للطرف في حالة نزف مهدد للحياة لا يستجيب للضغط — سجّل وقت التطبيق',
+      'Pelvic binder لإصابات الحوض (يقلل فقدان الدم)',
+      'Hemostatic dressings (Combat Gauze) للنزف العميق غير المضغوط',
+      'IV x2 مداخل واسعة (16–18 G)',
+      'Permissive hypotension: SBP target 80-90 في trauma نشط (حتى السيطرة) لتجنب dilutional coagulopathy',
+      'بلعة سوائل دافئة 1 L Ringer Lactate — لا تفرط',
+      '⚠️ Tranexamic acid 1 غ IV على 10 دقائق إذا خلال 3 ساعات من الإصابة (CRASH-2 trial) — يقلل الوفيات',
+      'حافظ على حرارة المريض (Trauma Triad: hypothermia, acidosis, coagulopathy)',
+      'O-negative blood للصدمة النزفية الشديدة إن متوفر',
+      'تحويل فوري لمستشفى مع دم ومرافقة طبية'
+    ],
+    management_en: [
+      'Direct pressure on visible bleed',
+      'Pressure bandage if pressure insufficient',
+      'Tourniquet only if extremity bleeding uncontrollable — record application time',
+      'Pelvic binder if pelvic fracture with shock',
+      'Large-bore IV access (2 × 14-16G)',
+      'NS or Ringer Lactate 500 mL bolus — "Permissive Hypotension" (target SBP 80-90 in trauma without head injury)',
+      'Tranexamic Acid (TXA) 1 g IV within 3 hours of injury, then 1 g over 8 hours (CRASH-2)',
+      'Blood transfusion ASAP at receiving center (do not delay for typing in severe shock)',
+      'Reverse anticoagulants if on them',
+      'Keep patient warm (hypothermia worsens coagulopathy)',
+      'Immediate transfer with continued control'
+    ],
+    medications_ar: [
+      {
+        name: 'Ringer Lactate',
+        dose: '1 L IV bolus (limited)'
+      },
+      {
+        name: 'Tranexamic acid',
+        dose: '1 g IV over 10 min (within 3h) then 1g/8h'
+      },
+      {
+        name: 'O-negative blood',
+        dose: 'For severe hemorrhagic shock'
+      },
+      {
+        name: 'Fibrinogen concentrate',
+        dose: 'If major bleeding (in-hospital)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Tranexamic Acid (TXA)',
+        dose: '1 g IV over 10 min within 3h of injury, then 1 g/8h'
+      },
+      {
+        name: 'NS or Ringer Lactate',
+        dose: '500 mL boluses — permissive hypotension'
+      },
+      {
+        name: 'Vit K (if on warfarin)',
+        dose: '10 mg IV slow'
+      },
+      {
+        name: 'Oxygen',
+        dose: 'High-flow'
+      }
+    ],
+    referral_ar: 'كل نزف كبير أو غير مسيطر عليه — تحويل فوري عاجل. أبلغ المستشفى بالحالة ومتطلبات الدم. Tourniquet موثّق الوقت.',
+    referral_en: 'Immediate transfer with continuous control. Notify receiving facility (may need blood, surgery, embolization). Continue pressure, TXA, fluids en route. Time matters — no delays for complete investigation.',
+    documentation_ar: 'موقع النزف، آلية الإصابة، تقدير الفقد، وقت TXA، وقت Tourniquet، العلامات الحيوية المتسلسلة، السوائل المُعطاة، الاستجابة، وقت التحويل.',
+    documentation_en: 'Mechanism, bleeding source(s), estimated loss, vital signs trend, fluids and TXA with times, tourniquet application time if used, response.',
+    sources: 'CRASH-2 Trial · TCCC Guidelines · ATLS 2024 Update'
+  },
+  {
+    id: 'fractures',
+    category: 'trauma',
+    severity: 'warning',
+    title_ar: 'الكسور',
+    title_en: 'Fractures & Sprains',
+    preview_ar: 'تثبيت، مسكن، تقييم الأعصاب والأوعية، وتحويل للمفتوح أو المعقد.',
+    preview_en: 'Splint in place, assess distal neurovascular status, refer for imaging and definitive treatment.',
+    definition_ar: 'كسر العظم نتيجة صدمة أو ضعف مرضي. شائع في الحج من السقوط والازدحام. المفتوح طارئ جراحي. المغلق يحتاج تثبيت وتحويل.',
+    definition_en: 'Break in bone continuity — closed (skin intact) or open (exposed bone). Sprain — ligament injury without fracture. Common during Hajj in stampedes, falls, or transportation accidents.',
+    redFlags_ar: [
+      'كسر مفتوح (عظم ظاهر أو جرح فوق الكسر)',
+      'إصابة عصبية أو وعائية (برودة، شحوب، غياب نبض)',
+      'تشوه واضح',
+      'متلازمة الحيز (ألم شديد متزايد رغم التسكين)',
+      'كسر العمود الفقري أو الحوض'
+    ],
+    redFlags_en: [
+      'Open fracture (exposed bone)',
+      'Obvious deformity with absent distal pulse',
+      'Loss of sensation or motor function distally',
+      'Severe pain out of proportion (compartment syndrome)',
+      'Pelvic, spinal, or hip fracture'
+    ],
+    assessment_ar: [
+      'فحص النبض، الإحساس، الحركة في الطرف',
+      'مقارنة مع الطرف السليم',
+      'فحص الجلد فوق الكسر',
+      'تقييم المسافة والميكانيكا',
+      'استبعاد إصابات مصاحبة'
+    ],
+    assessment_en: [
+      'Mechanism of injury',
+      'Distal neurovascular exam (pulse, sensation, motor) — before and after splinting',
+      'Skin integrity (open vs. closed)',
+      'Deformity, swelling, joint position',
+      'Exclude associated injuries',
+      'C-spine protection in polytrauma'
+    ],
+    management_ar: [
+      'تثبيت في الوضعية التي وُجد عليها (لا محاولة إرجاع)',
+      'الجبيرة تغطي المفصل فوق وتحت الكسر',
+      'ثلج ورفع الطرف',
+      'تسكين (Paracetamol + NSAID، Morphine للشديد)',
+      'الكسر المفتوح: غسل بمحلول ملحي، تغطية بشاش نظيف، مضاد حيوي (Cefazolin 2 غ IV)، كزاز',
+      'لا تحاول إدخال العظم داخل الجرح',
+      'أشعة إن متوفرة، وإلا تحويل للتقييم',
+      'إذا غياب نبض — محاولة تخفيف بسيط ثم تحويل عاجل'
+    ],
+    management_en: [
+      'Immobilize in position found, do not force reduction except if neurovascular compromise',
+      'Splint with joint above and below fracture',
+      'Pelvic binder for pelvic fracture with shock',
+      'Spine immobilization if suspected',
+      'Open fracture: clean wound with saline, cover with sterile dressing, IV antibiotics (Ceftriaxone or Amoxicillin/Clavulanate)',
+      'Tetanus if open fracture',
+      'Analgesia: Morphine 2-5 mg IV or Ketorolac 30 mg IV',
+      'Elevate affected limb if possible',
+      'Ice if acute injury (first 24h)'
+    ],
+    medications_ar: [
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO/IV q6h'
+      },
+      {
+        name: 'Ibuprofen',
+        dose: '400–600 mg PO q8h'
+      },
+      {
+        name: 'Morphine',
+        dose: '2–5 mg IV PRN'
+      },
+      {
+        name: 'Cefazolin (open fx)',
+        dose: '2 g IV'
+      },
+      {
+        name: 'Tetanus toxoid',
+        dose: '0.5 ml IM'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Morphine',
+        dose: '2-5 mg IV, titrate'
+      },
+      {
+        name: 'Ketorolac',
+        dose: '30 mg IV/IM (short-term)'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO/IV'
+      },
+      {
+        name: 'Ceftriaxone (open fx)',
+        dose: '1-2 g IV OD'
+      },
+      {
+        name: 'Tetanus vaccine',
+        dose: '0.5 mL IM if due'
+      }
+    ],
+    referral_ar: 'تحويل: كسور مفتوحة، معقدة، تشوه واضح، فقدان نبض/إحساس، كسور حوض/عمود فقري/ورك، وكل الكسور للتأكيد بالأشعة والعلاج النهائي.',
+    referral_en: 'Refer: open or complex fractures, obvious deformity, loss of pulse/sensation, pelvic/spinal/hip fractures, and all fractures for imaging confirmation and definitive care.',
+    documentation_ar: 'آلية الإصابة، فحص النبض والإحساس قبل وبعد التثبيت، التسكين، حالة الجرح (مفتوح/مغلق).',
+    documentation_en: 'Mechanism, neurovascular exam pre/post splinting, analgesia, wound status (open/closed).',
+    sources: 'AAOS Open Fracture Management · Eastern Association for Surgery of Trauma (EAST)'
+  },
+  {
+    id: 'crush',
+    category: 'trauma',
+    severity: 'critical',
+    title_ar: 'إصابات التدافع والسحق',
+    title_en: 'Crush Injuries / Crush Syndrome',
+    preview_ar: 'خطر متلازمة السحق: انحلال العضلات وفرط البوتاسيوم. السوائل قبل التحرير تنقذ الحياة.',
+    preview_en: 'Historic risk during Hajj stampedes. Fluids before extrication to prevent Crush Syndrome.',
+    definition_ar: 'إصابة من ضغط مستمر على العضلات — شائعة جداً في حوادث التدافع في الحج. بعد تحرير الضغط يحدث reperfusion injury: انحلال عضلي (rhabdomyolysis)، فرط البوتاسيوم القاتل، فشل كلوي حاد، HUS، DIC، توقف قلبي. المبدأ الأهم (NAEMSP 2024): بدء السوائل قبل التحرير يُخفّض الوفيات والفشل الكلوي بشكل كبير.',
+    definition_en: 'Soft tissue injury from prolonged compression (stampede, collapse). May cause Crush Syndrome upon release — rhabdomyolysis, hyperkalemia, arrhythmia, renal failure. Major historic risk during Hajj.',
+    redFlags_ar: [
+      'الضحايا عالقون تحت الضغط > 15 دقيقة (خاصة > 1 ساعة)',
+      'عضلات متورمة متحجرة أو شللية',
+      'بول داكن (myoglobin) بلون الشاي أو الكوكاكولا',
+      'اضطراب نظم قلبي (علامات فرط البوتاسيوم)',
+      'فشل تنفسي أو دوراني',
+      'ألم لا يتناسب مع الإصابة الظاهرة (compartment syndrome)'
+    ],
+    redFlags_en: [
+      'Prolonged compression (> 1 hour)',
+      'Large muscle mass (thighs, torso)',
+      'Dark urine or anuria',
+      'Arrhythmia (hyperkalemia)',
+      'Shock after release',
+      'Severe limb swelling post-release'
+    ],
+    assessment_ar: [
+      'ABC + سلامة المنقذ أولاً',
+      'تقييم المناطق المضغوطة وطبيعتها (عضلي، عظمي)',
+      'فحص عصبي ووعائي للأطراف (6 Ps: Pain, Pallor, Pulselessness, Paresthesia, Paralysis, Poikilothermia)',
+      'علامات حيوية + ECG (ابحث عن علامات فرط K: T طويلة، QRS واسع، فقدان P)',
+      'لون البول',
+      'علامات متلازمة الحيز (compartment syndrome)'
+    ],
+    assessment_en: [
+      'Estimated compression duration',
+      'Affected area and size',
+      'Vital signs before and after release',
+      'ECG (hyperkalemia signs)',
+      'Urine color (dark = myoglobinuria)',
+      'Distal neurovascular exam'
+    ],
+    management_ar: [
+      '⚠️ السوائل قبل التحرير — هذا المبدأ الأهم (NAEMSP 2024):',
+      '  • فتح IV أو IO قبل رفع الضغط',
+      '  • NS أو Ringer Lactate 1 لتر/ساعة بلعة قبل التحرير (15-20 مل/كغ/ساعة في الأطفال)',
+      '  • إن لم يمكن IV، اعتبر subcutaneous (hypodermoclysis) أو oral',
+      '',
+      'بعد التحرير:',
+      '  • استمر السوائل 500 مل/ساعة، اضبط حسب urine output',
+      '  • الهدف: urine output > 200 مل/ساعة (1-2 مل/كغ/ساعة)',
+      '  • Sodium Bicarbonate 1 mEq/kg IV — يحمّض البول لـ pH > 6.5 لحماية الكلى من myoglobin',
+      '  • ECG مستمر — علامات فرط K قد تظهر خلال دقائق من التحرير',
+      '',
+      'علاج فرط البوتاسيوم (طبقي):',
+      '  • حماية قلبية: Calcium Gluconate 10% 10 مل IV على 2-3 دقائق',
+      '  • إدخال البوتاسيوم للخلايا: Insulin Regular 10 U IV + Dextrose 50% 50 مل IV',
+      '  • Salbutamol neb 10-20 مغ',
+      '  • Sodium Bicarbonate 1 mEq/kg IV (إن acidosis)',
+      '  • إزالة البوتاسيوم من الجسم: Kayexalate 25-50 غ PO/PR',
+      '  • Hemodialysis للحالات الشديدة غير المستجيبة',
+      '',
+      '⚠️ Tourniquet ليس روتينياً في crush — فقط للنزف المهدد للحياة. إن وُضع، حد أقصى 2 ساعة.',
+      'تسكين قوي (Morphine 2-5 مغ IV، كرر)',
+      'ارفع الطرف المصاب',
+      'تحويل عاجل لـ ICU مع متابعة كلوية (قد يحتاج dialysis)'
+    ],
+    management_en: [
+      'Key principle: give fluids BEFORE extrication if prolonged compression (NAEMSP 2024)',
+      'Large-bore IV access',
+      'NS 1-1.5 L/h even before full release (if possible)',
+      'After release: continue aggressive fluids, target urine output > 1-2 mL/kg/h',
+      'Calcium Gluconate 10 mL of 10% IV if signs of hyperkalemia on ECG',
+      'Sodium Bicarbonate 1 mEq/kg IV to alkalinize urine (controversial, per protocol)',
+      'Insulin + Dextrose for hyperkalemia (10 units Insulin + 25 g Dextrose)',
+      'Avoid tourniquets except if bleeding uncontrollable',
+      'Do not give Potassium in any form',
+      'Cardiac monitoring and ECG',
+      'Rapid transfer for dialysis and ICU monitoring'
+    ],
+    medications_ar: [
+      {
+        name: 'Ringer Lactate / NS',
+        dose: '1 L/h before extrication, then 500 ml/h'
+      },
+      {
+        name: 'Sodium bicarbonate',
+        dose: '1 mEq/kg IV (urine pH >6.5)'
+      },
+      {
+        name: 'Calcium gluconate 10%',
+        dose: '10 ml IV over 2-3 min (hyperK)'
+      },
+      {
+        name: 'Insulin + Dextrose',
+        dose: '10 U Regular + D50 50 ml IV'
+      },
+      {
+        name: 'Salbutamol neb',
+        dose: '10-20 mg (hyperK)'
+      },
+      {
+        name: 'Kayexalate (SPS)',
+        dose: '25-50 g PO/PR'
+      },
+      {
+        name: 'Morphine',
+        dose: '2-5 mg IV PRN'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'NS 0.9%',
+        dose: '1-1.5 L/h IV, start before extrication'
+      },
+      {
+        name: 'Calcium gluconate 10%',
+        dose: '10 mL IV over 5-10 min (hyperK)'
+      },
+      {
+        name: 'Sodium bicarbonate',
+        dose: '1 mEq/kg IV'
+      },
+      {
+        name: 'Insulin + Dextrose',
+        dose: '10 units Insulin + 25 g Dextrose IV'
+      },
+      {
+        name: 'Salbutamol nebulizer',
+        dose: '10-20 mg (hyperK)'
+      },
+      {
+        name: 'Morphine',
+        dose: 'For pain'
+      },
+      {
+        name: 'Avoid Potassium',
+        dose: 'In any form'
+      }
+    ],
+    referral_ar: 'كل إصابات السحق الكبيرة تُحوَّل عاجلاً لـ ICU — حتى لو بدا المريض مستقراً. المضاعفات تأتي بعد التحرير (minutes to hours). Hemodialysis قد يكون مطلوباً. أبلغ المستشفى قبل الوصول عن احتمال فرط البوتاسيوم.',
+    referral_en: 'Urgent transfer to tertiary center with dialysis capability. Start fluid resuscitation before/during transfer. Notify receiving facility for dialysis preparation.',
+    documentation_ar: 'مدة الضغط (ساعات/دقائق)، العضلات المصابة والمساحة، السوائل المُعطاة (قبل وبعد التحرير مع الكمية والزمن)، ECG قبل وبعد، لون البول، البوتاسيوم إن متاح، الأدوية.',
+    documentation_en: 'Exact compression start and release times, affected area, pre- and post-release vitals, fluids given, urine color and output, ECG and hyperkalemia signs, medications.',
+    sources: 'NAEMSP 2024 Position Statement on Entrapped Patient · INSARAG Medical Guidelines · Joint Trauma CPG'
+  },
+  {
+    id: 'foot',
+    category: 'trauma',
+    severity: 'stable',
+    title_ar: 'إصابات القدم والفقاعات',
+    title_en: 'Foot Injuries & Blisters',
+    preview_ar: 'شائعة جداً من المشي الطويل. العناية المبكرة تمنع العدوى والمضاعفات.',
+    preview_en: 'Very common due to long walking. Avoid infection and watch for diabetic foot complications.',
+    definition_ar: 'فقاعات، سحجات، والتهابات من المشي الطويل والحرارة. معظمها بسيط لكن غير المعالج قد يتطور لعدوى خطيرة خاصة في مرضى السكري.',
+    definition_en: 'Foot skin injuries from friction and pressure during long walking on asphalt and uneven surfaces. Classified as: superficial blisters, open wounds, deep blisters, inflammation/infection. Warning: diabetic foot may rapidly progress to severe complications.',
+    redFlags_ar: [
+      'علامات عدوى (احمرار، تورم، حرارة، قيح)',
+      'مريض سكري مع أي جرح قدم',
+      'فقاعة دموية كبيرة',
+      'ألم شديد غير متناسب',
+      'حمى مع التهاب قدم'
+    ],
+    redFlags_en: [
+      'Severe redness and swelling extending beyond wound area',
+      'Purulent discharge',
+      'Severe pain with fever (possible deep infection)',
+      'Diabetic patient with any foot wound',
+      'Black necrotic tissue (necrotizing infection)'
+    ],
+    assessment_ar: [
+      'فحص القدمين كاملاً بعد خلع الحذاء والجورب',
+      'فحص بين الأصابع',
+      'فحص النبض إن كان سكري',
+      'إحساس الأصابع',
+      'علامات العدوى'
+    ],
+    assessment_en: [
+      'Examine both feet carefully — between toes, heel, sole',
+      'Check for distal circulation (pulse, color, temperature)',
+      'Assess sensation (especially in diabetics)',
+      'Measure blister size and count',
+      'Signs of infection or inflammation',
+      'Walking and shoe history'
+    ],
+    management_ar: [
+      'فقاعة صغيرة سليمة: لا تفقأ، غطِ بضماد ناعم',
+      'فقاعة كبيرة مؤلمة: تفريغ معقم بإبرة نظيفة، اترك الجلد فوقها، ضماد مضاد حيوي',
+      'تمزق الجلد: تنظيف بمحلول ملحي، مرهم مضاد حيوي، ضماد',
+      'نصيحة: جوارب قطنية، أحذية مريحة مُجربة، تجفيف القدمين',
+      'مريض السكري: فحص دقيق، حد أدنى من التدخل، تحويل إذا أي التهاب',
+      'مضاد حيوي (Flucloxacillin 500 مغ × 4 يوم) للعدوى',
+      'كزاز للجروح العميقة'
+    ],
+    management_en: [
+      'Small intact blister: do not open — leave as protective dressing',
+      'Large or tense blister: drain sterile with small hole, keep skin covering',
+      'Broken blister: clean with saline, cover with non-adherent dressing',
+      'Open wound: irrigate, clean, topical antibiotic (Mupirocin or Fusidic acid), cover with non-adherent dressing',
+      'Advise patient: rest, elevate foot, avoid prolonged walking',
+      'Good shoes and clean moisture-wicking socks',
+      'Diabetic foot: very careful exam, low threshold for referral, regular follow-up',
+      'Prophylactic oral antibiotics if: diabetic, extensive contamination, mild inflammation signs'
+    ],
+    medications_ar: [
+      {
+        name: 'Flucloxacillin',
+        dose: '500 mg PO QID (if infected)'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO q6h'
+      },
+      {
+        name: 'Antibiotic ointment',
+        dose: 'Topical on open areas'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Mupirocin 2% ointment',
+        dose: 'Topical BID-TID'
+      },
+      {
+        name: 'Fusidic acid',
+        dose: 'Topical'
+      },
+      {
+        name: 'Amoxicillin/Clavulanate',
+        dose: '875/125 mg BID PO x 5-7d (if infection)'
+      }
+    ],
+    referral_ar: 'تحويل: علامات عدوى عميقة أو نظامية، قدم سكري بجرح، عدم تحسن خلال 48 ساعة، اشتباه cellulitis متقدم.',
+    referral_en: 'Refer: signs of deep infection or cellulitis, diabetic foot with any concerning finding, suspected osteomyelitis, non-healing wound, persistent fever.',
+    documentation_ar: 'موقع وحجم الإصابة، العدوى، حالة السكر، التدخل، النصائح.',
+    documentation_en: 'Number, sites, and sizes of blisters, infection status, diabetic status, treatment and advice given, follow-up instructions.',
+    sources: 'IDSA Skin and Soft Tissue Infection Guidelines 2014 (updated) · IWGDF 2023 Diabetic Foot Guidelines'
+  },
+  {
+    id: 'eye',
+    category: 'trauma',
+    severity: 'warning',
+    title_ar: 'إصابات العين والجسم الغريب',
+    title_en: 'Eye Injuries & Foreign Body',
+    preview_ar: 'الغبار والحرارة تسبب إصابات شائعة. الإصابات النافذة والكيماوية طوارئ.',
+    preview_en: 'From small foreign bodies to dangerous penetrating injury. Early assessment crucial — some conditions may cause blindness.',
+    definition_ar: 'إصابات العين شائعة من الغبار والرياح والحوادث. تشمل: جسم غريب سطحي، خدش قرنية، حرق كيماوي، أو جرح نافذ. الإصابات النافذة والكيماوية طوارئ بصرية.',
+    definition_en: 'Various eye injuries — foreign body, corneal abrasion, chemical injury, blunt/penetrating trauma. Common during Hajj from dust and sun. Some conditions are dangerous and may cause blindness (chemical injury, penetrating trauma, retrobulbar hematoma).',
+    redFlags_ar: [
+      'جرح نافذ أو بروز محتوى العين',
+      'حرق كيماوي',
+      'فقدان حدة البصر',
+      'ألم شديد مع ضوء',
+      'عدم القدرة على تحريك العين',
+      'Hyphema (دم في غرفة العين)'
+    ],
+    redFlags_en: [
+      'Chemical eye injury (acid/alkali)',
+      'Penetrating or deep trauma',
+      'Deep or sudden vision loss',
+      'Severe periorbital swelling',
+      'Anisocoria or abnormal pupillary reflex',
+      'Severe pain with photophobia (glaucoma?)'
+    ],
+    assessment_ar: [
+      'حدة البصر في كل عين (تلاوة أو عد أصابع)',
+      'فحص خارجي (جفن، ملتحمة، قرنية، بؤبؤ)',
+      'استجابة البؤبؤ للضوء',
+      'فحص حركة العين',
+      'فلوريسين للخدوش (إن متوفر)'
+    ],
+    assessment_en: [
+      'Visual acuity before anything else (document at baseline)',
+      'External exam (eyelids, conjunctiva, cornea)',
+      'Pupil and light reflex',
+      'Ocular movement and diplopia',
+      'Fluorescein exam if possible (corneal abrasion)',
+      'Ask about nature of injury carefully'
+    ],
+    management_ar: [
+      'حرق كيماوي: غسل فوري بماء أو محلول ملحي 15–30 دقيقة، ثم تحويل',
+      'جسم غريب سطحي على الملتحمة: إزالة بقطعة قطن مبللة',
+      'جسم غريب في القرنية: لا تحاول إزالته — تحويل',
+      'جرح نافذ: لا تضغط، غطِ بدرع (لا شاش)، تحويل فوري',
+      'خدش قرنية: مضاد حيوي موضعي (Chloramphenicol drops)، مسكن، تغطية يوم',
+      'لا تستخدم قطرات تخدير بشكل متكرر — تؤخر الشفاء',
+      'لا تستخدم ستيرويدات موضعية إلا بإشراف'
+    ],
+    management_en: [
+      'Chemical injury: IMMEDIATE copious irrigation for 30-60 min with saline or clean water — do not delay for exam',
+      'Foreign body: local anesthetic (Proparacaine) + careful removal with moist cotton or needle under magnification',
+      'Simple corneal abrasion: topical antibiotic (Chloramphenicol or Tobramycin) + cycloplegic (Cyclopentolate) for pain',
+      'Do not patch eye in contact lens wearers',
+      'Analgesia: Paracetamol or oral NSAIDs',
+      'Avoid steroids without specialist review',
+      'Suspected penetrating trauma: rigid shield (not pressure), do not remove foreign object, urgent ophtha transfer',
+      'Suspected glaucoma: urgent transfer, lower pressure with Acetazolamide + topical beta-blocker'
+    ],
+    medications_ar: [
+      {
+        name: 'Saline (eye wash)',
+        dose: '15–30 min continuous'
+      },
+      {
+        name: 'Chloramphenicol drops',
+        dose: '1 drop q4h'
+      },
+      {
+        name: 'Tetracaine drops',
+        dose: 'For exam only, not for home use'
+      },
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO q6h'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Proparacaine (anesthetic)',
+        dose: '1-2 drops topically (exam only)'
+      },
+      {
+        name: 'Chloramphenicol ointment',
+        dose: 'QID for corneal abrasion'
+      },
+      {
+        name: 'Cyclopentolate',
+        dose: '1 drop for pain'
+      },
+      {
+        name: 'Acetazolamide (suspected glaucoma)',
+        dose: '500 mg IV/PO'
+      }
+    ],
+    referral_ar: 'تحويل: كل جرح نافذ، حرق كيماوي (بعد الغسل)، فقدان بصر، جسم غريب في القرنية، hyphema، ألم لا يستجيب، عدم تحسن خلال 24 ساعة.',
+    referral_en: 'Refer urgently to ophthalmology: chemical injury, suspected penetrating trauma, severe vision loss, suspected glaucoma, retrobulbar hematoma, unimproved abrasion within 24-48h, or uncertainty of diagnosis.',
+    documentation_ar: 'آلية الإصابة، حدة البصر المقاسة في كل عين، الفحص، العلاج الموضعي.',
+    documentation_en: 'Mechanism, time of injury, baseline visual acuity, exam findings, treatment (especially irrigation duration and fluid), time of transfer.',
+    sources: 'AAO Ophthalmology Emergency Guidelines · ACEP Eye Emergencies'
+  },
+  {
+    id: 'meningitis',
+    category: 'infectious',
+    severity: 'critical',
+    title_ar: 'الحمى الشوكية',
+    title_en: 'Meningococcal Disease',
+    preview_ar: 'حمى + صداع + تصلب رقبة ± بقع جلدية. Ceftriaxone فوراً + إبلاغ + علاج وقائي للمخالطين.',
+    preview_en: 'Urgent. Mandatory meningococcal vaccine for Hajj. Rapid prophylaxis for contacts.',
+    definition_ar: 'عدوى بكتيرية خطيرة للسحايا و/أو الدم. في الحج تعتبر من أخطر الأمراض الوبائية. المطعّمون بـ (ACWY) محميون جزئياً — التطعيم إلزامي للحج/العمرة قبل 10 أيام من الوصول. تم رصد تفشي في 2024 مرتبط بالعمرة (serogroup W) — يؤكد أهمية التطعيم.',
+    definition_en: 'Acute inflammation of meninges caused by Neisseria meningitidis — classic Hajj concern. Can be rapidly fatal within hours. Symptoms: fever, headache, neck stiffness, purpuric rash, altered consciousness. ACWY vaccination is mandatory for Hajj entry, but vaccine does not provide 100% protection.',
+    redFlags_ar: [
+      'طفح نزفي (petechiae/purpura) لا يختفي بالضغط',
+      'GCS منخفض أو تشنج',
+      'علامات صدمة (ضغط منخفض، نبض سريع، أطراف باردة)',
+      'تصلب رقبة واضح',
+      'تقيؤ مع صداع شديد',
+      'رهاب ضوء'
+    ],
+    redFlags_en: [
+      'Fever + severe headache + neck stiffness',
+      'Petechial or purpuric rash',
+      'Altered consciousness or GCS drop',
+      'Shock (sepsis)',
+      'Seizure or focal neurological deficit',
+      'Any fever in recent Hajj contact'
+    ],
+    assessment_ar: [
+      'فحص تصلب الرقبة، Kernig، Brudzinski',
+      'فحص الجلد كله (بحث عن petechiae/purpura)',
+      'GCS والفحص العصبي',
+      'علامات حيوية',
+      'تاريخ التطعيم ACWY (تحقق من الشهادة)',
+      'تاريخ المخالطة مع حالات سابقة'
+    ],
+    assessment_en: [
+      'ABC',
+      'Full vital signs (especially septic BP)',
+      'Neurological exam (neck stiffness, Kernig, Brudzinski)',
+      'Skin exam (petechial/purpuric rash)',
+      'Glucose and blood exam if possible',
+      'List close contacts for prophylaxis'
+    ],
+    management_ar: [
+      'لا تؤخر المضاد الحيوي للتصوير أو النقل — الوقت حياة',
+      'Ceftriaxone 2 غ IV/IM فوراً (لا انتظار لـ LP)',
+      'Dexamethasone 10 مغ IV قبل أو مع الجرعة الأولى من المضاد',
+      'IV fluids للصدمة (Ringer Lactate أو NS 0.9%)',
+      'عزل المريض وPPE (قناع، قفازات، عباءة)',
+      'تحويل فوري مع مرافقة',
+      'إبلاغ فوري لصحة الحج/وزارة الصحة/مكافحة العدوى',
+      'حصر المخالطين المُقرّبين وإعطاؤهم العلاج الوقائي'
+    ],
+    management_en: [
+      'Start empiric antibiotics immediately — do not delay for tests',
+      'Ceftriaxone 2 g IV immediately + Vancomycin 15-20 mg/kg IV',
+      'Add Ampicillin 2 g IV if immunocompromised or elderly (Listeria coverage)',
+      'Dexamethasone 10 mg IV before or with antibiotics (improves outcome)',
+      'Aggressive IV fluids if shock',
+      'Oxygen and vital signs monitoring',
+      'Contact prophylaxis (within 24h of exposure) — CDC MMWR 2024:',
+      '  • Rifampin 600 mg PO BID x 2d (first choice in non-resistant areas)',
+      '  • Or Ceftriaxone 250 mg IM single dose (safe in pregnancy)',
+      '  • Or Azithromycin 500 mg PO single dose',
+      '  • Avoid Ciprofloxacin due to rising resistance (CDC warning)',
+      'Strict isolation until after antibiotics',
+      'Mandatory epidemiological notification'
+    ],
+    medications_ar: [
+      {
+        name: 'Ceftriaxone',
+        dose: '2 g IV/IM STAT'
+      },
+      {
+        name: 'Dexamethasone',
+        dose: '10 mg IV (before/with antibiotic)'
+      },
+      {
+        name: 'Ringer Lactate / NS',
+        dose: '1–2 L IV if shock'
+      },
+      {
+        name: 'Rifampin (contacts, preferred)',
+        dose: '600 mg PO q12h x 4 doses'
+      },
+      {
+        name: 'Ceftriaxone IM (contacts)',
+        dose: '250 mg IM single dose (safe in pregnancy)'
+      },
+      {
+        name: 'Azithromycin (contacts)',
+        dose: '500 mg PO single dose'
+      },
+      {
+        name: 'Ciprofloxacin (contacts)',
+        dose: '500 mg PO single dose — تجنّب في بيئات المقاومة'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Ceftriaxone',
+        dose: '2 g IV STAT, then 2 g BID'
+      },
+      {
+        name: 'Vancomycin',
+        dose: '15-20 mg/kg IV then 15 mg/kg q8-12h'
+      },
+      {
+        name: 'Ampicillin (elderly/IC)',
+        dose: '2 g IV q4h'
+      },
+      {
+        name: 'Dexamethasone',
+        dose: '10 mg IV before/with antibiotics'
+      },
+      {
+        name: 'Rifampin (contacts)',
+        dose: '600 mg PO BID x 2d'
+      },
+      {
+        name: 'Ceftriaxone IM (contacts)',
+        dose: '250 mg IM single dose (safe in pregnancy)'
+      },
+      {
+        name: 'Azithromycin (contacts)',
+        dose: '500 mg PO single dose'
+      },
+      {
+        name: 'Ciprofloxacin (contacts)',
+        dose: '500 mg PO single dose — avoid in resistance areas'
+      }
+    ],
+    referral_ar: 'تحويل فوري جداً — طارئ. أبلغ المستشفى قبل الوصول بالاشتباه. إبلاغ وبائي إلزامي خلال 24 ساعة. حصر وعلاج المخالطين فوراً. تحذير CDC 2024: مقاومة Ciprofloxacin تتزايد — Rifampin أو Ceftriaxone أو Azithromycin هي الخيارات المفضّلة للعلاج الوقائي.',
+    referral_en: 'Immediate urgent transfer — emergency. Notify hospital before arrival with suspicion. Mandatory epidemiological notification within 24 hours. Identify and treat contacts immediately. CDC 2024 warning: Ciprofloxacin resistance rising — Rifampin, Ceftriaxone, or Azithromycin preferred for prophylaxis.',
+    documentation_ar: 'الأعراض وبدايتها، الفحص (تصلب، طفح)، GCS، الأدوية المُعطاة وأوقاتها، حالة التطعيم، قائمة المخالطين، إبلاغ وبائي (متى ولمن).',
+    documentation_en: 'Symptoms and onset, exam (stiffness, rash), GCS, medications given and times, vaccination status, contact list, epidemiological notification (when and to whom).',
+    sources: 'CDC MMWR 2024 Meningococcal Prophylaxis Update · ECDC 2024 Saudi Arabia Travel Alert · Saudi MoH Hajj ACWY Requirements'
+  },
+  {
+    id: 'infectious',
+    category: 'infectious',
+    severity: 'warning',
+    title_ar: 'الأمراض المعدية والإبلاغ',
+    title_en: 'Notifiable Diseases & Reporting',
+    preview_ar: 'معرفة الأمراض الواجب الإبلاغ عنها فوراً وطرق العزل والوقاية للطاقم.',
+    preview_en: 'Know which diseases must be reported immediately, and appropriate isolation and PPE for staff.',
+    definition_ar: 'بعض الأمراض يجب الإبلاغ عنها فوراً لوقاية التجمعات الحجية. الإبلاغ المبكر يمنع التفشي ويحمي ملايين الحجاج.',
+    definition_en: 'Some diseases require immediate notification to protect Hajj mass gatherings. Early reporting prevents outbreaks and protects millions of pilgrims.',
+    redFlags_ar: [
+      'أي مرض معدي محتمل في سياق الحج',
+      'حالات متعددة متشابهة (تفشي)',
+      'أعراض تنفسية + احتكاك إبل (MERS)',
+      'إسهال مائي غزير (كوليرا؟)',
+      'حمى نزفية'
+    ],
+    redFlags_en: [
+      'Any potentially infectious disease in Hajj context',
+      'Multiple similar cases (outbreak)',
+      'Respiratory symptoms + camel contact (MERS)',
+      'Profuse watery diarrhea (cholera?)',
+      'Hemorrhagic fever'
+    ],
+    assessment_ar: [
+      'تاريخ السفر والاحتكاك',
+      'تاريخ التطعيمات',
+      'أعراض مُنبِّهة',
+      'عزل فوري عند الاشتباه',
+      'PPE للطاقم الطبي'
+    ],
+    assessment_en: [
+      'Travel and contact history',
+      'Vaccination history',
+      'Alarming symptoms',
+      'Immediate isolation upon suspicion',
+      'PPE for medical staff'
+    ],
+    management_ar: [
+      'أمراض تُبلَّغ فوراً: Meningococcal, Cholera, MERS-CoV, COVID-19, Viral hemorrhagic fever, Avian flu, Polio, Yellow fever, Measles, Diphtheria',
+      'اتصل بمكتب الصحة/مكافحة العدوى في مركزك',
+      'عزل المريض في غرفة منفصلة',
+      'PPE مناسب حسب طريق الانتقال',
+      'حصر المخالطين',
+      'علاج وقائي حيث يلزم (Ciprofloxacin للمخالطين في meningitis)',
+      'نظف الأسطح وأدوات الفحص',
+      'وثق كل شيء'
+    ],
+    management_en: [
+      'Immediately reportable diseases: Meningococcal, Cholera, MERS-CoV, COVID-19, Viral Hemorrhagic Fever, Avian Flu, Polio, Yellow Fever, Measles, Diphtheria',
+      'Contact health office/infection control at your center',
+      'Isolate patient in separate room',
+      'PPE appropriate to transmission route',
+      'Identify contacts',
+      'Prophylactic treatment where indicated (e.g., Ciprofloxacin for meningitis contacts)',
+      'Clean surfaces and exam tools',
+      'Document everything'
+    ],
+    medications_ar: [
+      {
+        name: 'Depends on disease',
+        dose: 'Refer to protocol'
+      },
+      {
+        name: 'PPE',
+        dose: 'Gown, gloves, N95, eye shield'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Depends on disease',
+        dose: 'Refer to protocol'
+      },
+      {
+        name: 'PPE',
+        dose: 'Gown, gloves, N95, eye shield'
+      }
+    ],
+    referral_ar: 'كل حالة مُبلّغ عنها تُحوَّل للمستشفى المخصص. أبلغ الجهات الصحية (صحة الحج، مكافحة العدوى) فوراً ولا تؤجل.',
+    referral_en: 'Every notifiable case is transferred to the designated hospital. Notify health authorities (Hajj health, infection control) immediately and do not delay.',
+    documentation_ar: 'الأعراض، تاريخ الاحتكاك، إجراءات العزل، وقت ومن تم الإبلاغ له، قائمة المخالطين.',
+    documentation_en: 'Symptoms, contact history, isolation measures, time and recipient of notification, contact list.',
+    sources: 'WHO International Health Regulations (IHR 2005) · Saudi MoH Hajj Health Requirements 2025 · CDC Yellow Book — Saudi Arabia: Hajj/Umrah Pilgrimage · Saudi CDC (Weqaya) Notifiable Diseases List'
+  },
+  {
+    id: 'panic',
+    category: 'other',
+    severity: 'stable',
+    title_ar: 'نوبات الهلع والقلق الحاد',
+    title_en: 'Panic Attacks / Acute Anxiety',
+    preview_ar: 'خفقان وضيق تنفس وخدر — يجب تمييزها عن الحالات القلبية والتنفسية قبل الطمأنة.',
+    preview_en: 'Very common during Hajj and often mistaken for cardiac or respiratory conditions. Exclude organic cause before reassurance.',
+    definition_ar: 'نوبة مفاجئة من الخوف الشديد مع أعراض جسدية (خفقان، ضيق تنفس، تعرق، خدر، دوخة، شعور بالموت الوشيك). شائعة في الحج من التوتر والزحام، وكثيراً ما تشابه ACS.',
+    definition_en: 'Sudden severe anxiety episode with physical symptoms — palpitations, chest pain, shortness of breath, dizziness, numbness of limbs or around the mouth, fear of dying or losing control. Peaks in 10 minutes, usually resolves within an hour. Very common during Hajj due to crowding, fatigue, and emotional stress. Must exclude organic causes (ACS, PE, hypoglycemia, thyroid).',
+    redFlags_ar: [
+      'حاجة لاستبعاد أسباب عضوية — لا تفترض الهلع دائماً',
+      'العمر > 40 أو عوامل خطر قلبية',
+      'ألم صدري نموذجي للذبحة',
+      'ضيق تنفس مع SpO2 منخفض',
+      'فقدان وعي سابق'
+    ],
+    redFlags_en: [
+      'First episode in anyone > 40 years',
+      'Persistent chest pain or abnormal ECG',
+      'SpO2 < 94%',
+      'Hypotension or severe tachycardia not responding to reassurance',
+      'Neurological or focal symptoms'
+    ],
+    assessment_ar: [
+      'ECG (ضروري لاستبعاد قلبي)',
+      'SpO2، سكر، علامات حيوية',
+      'فحص صدري وقلبي',
+      'تاريخ نوبات سابقة',
+      'محفزات حديثة (زحام، خوف من فراق الجماعة)'
+    ],
+    assessment_en: [
+      'Full vital signs + ECG + glucose',
+      'Careful history (previous episodes, medications, caffeine/substance)',
+      'Psychological triggers (lost pilgrim, fear, crowding)',
+      'Cardiac and pulmonary exam',
+      'Exclude organic causes before labeling as panic'
+    ],
+    management_ar: [
+      'بعد استبعاد العضوي — الطمأنة هي الأساس',
+      'مكان هادئ، تهوية، تخفيف الاكتظاظ',
+      'تمرين التنفس البطيء (4 شهيق، 6 زفير)',
+      'لا تستخدم ورق للتنفس فيه (frequency of rebreathing not recommended)',
+      'إذا شديد ومعند: Lorazepam 1–2 مغ PO/IM',
+      'نصح بالترطيب والراحة',
+      'إحالة للدعم النفسي إن تكرر'
+    ],
+    management_en: [
+      'Calm quiet environment',
+      'Slow controlled breathing (not in paper bag anymore — not recommended)',
+      'Reassurance and psychological support (the most important treatment)',
+      'Avoid routine benzodiazepines',
+      'If severe intractable anxiety: Lorazepam 1-2 mg PO or IM single dose',
+      'If vomiting or severe symptoms: IV fluids',
+      'Careful follow-up and clear instructions',
+      'Refer to psychological support services for repeat episodes'
+    ],
+    medications_ar: [
+      {
+        name: 'Lorazepam',
+        dose: '1–2 mg PO/IM'
+      },
+      {
+        name: 'Diazepam',
+        dose: '5–10 mg PO (if no BZD available)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Lorazepam (severe only)',
+        dose: '1-2 mg PO/IM once'
+      },
+      {
+        name: 'Reassurance + breathing exercises',
+        dose: 'First line'
+      }
+    ],
+    referral_ar: 'تحويل: شك في أسباب عضوية (قلبي، تنفسي)، نوبات متكررة، أفكار إيذاء نفس، أو حاجة لتقييم نفسي.',
+    referral_en: 'Refer: uncertain diagnosis or organic cause suspicion, first episode > 40 years, repeat episodes interfering with Hajj performance, severe psychological symptoms, history of mental illness.',
+    documentation_ar: 'الأعراض، استبعاد الأسباب العضوية (ECG، SpO2)، استجابة للطمأنة أو الدواء.',
+    documentation_en: 'Episode onset and duration, vitals, ECG, triggers, treatments given, response, patient education, follow-up.',
+    sources: 'APA DSM-5-TR · ACEP Anxiety Management Guidelines'
+  },
+  {
+    id: 'falls-urinary',
+    category: 'other',
+    severity: 'warning',
+    title_ar: 'السقوط واحتباس البول في كبار السن',
+    title_en: 'Falls & Urinary Retention in Elderly',
+    preview_ar: 'السقوط شائع — ابحث عن السبب والإصابة. احتباس البول يسبب ألم بطن شديد.',
+    preview_en: 'Two very common issues in elderly Hajj pilgrims due to long walking and dehydration.',
+    definition_ar: 'كبار السن في الحج عرضة للسقوط (جفاف، دوخة، ضعف، ازدحام) والاحتباس البولي (أدوية، تضخم بروستاتا، مسافات طويلة بلا حمام). كلاهما يستدعي تقييم السبب والمضاعفات.',
+    definition_en: 'Two very common issues in elderly pilgrims: falls (from weakness, dizziness, loss of balance) and urinary retention (especially in males with BPH, or due to anticholinergic drugs). Must identify and treat the underlying cause.',
+    redFlags_ar: [
+      'إصابة رأس أو فقد وعي',
+      'ألم ورك/فخذ (كسر ورك؟)',
+      'دوخة أو إغماء قبل السقوط',
+      'احتباس بول >12 ساعة',
+      'ألم بطن سفلي شديد مع مثانة ممتلئة',
+      'استخدام مميعات دم (Warfarin/NOAC) + إصابة رأس → خطر نزف داخل جمجمة حتى بدون أعراض'
+    ],
+    redFlags_en: [
+      'Fall with head trauma (especially on anticoagulants)',
+      'Suspected fracture (hip, spine, pelvis)',
+      'Acute severe urinary retention > 6 hours',
+      'Fever with retention (urinary sepsis?)',
+      'Hematuria',
+      'Progressive neurological or focal symptoms'
+    ],
+    assessment_ar: [
+      'سبب السقوط (قلبي، سكر، ضغط، دوخة، تعثر)',
+      'فحص إصابات (رأس، ورك، رسغ، عمود فقري)',
+      'فحص البطن — مثانة ممتلئة',
+      'مراجعة الأدوية (خاصة الخافضة، المنومة، المميعات)',
+      'علامات حيوية + سكر + ECG'
+    ],
+    assessment_en: [
+      'Complete exam — head to toe',
+      'Vital signs and glucose',
+      'Fall cause (dizziness, mechanical, syncope?)',
+      'Assess for fractures (especially hip — unable to stand)',
+      'In retention: abdominal exam (distended bladder), catheterization if needed',
+      'Medications (Anticholinergics, Alpha blockers, Diuretics)',
+      'Urine analysis and culture'
+    ],
+    management_ar: [
+      'السقوط: ترك المريض في مكانه حتى فحص العمود الفقري واستبعاد إصابة رقبة',
+      'استبعاد إصابات خفية (كسور، نزيف داخلي، نزف داخل جمجمة خاصة مع المميعات)',
+      'علاج السبب (سكر، جفاف، عدوى، اضطراب نظم)',
+      'تسكين مناسب (تجنب NSAIDs في القصور الكلوي/القلبي)',
+      'احتباس البول: قسطرة فورية (Foley 14-16 Fr)، تفريغ تدريجي لتجنب hematuria',
+      'Tamsulosin 0.4 مغ يومياً (تضخم بروستاتا) — قد يساعد في نزع القسطرة',
+      'مراجعة الأدوية المسببة (مضادات الكولين، المنوّمات، Diphenhydramine)',
+      'إرشاد الحاج ومجموعته للوقاية: شرب ماء، حمام منتظم، مساعدة في الحركة'
+    ],
+    management_en: [
+      'In falls:',
+      '  • Immobilize suspected fractures',
+      '  • C-spine protection if head trauma',
+      '  • Treat head injury per protocol',
+      '  • Pain relief and comprehensive assessment',
+      '  • Treat underlying cause (hypoglycemia, BP, dehydration)',
+      'In urinary retention:',
+      '  • Foley catheter immediate relief (14-16 Fr)',
+      '  • Drain slowly — max 1 L at first to avoid hematuria ex vacuo',
+      '  • Urine analysis and culture',
+      '  • Tamsulosin 0.4 mg PO daily for males (BPH)',
+      '  • Antibiotics if UTI (Ciprofloxacin 500 mg BID)',
+      '  • Remove culprit medications if possible'
+    ],
+    medications_ar: [
+      {
+        name: 'Paracetamol',
+        dose: '1 g PO q6h'
+      },
+      {
+        name: 'Tamsulosin',
+        dose: '0.4 mg PO daily'
+      },
+      {
+        name: 'Foley catheter',
+        dose: '14–16 Fr (تفريغ تدريجي)'
+      }
+    ],
+    medications_en: [
+      {
+        name: 'Tamsulosin',
+        dose: '0.4 mg PO daily (BPH)'
+      },
+      {
+        name: 'Ciprofloxacin (UTI)',
+        dose: '500 mg BID PO x 7d'
+      },
+      {
+        name: 'Analgesia per need',
+        dose: 'Paracetamol 1 g or Morphine'
+      }
+    ],
+    referral_ar: 'تحويل: اشتباه كسر (خاصة الورك)، إصابة رأس، فقد وعي، اشتباه نزف داخل جمجمة (CT)، عدم تحمل القسطرة، احتباس متكرر، سقوط متكرر، استخدام مميعات مع أي إصابة.',
+    referral_en: 'Refer: fall with suspected fracture or head trauma, persistent retention despite catheter, urinary sepsis, hematuria, elderly on anticoagulants with any fall, acute neurological findings.',
+    documentation_ar: 'ظروف السقوط، الأدوية (خاصة المميعات)، الإصابات، السبب، التدخل، كمية البول بعد القسطرة، نصائح الوقاية.',
+    documentation_en: 'Fall mechanism or retention cause, exam findings, urine volume after catheter, treatment, disposition, follow-up.',
+    sources: 'AGS Falls Prevention Guidelines 2022 · EAU Guidelines on Urinary Retention'
+  }
+];
+
+const I18N = {
+  ar: {
+    brandText: 'دليل الحج',
+    searchPlaceholder: 'ابحث عن حالة، دواء، علامة خطر...',
+    switchLang: 'تبديل اللغة',
+    toggleTheme: 'تبديل الوضع',
+    heroKicker: 'HAJJ · CLINICAL REFERENCE · v1.2',
+    heroTitle: 'المرجع السريري السريع لعيادات الحج',
+    heroSubtitle: 'دليل عملي مختصر للحالات الشائعة في عيادات الحج ومراكز الحرم — تقييم، تدبير أولي، أدوية، ومعايير التحويل. مصمم للاستخدام السريع وقت الحاجة.',
+    heroMeta1: '26 حالة سريرية',
+    heroMeta2: 'بروتوكولات الطوارئ',
+    heroMeta3: 'جدول الأدوية والجرعات',
+    disclaimerTitle: 'مسودة سريرية للمراجعة',
+    disclaimerBody: 'المحتوى مبني على مصادر علمية محدثة (2023-2026) لكنه <b>يتطلب اعتماد استشاري طب طوارئ ومطابقة بروتوكولات تجمع مكة الصحي</b> قبل التطبيق الميداني. للمراجعة العلمية والتدريب فقط.',
+    qaCPR: 'الإنعاش القلبي',
+    qaAnaphylaxis: 'الصدمة التحسسية',
+    qaHeatStroke: 'ضربة الشمس',
+    qaDrugs: 'جدول الأدوية',
+    qaEmergency: 'أرقام الطوارئ',
+    authors: 'د. نسيم والزملاء',
+    footerTagline: 'دليل عيادات الحج — مرجع سريري مختصر',
+    footerDisclaimer: 'تمت مراجعة الحالات الحرجة (المستوى الأول) وفق الإرشادات العلمية الحديثة (2023-2026). المستوى الثاني والثالث قيد المراجعة.<br>هذا الدليل <b>مسودة سريرية</b> ولا يحل محل الاستشارة الطبية أو البروتوكولات المحلية المعتمدة.',
+    close: 'إغلاق',
+    installTitle: 'ثبّت التطبيق على جهازك',
+    installSubtitle: 'للوصول السريع والعمل بدون إنترنت',
+    installBtn: 'تثبيت',
+    iosTitle: 'ثبّت على الشاشة الرئيسية',
+    iosSubtitle: 'اضغط ⎙ ثم «إضافة إلى الشاشة الرئيسية»',
+    newVersion: 'يوجد إصدار جديد',
+    updateBtn: 'تحديث',
+    emergency: 'طوارئ',
+    emergencyCPR: 'إنعاش قلبي طارئ',
+    secDefinition: 'التعريف',
+    secRedFlags: 'علامات الخطر (Red Flags)',
+    secAssessment: 'التقييم السريع',
+    secManagement: 'التدبير الأولي',
+    secMedications: 'الأدوية والجرعات',
+    secReferral: 'معايير التحويل',
+    secDocumentation: 'التوثيق اللازم',
+    secSources: 'المصادر العلمية',
+    tblMed: 'الدواء',
+    tblDose: 'الجرعة',
+    arOnly: 'هذا القسم متوفر بالعربية فقط حالياً',
+    severityCritical: 'حرجة',
+    severityWarning: 'متوسطة/مراقبة',
+    severityStable: 'مستقرة',
+    langName: 'English'
+  },
+  en: {
+    brandText: 'Hajj Guide',
+    searchPlaceholder: 'Search cases, drugs, red flags...',
+    switchLang: 'Switch language',
+    toggleTheme: 'Toggle theme',
+    heroKicker: 'HAJJ · CLINICAL REFERENCE · v1.2',
+    heroTitle: 'Hajj Clinics Quick Clinical Reference',
+    heroSubtitle: 'Concise practical guide for common presentations in Hajj clinics and Haram care centers — assessment, initial management, medications, and referral criteria. Designed for rapid use when needed.',
+    heroMeta1: '26 clinical cases',
+    heroMeta2: 'Emergency protocols',
+    heroMeta3: 'Drug and dose table',
+    disclaimerTitle: 'Clinical draft — for review',
+    disclaimerBody: 'Content based on updated scientific sources (2023-2026), but <b>requires approval by an emergency medicine consultant and alignment with Makkah Healthcare Cluster protocols</b> before field use. For scientific review and training only.',
+    qaCPR: 'CPR / ACLS',
+    qaAnaphylaxis: 'Anaphylaxis',
+    qaHeatStroke: 'Heat Stroke',
+    qaDrugs: 'Drug Table',
+    qaEmergency: 'Emergency Numbers',
+    authors: 'Dr. Nasim and colleagues',
+    footerTagline: 'Hajj Clinics Booklet — Concise Clinical Reference',
+    footerDisclaimer: 'Critical cases (Tier 1) have been reviewed against recent scientific guidelines (2023-2026). Tier 2 and 3 cases are under review.<br>This guide is a <b>clinical draft</b> and does not replace medical consultation or approved local protocols.',
+    close: 'Close',
+    installTitle: 'Install app on your device',
+    installSubtitle: 'For quick access and offline use',
+    installBtn: 'Install',
+    iosTitle: 'Add to Home Screen',
+    iosSubtitle: 'Tap ⎙ then "Add to Home Screen"',
+    newVersion: 'New version available',
+    updateBtn: 'Update',
+    emergency: 'Emergency',
+    emergencyCPR: 'Emergency CPR',
+    secDefinition: 'Definition',
+    secRedFlags: 'Red Flags',
+    secAssessment: 'Rapid Assessment',
+    secManagement: 'Initial Management',
+    secMedications: 'Medications & Doses',
+    secReferral: 'Referral Criteria',
+    secDocumentation: 'Documentation',
+    secSources: 'Sources',
+    tblMed: 'Drug',
+    tblDose: 'Dose',
+    arOnly: 'This section is only available in Arabic at the moment',
+    severityCritical: 'Critical',
+    severityWarning: 'Warning / Observe',
+    severityStable: 'Stable',
+    langName: 'عربي'
+  }
+};
+
+let currentLang = (() => {
+  try {
+    const saved = localStorage.getItem('hajj-lang');
+    return (saved === 'en' || saved === 'ar') ? saved : 'ar';
+  } catch (e) { return 'ar'; }
+})();
+
+function t(key) {
+  return (I18N[currentLang] && I18N[currentLang][key]) || (I18N.ar[key] || key);
+}
+
+function getField(obj, baseName) {
+  // Returns obj[baseName_<lang>] with fallback to ar
+  const primary = obj[baseName + '_' + currentLang];
+  if (primary != null) return primary;
+  return obj[baseName + '_ar'] || obj[baseName] || '';
+}
+
+function catLabel(cat) {
+  return currentLang === 'en' ? (cat.label_en || cat.label_ar) : (cat.label_ar || cat.label_en);
+}
+
+function applyI18nToStaticElements() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    el.innerHTML = t(key);
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    const spec = el.getAttribute('data-i18n-attr');
+    spec.split(';').forEach(pair => {
+      const [attr, key] = pair.split(':');
+      if (attr && key) el.setAttribute(attr.trim(), t(key.trim()));
+    });
+  });
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  try { localStorage.setItem('hajj-lang', lang); } catch (e) {}
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  const langLabel = document.getElementById('langLabel');
+  if (langLabel) langLabel.textContent = lang === 'ar' ? 'EN' : 'عربي';
+  applyI18nToStaticElements();
+  // Re-render dynamic content
+  if (typeof renderCategories === 'function') renderCategories();
+  if (typeof renderCases === 'function') renderCases();
+  // Refresh currently open modal if any
+  if (currentModalCaseId != null && document.getElementById('modal').classList.contains('open')) {
+    openCase(currentModalCaseId);
+  }
+}
+
+function toggleLang() {
+  setLang(currentLang === 'ar' ? 'en' : 'ar');
+}
+
+
+// =================================================================
+// QUICK REFERENCES
+// =================================================================
+
+const QUICK_REFS = {
+  cpr: {
+    title: 'الإنعاش القلبي الرئوي (BLS/ACLS)',
+    titleEn: 'Cardiopulmonary Resuscitation',
+    sections: [
+      {
+        label: 'الخطوات الأساسية',
+        type: 'steps',
+        content: [
+          'تحقق من السلامة ثم اهتف بالحاج وتأكد من عدم الاستجابة',
+          'اطلب المساعدة (اتصل بالطوارئ، أحضر الدفيبرليتر AED)',
+          'افحص النبض (لا تتجاوز 10 ثواني) — إن لم تحس نبض، ابدأ الضغط',
+          'الضغط: في منتصف الصدر، عمق 5-6 سم، معدل 100-120/دقيقة',
+          'التهوية: 2 نفس بعد كل 30 ضغطة (أو مستمر مع مجرى هوائي متقدم)',
+          'استمر 2 دقيقة ثم افحص النبض وغيّر الضاغط',
+          'شغّل AED فور وصوله واتبع تعليماته',
+        ]
+      },
+      {
+        label: 'توقيت Adrenaline (حرج)',
+        type: 'bullets',
+        content: [
+          'Non-shockable (PEA / Asystole): Adrenaline فوراً (ASAP)',
+          'Shockable (VF / pVT): Adrenaline بعد الصدمة الثانية',
+          'أعد الجرعة كل 3-5 دقائق حتى ROSC أو إنهاء الإنعاش',
+          'لا تستخدم جرعات عالية من Adrenaline — لا فائدة (COR 3)',
+        ]
+      },
+      {
+        label: 'أدوية الإنعاش الموصى بها',
+        type: 'meds',
+        content: [
+          { name: 'Adrenaline', dose: '1 mg IV/IO q3-5min' },
+          { name: 'Amiodarone (refractory VF/pVT)', dose: '300 mg IV/IO → 150 mg (max 2.2 g/24h)' },
+          { name: 'Lidocaine (بديل لـ Amiodarone)', dose: '1-1.5 mg/kg IV/IO' },
+          { name: 'Atropine (bradycardia symptomatic)', dose: '1 mg IV q3-5min (max 3 mg)' },
+        ]
+      },
+      {
+        label: '⚠️ أدوية لا تُعطى روتينياً (AHA 2023/2025)',
+        type: 'bullets',
+        content: [
+          'Sodium Bicarbonate — لا يُعطى روتينياً (COR 3). فقط في حالات خاصة: فرط بوتاسيوم، تسمم TCA، acidosis مزمن ثابت',
+          'Calcium — لا يُعطى روتينياً (COR 3). فقط في فرط بوتاسيوم، تسمم CCB، hypocalcemia',
+          'Magnesium — لا يُعطى روتينياً (COR 3). فقط في Torsades de Pointes',
+          'Vasopressin — لا يفوق Adrenaline',
+          'Atropine للـ PEA/Asystole — لا فائدة',
+          'High-dose Adrenaline — لا فائدة وقد يضر',
+          'Steroids — فائدة غير مؤكّدة',
+        ]
+      },
+      {
+        label: '5 Hs و 5 Ts — الأسباب القابلة للعكس',
+        type: 'bullets',
+        content: [
+          '5 Hs: Hypoxia (نقص O2)، Hypovolemia (نقص حجم)، Hypo/Hyperkalemia (بوتاسيوم)، Hydrogen ion/acidosis (حموضة)، Hypothermia (برودة)',
+          '5 Ts: Tension pneumothorax (استرواح ضغطي)، Tamponade (دكاك قلبي)، Toxins (سموم)، Thrombosis-coronary (جلطة تاجية)، Thrombosis-pulmonary (جلطة رئوية)',
+        ]
+      },
+      {
+        label: 'ملاحظات مهمة',
+        type: 'bullets',
+        content: [
+          'لا توقف الضغط إلا لأقل وقت ممكن — هدف Chest Compression Fraction > 80%',
+          'استبدال الضاغط كل 2 دقيقة لتجنب الإرهاق',
+          'اعتبر ECPR (ECMO-CPR) في مراكز مختارة للسكتة المقاومة',
+          'بعد ROSC: هدف BP > 90 انقباضي، تجنب hypoxia وhyperoxia، SpO2 92-98%',
+          'Targeted Temperature Management (32-36°م) للمرضى غير الواعين بعد ROSC',
+        ]
+      }
+    ]
+  },
+  heatstroke: null, // هيفتح case مباشرة
+  drugs: {
+    title: 'جدول الأدوية الشامل',
+    titleEn: 'Comprehensive Drug Reference',
+    sections: [
+      {
+        label: 'أدوية القلب والدورة',
+        type: 'meds',
+        content: [
+          { name: 'Aspirin', dose: '150-300 mg PO chewed (ACS) or 75-250 mg IV' },
+          { name: 'Prasugrel (STEMI→PCI)', dose: '60 mg PO loading / 10 mg daily' },
+          { name: 'Ticagrelor (NSTEMI)', dose: '180 mg PO loading / 90 mg BID' },
+          { name: 'Clopidogrel (بديل)', dose: '300-600 mg loading / 75 mg daily' },
+          { name: 'Nitroglycerin', dose: '0.4 mg SL q5min x3 (avoid if SBP<90)' },
+          { name: 'Captopril', dose: '25 mg PO (HTN urgency)' },
+          { name: 'Amlodipine', dose: '5-10 mg PO' },
+          { name: 'Morphine', dose: '2-5 mg IV q5min PRN (limited in ACS)' },
+          { name: 'Adrenaline (arrest)', dose: '1 mg IV q3-5min' },
+          { name: 'Adrenaline (anaphylaxis)', dose: '0.3-0.5 mg IM mid-thigh' },
+          { name: 'Atropine', dose: '0.5-1 mg IV (bradycardia)' },
+        ]
+      },
+      {
+        label: 'أدوية التنفس',
+        type: 'meds',
+        content: [
+          { name: 'Salbutamol neb', dose: '5 mg q20min (or continuous 10-20 mg/h)' },
+          { name: 'Ipratropium neb', dose: '500 mcg q20min (severe)' },
+          { name: 'Hydrocortisone', dose: '100-200 mg IV' },
+          { name: 'Prednisolone', dose: '40-50 mg PO' },
+          { name: 'Dexamethasone (asthma)', dose: '12-16 mg PO single dose' },
+          { name: 'Magnesium sulfate', dose: '2 g IV over 20 min (refractory asthma)' },
+        ]
+      },
+      {
+        label: 'أدوية العصبية والتشنج',
+        type: 'meds',
+        content: [
+          { name: 'Lorazepam (1st line SE, IV)', dose: '0.1 mg/kg IV (4 mg)' },
+          { name: 'Midazolam (1st line SE, IM)', dose: '10 mg IM/buccal/intranasal' },
+          { name: 'Diazepam', dose: '0.15 mg/kg IV (10 mg)' },
+          { name: 'Levetiracetam (2nd line)', dose: '60 mg/kg IV (max 4500 mg)' },
+          { name: 'Phenytoin/Fosphenytoin', dose: '20 mg/kg IV (2nd line)' },
+          { name: 'Valproate (2nd line)', dose: '40 mg/kg IV (max 3000 mg)' },
+          { name: 'Dextrose 50%', dose: '25-50 ml IV (hypoglycemia)' },
+          { name: 'Glucagon', dose: '1 mg IM/SC' },
+        ]
+      },
+      {
+        label: 'المضادات الحيوية',
+        type: 'meds',
+        content: [
+          { name: 'Ceftriaxone', dose: '2 g IV/IM (meningitis, severe infections)' },
+          { name: 'Amoxicillin', dose: '1 g PO TID' },
+          { name: 'Azithromycin', dose: '500 mg PO daily x3' },
+          { name: 'Flucloxacillin', dose: '500 mg PO QID' },
+          { name: 'Augmentin', dose: '625 mg PO TID' },
+          { name: 'Cefazolin', dose: '2 g IV (open fx prophylaxis)' },
+        ]
+      },
+      {
+        label: 'Meningococcal Prophylaxis (مخالطين)',
+        type: 'meds',
+        content: [
+          { name: 'Rifampin (مفضّل 2024)', dose: '600 mg PO q12h x 4 doses' },
+          { name: 'Ceftriaxone IM', dose: '250 mg IM single (safe in pregnancy)' },
+          { name: 'Azithromycin', dose: '500 mg PO single dose' },
+          { name: 'Ciprofloxacin', dose: '500 mg PO single — avoid if resistance' },
+        ]
+      },
+      {
+        label: 'المسكنات وخافضات الحرارة',
+        type: 'meds',
+        content: [
+          { name: 'Paracetamol', dose: '1 g PO/IV q6h (max 4 g/day)' },
+          { name: 'Ibuprofen', dose: '400-600 mg PO q8h' },
+          { name: 'Diclofenac', dose: '75 mg IM' },
+          { name: 'Morphine', dose: '2-5 mg IV q5min PRN' },
+          { name: 'Tramadol', dose: '50-100 mg PO/IV q6h' },
+        ]
+      },
+      {
+        label: 'السوائل الوريدية',
+        type: 'meds',
+        content: [
+          { name: 'Ringer Lactate (مفضّل لـ DKA/Trauma)', dose: 'Balanced crystalloid' },
+          { name: 'Normal Saline 0.9%', dose: 'General resuscitation' },
+          { name: 'D5W', dose: 'Maintenance / hypoglycemia' },
+          { name: 'Dextrose 50%', dose: '25-50 ml IV (hypoglycemia)' },
+        ]
+      },
+      {
+        label: 'أدوية الجهاز الهضمي',
+        type: 'meds',
+        content: [
+          { name: 'Ondansetron', dose: '4-8 mg IV/IM/PO' },
+          { name: 'Metoclopramide', dose: '10 mg IV/IM' },
+          { name: 'Loperamide', dose: '4 mg then 2 mg PRN (avoid if bloody/fever)' },
+          { name: 'Omeprazole', dose: '40 mg IV/PO' },
+          { name: 'ORS', dose: '50 ml/kg over 4h' },
+          { name: 'Regular Insulin (DKA)', dose: '0.1 U/kg/h IV infusion (no bolus)' },
+        ]
+      },
+      {
+        label: 'أدوية أخرى مهمة',
+        type: 'meds',
+        content: [
+          { name: 'Tranexamic acid', dose: '1 g IV over 10 min (trauma < 3h)' },
+          { name: 'Tetanus toxoid', dose: '0.5 ml IM' },
+          { name: 'Lorazepam (anxiety)', dose: '1-2 mg IM/PO' },
+          { name: 'Tamsulosin', dose: '0.4 mg PO (retention)' },
+          { name: 'Chlorpheniramine', dose: '10 mg IV/IM (allergy, after Adrenaline)' },
+          { name: 'Oseltamivir', dose: '75 mg PO BID x5d (flu < 48h)' },
+          { name: 'Glucagon', dose: '1-2 mg IV (β-blocker anaphylaxis)' },
+        ]
+      }
+    ]
+  },
+  emergency: {
+    title: 'أرقام ومراجع الطوارئ',
+    titleEn: 'Emergency Contacts & Resources',
+    sections: [
+      {
+        label: 'أرقام أساسية',
+        type: 'bullets',
+        content: [
+          'الهلال الأحمر السعودي: 997',
+          'الطوارئ الموحد: 911',
+          'شؤون صحة الحج: 937',
+          'مكافحة العدوى (الحرم): [املأ حسب مركزك]',
+          'مستشفى مركزي الإحالة: [املأ حسب مركزك]',
+        ]
+      },
+      {
+        label: 'مراجع سريعة',
+        type: 'bullets',
+        content: [
+          'قاعدة التسعات للحروق: الرأس 9%، كل ذراع 9%، كل ساق 18%، الجذع الأمامي 18%، الخلفي 18%، العجان 1%',
+          'Parkland: 4 ml × الوزن × %TBSA خلال 24 ساعة، نصفها في أول 8 ساعات',
+          'GCS: E4 V5 M6 (أعلى 15، إن ≤8 = غيبوبة)',
+          'CURB-65: Confusion, Urea>7, RR≥30, BP<90/60, age≥65',
+          'FAST للسكتة: Face, Arm, Speech, Time',
+          'SpO2 هدف: >94% (أو >88% في COPD)',
+          'نافذة tPA للسكتة: 3-4.5 ساعة من البداية',
+        ]
+      },
+      {
+        label: 'قائمة حقيبة الطوارئ',
+        type: 'bullets',
+        content: [
+          'جهاز ECG + جهاز دفيبرليتر AED',
+          'أنابيب IV (14, 16, 18, 20 G)',
+          'محاليل: NS 0.9%, Ringer, D5W, D50',
+          'جهاز O2 + أقنعة + أنابيب',
+          'Nebulizer + Salbutamol + Ipratropium',
+          'Airway: OPA, NPA, LMA, ETT، أنبوب ذكور وأمهات',
+          'Bag-Mask',
+          'Suction يدوي/كهربائي',
+          'جبائر متنوعة + Slings',
+          'ضمادات، شاش، tourniquet',
+          'صندوق أدوية الطوارئ (حسب القائمة)',
+          'أجهزة قياس: ضغط، سكر، حرارة، SpO2',
+        ]
+      }
+    ]
+  },
+};
+
+// =================================================================
+// RENDER
+// =================================================================
+
+let currentCategory = 'all';
+let currentSearch = '';
+
+const $ = sel => document.querySelector(sel);
+const $$ = sel => document.querySelectorAll(sel);
+
+function renderCategories() {
+  const container = $('#cats');
+  container.innerHTML = CATEGORIES.map(c => `
+    <button class="cat ${c.id === currentCategory ? 'active' : ''}" data-id="${c.id}">${catLabel(c)}</button>
+  `).join('');
+  container.querySelectorAll('.cat').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentCategory = btn.dataset.id;
+      renderCategories();
+      renderCases();
+    });
+  });
+}
+
+function renderCases() {
+  const container = $('#cases');
+  let filtered = CASES;
+
+  if (currentCategory !== 'all') {
+    filtered = filtered.filter(c => c.category === currentCategory);
+  }
+
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    filtered = filtered.filter(c => {
+      // Search in both languages so users can type either
+      const hay = [
+        c.title_ar, c.title_en, c.preview_ar, c.preview_en,
+        c.definition_ar, c.definition_en,
+        ...(c.redFlags_ar || []), ...(c.redFlags_en || []),
+        ...(c.management_ar || []), ...(c.management_en || []),
+        ...(c.medications_ar || []).map(m => m.name + ' ' + m.dose),
+        ...(c.medications_en || []).map(m => m.name + ' ' + m.dose),
+      ].join(' ').toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  // ترتيب: critical أولاً
+  const sevOrder = { critical: 0, warning: 1, stable: 2 };
+  filtered.sort((a, b) => (sevOrder[a.severity] ?? 3) - (sevOrder[b.severity] ?? 3));
+
+  if (filtered.length === 0) {
+    const emptyMsg = currentLang === 'en' ? 'No results match your search' : 'لا توجد نتائج تطابق البحث';
+    container.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <div class="empty-icon">∅</div>
+        <div>${emptyMsg}</div>
+      </div>`;
+    return;
+  }
+
+  const sevLabels = {
+    ar: { critical: 'طارئ', warning: 'تحذير', stable: 'مستقر' },
+    en: { critical: 'Critical', warning: 'Warning', stable: 'Stable' }
+  };
+  const sevLabel = sevLabels[currentLang] || sevLabels.ar;
+  const readMore = currentLang === 'en' ? 'Read →' : 'اقرأ ←';
+
+  container.innerHTML = filtered.map(c => {
+    const primaryTitle = getField(c, 'title');
+    // Show the OTHER language as subtitle
+    const altTitle = currentLang === 'en' ? c.title_ar : c.title_en;
+    const preview = getField(c, 'preview');
+    const cat = CATEGORIES.find(cat => cat.id === c.category);
+    return `
+    <article class="case-card" data-id="${c.id}" data-severity="${c.severity}">
+      <div class="case-head">
+        <div>
+          <div class="case-title">${primaryTitle}</div>
+          <div class="case-title-en">${altTitle}</div>
+        </div>
+        <span class="sev-badge ${c.severity}">${sevLabel[c.severity]}</span>
+      </div>
+      <p class="case-preview">${preview}</p>
+      <div class="case-foot">
+        <span>${cat ? catLabel(cat) : ''}</span>
+        <span class="read-more">${readMore}</span>
+      </div>
+    </article>
+  `;}).join('');
+
+  container.querySelectorAll('.case-card').forEach(card => {
+    card.addEventListener('click', () => openCase(card.dataset.id));
+  });
+}
+
+let currentModalCaseId = null;
+
+function openCase(id) {
+  const c = CASES.find(x => x.id === id);
+  if (!c) return;
+  currentModalCaseId = id;
+
+  const primaryTitle = getField(c, 'title');
+  const altTitle = currentLang === 'en' ? c.title_ar : c.title_en;
+  $('#modalTitle').textContent = primaryTitle;
+  $('#modalTitleEn').textContent = altTitle;
+
+  const body = $('#modalBody');
+  body.innerHTML = '';
+
+  // Severity alert
+  const sevAlerts = {
+    ar: {
+      critical: { cls: 'critical', icon: '⚠', text: 'حالة طارئة — تحتاج تدخل وتحويل فوري' },
+      warning: { cls: 'warning', icon: '!', text: 'حالة تستدعي تقييم وتدبير مبكر' },
+      stable: { cls: 'info', icon: 'i', text: 'حالة مستقرة — تدبير في العيادة مع متابعة' },
+    },
+    en: {
+      critical: { cls: 'critical', icon: '⚠', text: 'Emergency — requires immediate intervention and transfer' },
+      warning: { cls: 'warning', icon: '!', text: 'Requires early assessment and management' },
+      stable: { cls: 'info', icon: 'i', text: 'Stable — manage in clinic with follow-up' },
+    }
+  };
+  const sa = (sevAlerts[currentLang] || sevAlerts.ar)[c.severity];
+  body.innerHTML += `<div class="alert ${sa.cls}" style="margin-top:20px"><span class="alert-icon">${sa.icon}</span><span class="alert-text">${sa.text}</span></div>`;
+
+  // Definition
+  const definition = getField(c, 'definition');
+  if (definition) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secDefinition')}</div>
+        <p>${definition}</p>
+      </div>`;
+  }
+
+  // Red flags
+  const redFlags = getField(c, 'redFlags');
+  if (redFlags && redFlags.length) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secRedFlags')}</div>
+        <ul class="bullet-list">${redFlags.map(r => `<li>${r}</li>`).join('')}</ul>
+      </div>`;
+  }
+
+  // Assessment
+  const assessment = getField(c, 'assessment');
+  if (assessment && assessment.length) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secAssessment')}</div>
+        <ul class="bullet-list">${assessment.map(a => `<li>${a}</li>`).join('')}</ul>
+      </div>`;
+  }
+
+  // Management
+  const management = getField(c, 'management');
+  if (management && management.length) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secManagement')}</div>
+        <ol class="step-list">${management.map(m => `<li>${m}</li>`).join('')}</ol>
+      </div>`;
+  }
+
+  // Medications
+  const meds = getField(c, 'medications');
+  if (meds && meds.length) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secMedications')}</div>
+        <table class="med-table">
+          <thead><tr><th>${t('tblMed')}</th><th>${t('tblDose')}</th></tr></thead>
+          <tbody>${meds.map(m => `<tr><td>${m.name}</td><td>${m.dose}</td></tr>`).join('')}</tbody>
+        </table>
+      </div>`;
+  }
+
+  // Referral
+  const referral = getField(c, 'referral');
+  if (referral) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secReferral')}</div>
+        <div class="alert ${c.severity === 'critical' ? 'critical' : 'info'}" style="margin:0"><span class="alert-icon">↗</span><span class="alert-text">${referral}</span></div>
+      </div>`;
+  }
+
+  // Documentation
+  const documentation = getField(c, 'documentation');
+  if (documentation) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secDocumentation')}</div>
+        <p>${documentation}</p>
+      </div>`;
+  }
+
+  // Sources
+  if (c.sources) {
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${t('secSources')}</div>
+        <p style="font-size:13px;color:var(--ink-faint);font-style:italic">${c.sources}</p>
+      </div>`;
+  }
+
+  body.scrollTop = 0;
+  $('#modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openQuickRef(key) {
+  const ref = QUICK_REFS[key];
+  if (!ref) {
+    if (key === 'heatstroke') openCase('heat-stroke');
+    else if (key === 'anaphylaxis') openCase('anaphylaxis');
+    return;
+  }
+
+  $('#modalTitle').textContent = ref.title;
+  $('#modalTitleEn').textContent = ref.titleEn;
+
+  const body = $('#modalBody');
+  body.innerHTML = '<div style="height:16px"></div>';
+
+  ref.sections.forEach(s => {
+    let inner = '';
+    if (s.type === 'steps') {
+      inner = `<ol class="step-list">${s.content.map(i => `<li>${i}</li>`).join('')}</ol>`;
+    } else if (s.type === 'bullets') {
+      inner = `<ul class="bullet-list">${s.content.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    } else if (s.type === 'meds') {
+      inner = `<table class="med-table"><thead><tr><th>الدواء</th><th>الجرعة</th></tr></thead><tbody>${s.content.map(m => `<tr><td>${m.name}</td><td>${m.dose}</td></tr>`).join('')}</tbody></table>`;
+    }
+    body.innerHTML += `
+      <div class="section">
+        <div class="section-label">${s.label}</div>
+        ${inner}
+      </div>`;
+  });
+
+  body.scrollTop = 0;
+  $('#modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  $('#modal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentModalCaseId = null;
+}
+
+// Events
+$('#search').addEventListener('input', e => {
+  currentSearch = e.target.value.trim();
+  renderCases();
+});
+
+$('#modalClose').addEventListener('click', closeModal);
+$('#modal').addEventListener('click', e => {
+  if (e.target.id === 'modal') closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+$$('.quick-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const action = btn.dataset.action;
+    openQuickRef(action);
+  });
+});
+
+$('#fabEmergency').addEventListener('click', () => openQuickRef('cpr'));
+
+// Theme
+const themeBtn = $('#themeBtn');
+const themeIcon = $('#themeIcon');
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
+}
+let currentTheme = 'light';
+themeBtn.addEventListener('click', () => {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  applyTheme(currentTheme);
+});
+
+// Detect system preference
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  currentTheme = 'dark';
+  applyTheme('dark');
+}
+
+// Language button wiring
+const langBtn = $('#langBtn');
+if (langBtn) {
+  langBtn.addEventListener('click', toggleLang);
+}
+
+// Apply initial language (sets dir, html[lang], static strings, button label)
+setLang(currentLang);
+
+// Initial render
+renderCategories();
+renderCases();
+
+// =================================================================
+// PWA: Service Worker Registration
+// =================================================================
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => {
+        console.log('[PWA] Service Worker registered');
+
+        // Listen for updates
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              // New version available
+              const toast = $('#updateToast');
+              toast.classList.add('show');
+              $('#updateBtn').onclick = () => {
+                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                window.location.reload();
+              };
+            }
+          });
+        });
+      })
+      .catch(err => console.warn('[PWA] SW registration failed:', err));
+
+    // Reload when new SW takes over
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!refreshing) {
+        refreshing = true;
+        window.location.reload();
+      }
+    });
+  });
+}
+
+// =================================================================
+// PWA: Install Prompt (Android/Desktop Chrome)
+// =================================================================
+
+let deferredPrompt = null;
+const installBanner = $('#installBanner');
+const installBtn = $('#installBtn');
+const installDismiss = $('#installDismiss');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (!sessionStorage.getItem('installDismissed')) {
+    setTimeout(() => installBanner.classList.add('show'), 2000);
+  }
+});
+
+installBtn?.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  installBanner.classList.remove('show');
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  console.log('[PWA] Install outcome:', outcome);
+  deferredPrompt = null;
+});
+
+installDismiss?.addEventListener('click', () => {
+  installBanner.classList.remove('show');
+  sessionStorage.setItem('installDismissed', '1');
+});
+
+window.addEventListener('appinstalled', () => {
+  installBanner.classList.remove('show');
+  deferredPrompt = null;
+  console.log('[PWA] App installed');
+});
+
+// =================================================================
+// PWA: iOS Install Instructions (Safari doesn't support beforeinstallprompt)
+// =================================================================
+
+const iosBanner = $('#iosBanner');
+const iosDismiss = $('#iosDismiss');
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+function isInStandaloneMode() {
+  return window.navigator.standalone === true ||
+         window.matchMedia('(display-mode: standalone)').matches;
+}
+
+if (isIOS() && !isInStandaloneMode() && !sessionStorage.getItem('iosDismissed')) {
+  setTimeout(() => iosBanner.classList.add('show'), 3000);
+}
+
+iosDismiss?.addEventListener('click', () => {
+  iosBanner.classList.remove('show');
+  sessionStorage.setItem('iosDismissed', '1');
+});
+
+// =================================================================
+// URL Shortcuts (from manifest shortcuts or direct links)
+// =================================================================
+
+const urlParams = new URLSearchParams(window.location.search);
+const quickParam = urlParams.get('quick');
+const caseParam = urlParams.get('case');
+
+if (quickParam) {
+  setTimeout(() => openQuickRef(quickParam), 500);
+} else if (caseParam) {
+  setTimeout(() => openCase(caseParam), 500);
+}
+</script>
+</body>
+</html>
